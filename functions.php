@@ -29,7 +29,7 @@ function traer_todos_los_animes($conexion, $animes_por_pagina){
 function traer_anime_por_id($conexion, $id){
 	$statement = $conexion->prepare("SELECT * FROM anime where anime_id=$id LIMIT 1");
 	$statement->execute();
-	return $statement->fetch()[0];
+	return $statement->fetch();
 }
 
 function paginacion($conexion, $animes_por_pagina){
@@ -40,15 +40,17 @@ function paginacion($conexion, $animes_por_pagina){
 	return ceil($totalanimes / $animes_por_pagina);
 }
 
-function traer_genero_de_un_anime($conexion, $anime){
+function traer_genero_de_un_anime($conexion, $nombre_anime){
 
-	$statement = $conexion->prepare('SELECT g.genero_nombre FROM genero AS g, anime_genero AS ag, anime AS a  WHERE a.anime_nombre = :anime && a.anime_id=ag.anime_id && ag.genero_id=g.genero_id');
+	$statement = $conexion->prepare('SELECT g.genero_nombre genero FROM genero AS g, anime_genero AS ag, anime AS a  WHERE a.anime_nombre = :anime && a.anime_id=ag.anime_id && ag.genero_id=g.genero_id');
 	$statement->execute( array(
-		':anime' => $anime
+		':anime' => $nombre_anime
 		)
 	);
 
-	return ($statement) ? $statement : false;
+	$generos = $statement->fetchAll();
+
+	return ($generos) ? $generos : false;
 }
 
 

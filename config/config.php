@@ -13,7 +13,7 @@ $bd_config = array(
 
 //ruta de la pagina principal
 
-define('RUTA', 'http://'.$bd_config['servidor'].'/animes/');
+define('RUTA', 'http://'.$bd_config['servidor'].'/animeclub/');
 
 
 /*
