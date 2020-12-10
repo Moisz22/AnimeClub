@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-12-2020 a las 01:28:17
+-- Tiempo de generación: 10-12-2020 a las 18:47:24
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.0
 
@@ -30,24 +30,26 @@ SET time_zone = "+00:00";
 CREATE TABLE `anime` (
   `anime_id` int(11) NOT NULL,
   `anime_nombre` varchar(100) NOT NULL,
-  `anime_descripcion` varchar(255) NOT NULL,
+  `anime_sinopsis` text NOT NULL,
   `anime_actualidad` varchar(30) NOT NULL COMMENT 'terminado, en emision, etc',
   `anime_estado_vista` varchar(50) NOT NULL COMMENT 'estado de la serie: pendiente, terminado o pendiente',
-  `anime_estado` int(1) NOT NULL,
+  `anime_estado` int(1) NOT NULL DEFAULT 1,
   `FechaRegistro` datetime NOT NULL DEFAULT current_timestamp(),
-  `imagen` varchar(50) DEFAULT NULL COMMENT '101x150 pixeles'
+  `anime_imagen` varchar(50) DEFAULT NULL COMMENT '101x150 pixeles',
+  `anime_banner` varchar(50) DEFAULT NULL,
+  `anime_cantidad_capitulos` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `anime`
 --
 
-INSERT INTO `anime` (`anime_id`, `anime_nombre`, `anime_descripcion`, `anime_actualidad`, `anime_estado_vista`, `anime_estado`, `FechaRegistro`, `imagen`) VALUES
-(1, 'naruto', 'aventuras de un ninja', 'terminado', 'terminado', 1, '2020-11-08 21:30:23', 'naruto.jpg'),
-(2, 'naruto shippuden', 'aventuras de un ninja', 'terminado', 'terminado', 1, '2020-11-08 21:31:03', 'naruto_shippuden.jpg'),
-(3, 'akame ga kill', 'La historia nos lleva a través de las aventuras de Tatsumi, un joven boxeador que viajó a la capital imperial para unirse al ejército. Sin embargo, descubre que la ciudad está dañada por el ansia de poder de los funcionarios, que se aprovechan de la falta', 'terminado', 'terminado', 1, '2020-12-08 21:18:23', 'akame_ga_kill.jpg'),
-(4, 'zero no tsukaima', 'Una historia cómica de 2 personajes principales, Louis y Saito. La aventura recomienza cuando Saito, quien habia luchado contra el ejercito de los 1000 hombres, regreso a la vida luego de una ardua batalla. Tras desconocer los detalles de su milagrosa res', 'terminado', 'terminado', 1, '2020-12-08 21:22:57', 'zero_no_tsukaima.jpg'),
-(5, 'gakusen toshi asterisk', 'En el siglo pasado, la humanidad fue atacada por un desastre sin precedentes... el impacto “Invertia”. El mundo fue completamente destruido. Sin embargo, los humanos adquirieron un nuevo poder: el “Genestella”.', 'terminado', 'terminado', 1, '2020-12-08 21:35:53', 'gakusen_toshi_asterisk.jpg');
+INSERT INTO `anime` (`anime_id`, `anime_nombre`, `anime_sinopsis`, `anime_actualidad`, `anime_estado_vista`, `anime_estado`, `FechaRegistro`, `anime_imagen`, `anime_banner`, `anime_cantidad_capitulos`) VALUES
+(1, 'naruto', 'Naruto, un aprendiz de ninja de la Aldea Oculta de Konoha es un chico travieso que desea llegar a ser el Hokage de la aldea para demostrar a todos lo que vale. Lo que descubre al inicio de la historia es que la gente le mira con desconfianza porque en su interior está encerrado el demonio Kyubi que una vez destruyó la aldea, y que el anterior líder de la misma tuvo que encerrar en su cuerpo siendo aún muy pequeño, a coste de su vida. Aunque sus compañeros no saben esto, tampoco le aprecian porque es mal estudiante y siempre está haciendo bromas. Sin embargo, la forma de actuar y la determinación de Naruto demuestran a los demás que puede llegar muy lejos, y el recelo de los otros chicos se va disipando. Naruto y sus compañeros Sakura y Sasuke, junto a su maestro Kakashi tendrán que enfrentarse a una serie de combates y misiones a lo largo de la historia que les permitirán mejorar y crecer. Naruto se vera enfrentado a sus principales enemigos Akatsuki, Itachi y Kisame.', 'terminado', 'terminado', 1, '2020-11-08 21:30:23', 'naruto.jpg', 'naruto.jpg', NULL),
+(2, 'naruto shippuden', 'Pasados dos años y medio de entrenamiento con Jiraiya, Naruto Uzumaki regresa a la aldea oculta de la hoja, donde se reúne con sus viejos amigos y conforma de nuevo el Equipo 7. Debido a la ausencia de Sasuke, aparece un nuevo personaje llamado Sai el cual retoma su lugar. En esta secuela podremos notar como los compañeros de Naruto han madurado con respecto a su desempeño previo, mejorando la mayoría de estos en su nivel. Durante su entrenamiento con Jiraiya, Naruto aprendió a controlar un poco de la chacra del Kyubi. Lo contrario a la serie original, dónde sólo desempeñó un papel secundario, la organización Akatsuki asume el papel antagónico principal en Naruto Shippuden, buscando como objetivo principal el capturar a todos los poderosos monstruos Biju.', 'terminado', 'terminado', 1, '2020-11-08 21:31:03', 'naruto_shippuden.jpg', 'naruto_shippuden.jpg', 478),
+(3, 'akame ga kill', 'La historia nos lleva a través de las aventuras de Tatsumi, un joven boxeador que viajó a la capital imperial para unirse al ejército. Sin embargo, descubre que la ciudad está dañada por el ansia de poder de los funcionarios, que se aprovechan de la falta', 'terminado', 'terminado', 1, '2020-12-08 21:18:23', 'akame_ga_kill.jpg', NULL, NULL),
+(4, 'zero no tsukaima', 'Una historia cómica de 2 personajes principales, Louis y Saito. La aventura recomienza cuando Saito, quien habia luchado contra el ejercito de los 1000 hombres, regreso a la vida luego de una ardua batalla. Tras desconocer los detalles de su milagrosa res', 'terminado', 'terminado', 1, '2020-12-08 21:22:57', 'zero_no_tsukaima.jpg', NULL, NULL),
+(5, 'gakusen toshi asterisk', 'En el siglo pasado, la humanidad fue atacada por un desastre sin precedentes... el impacto “Invertia”. El mundo fue completamente destruido. Sin embargo, los humanos adquirieron un nuevo poder: el “Genestella”.', 'terminado', 'terminado', 1, '2020-12-08 21:35:53', 'gakusen_toshi_asterisk.jpg', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -176,23 +178,6 @@ CREATE TABLE `reseña` (
   `anime_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `temporada`
---
-
-CREATE TABLE `temporada` (
-  `temporada_id` int(11) NOT NULL,
-  `temporada_numero` int(11) NOT NULL,
-  `temporada_nombre` varchar(100) NOT NULL,
-  `temporada_cantidad_capitulos` int(11) NOT NULL,
-  `temporada_comentario` varchar(255) NOT NULL,
-  `temporada_estado` int(1) NOT NULL,
-  `FechaRegistro` datetime NOT NULL DEFAULT current_timestamp(),
-  `anime_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 --
 -- Índices para tablas volcadas
 --
@@ -239,13 +224,6 @@ ALTER TABLE `reseña`
   ADD KEY `fk_reseña1` (`anime_id`);
 
 --
--- Indices de la tabla `temporada`
---
-ALTER TABLE `temporada`
-  ADD PRIMARY KEY (`temporada_id`),
-  ADD KEY `fk_temporada1` (`anime_id`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -286,12 +264,6 @@ ALTER TABLE `reseña`
   MODIFY `reseña_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `temporada`
---
-ALTER TABLE `temporada`
-  MODIFY `temporada_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- Restricciones para tablas volcadas
 --
 
@@ -319,12 +291,6 @@ ALTER TABLE `proceso`
 --
 ALTER TABLE `reseña`
   ADD CONSTRAINT `fk_reseña1` FOREIGN KEY (`anime_id`) REFERENCES `anime` (`anime_id`);
-
---
--- Filtros para la tabla `temporada`
---
-ALTER TABLE `temporada`
-  ADD CONSTRAINT `fk_temporada1` FOREIGN KEY (`anime_id`) REFERENCES `anime` (`anime_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
