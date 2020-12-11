@@ -44,11 +44,7 @@
 					<?php endforeach; ?>
 				<?php endif;?>
 			</nav>
-			<?php if(isset($anime['anime_sinopsis'])):?>
-				<p style="display:block; margin:auto; text-align: left;"><?php echo $anime['anime_sinopsis']; ?></p>
-			<?php else: ?>
-				<p></p>
-			<?php endif; ?>
+			<p style="display:block; margin:auto; text-align: left;"><?php echo $anime['anime_sinopsis']; ?></p>
 		</div>
 	</div>
 </div>
@@ -64,15 +60,15 @@
 	<br />
 	<div class="row">
 		<div class="col-4">
-		<?php if(isset($anime['reseña_valoracion'])): ?>
-			<?php for($i=1; $i<=$anime['reseña_valoracion']; $i++):?>
+		<?php if(isset($reseña['reseña_valoracion'])): ?>
+			<?php for($i=1; $i<=$reseña['reseña_valoracion']; $i++):?>
 				<i class="fa fa-star" style="color: #E4D134;"></i>
 			<?php endfor;?>
 		<?php endif;?>
 		</div>
 		<div class="col-5">
-			<?php if(isset($anime['reseña_titulo'])): ?>
-				<p><?php echo $anime['reseña_titulo'];?></p>
+			<?php if(isset($reseña['reseña_titulo'])): ?>
+				<p><?php echo $reseña['reseña_titulo'];?></p>
 			<?php endif;?>
 		</div>
 		<div class="col-3">
@@ -80,8 +76,8 @@
 	</div>
 	<div class="row">
 		<div class="col-12">
-			<?php if(isset($anime['reseña_comentarios'])): ?>
-				<p><?php echo $anime['reseña_comentarios'];?></p>
+			<?php if(isset($reseña['reseña_comentarios'])): ?>
+				<p><?php echo $reseña['reseña_comentarios'];?></p>
 			<?php endif; ?>
 		</div>
 	</div>
