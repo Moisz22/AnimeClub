@@ -41,6 +41,7 @@
       <nav id="sidebar">
          <div class="menu_section">
             <ul>
+               <li><a href="iniciar_sesion.php">Inicia Sesion</a></li>
                <li><a href="lista_animes.php">Animes</a></li>
                <li><a href="about.php">Generos</a></li>
                <li><a href="services.php">Services</a></li>
@@ -55,7 +56,7 @@
                <div class="row">
                   <div class="col-sm-6">
                      <div class="logo_main">
-                        <a href="<?php echo RUTA; ?>"><img src="images/main_logo.png" /></a>
+                        <a href="index.php"><img src="images/main_logo.png" /></a>
                      </div>
                   </div>
                   <div class="col-sm-6">
