@@ -13,6 +13,15 @@ function conexion($bd_config){
 	
 }
 
+function limpiarDatos($dato){
+
+	$dato = trim($dato);
+	$dato = stripcslashes($dato);
+	$dato = htmlspecialchars($dato);
+	return $dato;
+
+}
+
 function pagina_actual(){
 	return (isset($_GET['p'])) ? (int)$_GET['p'] : 1;
 }
@@ -28,10 +37,16 @@ function traer_todos_los_animes($conexion, $animes_por_pagina){
 
 //funcion de prueba para traer todos los datos de un anime en algunas tablas(anime y reseña)
 function traer_anime_por_id($conexion, $id){
-	$statement = $conexion->prepare("SELECT * FROM anime as a, reseña as r where a.anime_id=$id && a.anime_id=r.anime_id LIMIT 1");
+	$statement = $conexion->prepare("SELECT * FROM anime where anime_id=$id LIMIT 1");
 	$statement->execute();
 	return $statement->fetch();
 }
+
+function traer_reseña_por_id($conexion, $id){
+	$statement = $conexion->query("SELECT * FROM anime as a, reseña as r where a.anime_id=$id && a.anime_id = r.anime_id LIMIT 1");
+	return $statement->fetch();
+}
+
 
 function paginacion($conexion, $animes_por_pagina){
 
