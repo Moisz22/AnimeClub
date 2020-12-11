@@ -3076,3 +3076,18 @@ footer.footer-box .heading_main h2 {
     line-height: 44px;
     margin-bottom: 10px;
 }
+
+
+#generos_estilo{
+    background-color: rgba(1,188,242,.1);
+    color: #01bcf2;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 0 15px;
+    line-height: 25px;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 20px;
+    display: inline-block;
+    vertical-align: top;
+}
