@@ -1,8 +1,6 @@
 <div class="container-fluid">
 	<div class="row">	
-			<img style="width: 100%; height:400px;" src="<?php echo RUTA;?>/images/banner/<?php echo $anime['anime_banner'];?>" alt="">	
-				
-
+			<img style="width: 100%;" src="<?php echo RUTA;?>/images/banner/<?php echo $anime['anime_banner'];?>" alt="">			
 	</div>
 </div>
 
@@ -15,12 +13,12 @@
 				<?php echo $anime['anime_actualidad']; ?></p>
 			<div class="row">
 				<div class="col-6">
-					<p class="estado_anime"><i class="fa fa-eye"></i>
+					<p class="capitulos_vistos"><i class="fa fa-eye"></i>
 						<?php echo $anime['anime_estado_vista']; ?>
 					</p>
 				</div>
 				<div class="col-6">
-					<p class="estado_anime"><i class="fa fa-film"></i>
+					<p class="episodios"><i class="fa fa-film"></i>
 						<?php echo $anime['anime_cantidad_capitulos'].' EP'; ?>
 					</p>
 				</div>
@@ -40,12 +38,33 @@
 		</div>
 	</div>
 </div>
-
-<div class="container">
+<br />
+<br />
+<div style="background: #E4FCFC" class="container">
+	<br />
 	<div class="row">
 		<div class="col-12">
 			<h2 style="text-align: center;">Reseña</h2>
 		</div>
 	</div>
+	<br />
+	<div class="row">
+		<div class="col-4">
+		<?php for($i=1; $i<=$anime['reseña_valoracion']; $i++):?>
+			<i class="fa fa-star" style="color: #E4D134;"></i>
+		<?php endfor;?>
+		</div>
+		<div class="col-5">
+			<p><?php echo $anime['reseña_titulo'];?></p>
+		</div>
+		<div class="col-3">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<p><?php echo $anime['reseña_comentarios'];?></p>
+		</div>
+	</div>
+	<br />
 </div>
-
+<br />
