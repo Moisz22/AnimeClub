@@ -1,9 +1,9 @@
 <div class="container-fluid">
 	<div class="row">
 		<?php if(isset($anime['anime_banner'])):?>	
-			<img style="width: 100%;" src="<?php echo RUTA;?>/images/banner/<?php echo $anime['anime_banner'];?>" alt="">
+			<img style="width: 100%;" src="images/banner/<?php echo $anime['anime_banner'];?>" alt="">
 		<?php else: ?>
-			<img style="width: 100%;" src="<?php echo RUTA;?>/images/banner/banner_no_existe.jpg" alt="">
+			<img style="width: 100%;" src="images/banner/banner_no_existe.jpg" alt="">
 		<?php endif;?>			
 	</div>
 </div>
@@ -13,9 +13,9 @@
 	<div class="row">
 		<div class="col-sm-3 col-12">
 			<?php if(isset($anime['anime_imagen'])):?>
-				<img style="width: 260px; display:block; margin:auto;" src="<?php echo RUTA;?>/images/animes/<?php echo $anime['anime_imagen'];?>" alt="">
+				<img style="width: 260px; display:block; margin:auto;" src="images/animes/<?php echo $anime['anime_imagen'];?>" alt="">
 			<?php else: ?>
-				<img style="width: 260px; display:block; margin:auto;" src="<?php echo RUTA;?>/images/animes/imagen_no_existe.jpg" alt="">
+				<img style="width: 260px; display:block; margin:auto;" src="images/animes/imagen_no_existe.jpg" alt="">
 			<?php endif; ?>
 			<p class="estado_anime"><i class="fa fa-television"></i>
 				<?php echo $anime['anime_actualidad']; ?></p>
@@ -40,7 +40,7 @@
 			<nav>
 				<?php if($generos == true): ?>
 					<?php foreach($generos as $genero): ?>
-						<a href="<?php echo RUTA;?>lista_animes.php?g=<?php echo $genero['genero']; ?>"><?php echo $genero['genero']; ?></a>
+						<a id="generos_estilo" href="<?php echo RUTA;?>lista_animes.php?g=<?php echo $genero['genero']; ?>"><?php echo $genero['genero']; ?></a>
 					<?php endforeach; ?>
 				<?php endif;?>
 			</nav>
