@@ -26,8 +26,9 @@ function traer_todos_los_animes($conexion, $animes_por_pagina){
 	return $statement->fetchAll();
 }
 
+//funcion de prueba para traer todos los datos de un anime en algunas tablas(anime y reseña)
 function traer_anime_por_id($conexion, $id){
-	$statement = $conexion->prepare("SELECT * FROM anime where anime_id=$id LIMIT 1");
+	$statement = $conexion->prepare("SELECT * FROM anime as a, reseña as r where a.anime_id=$id && a.anime_id=r.anime_id LIMIT 1");
 	$statement->execute();
 	return $statement->fetch();
 }
