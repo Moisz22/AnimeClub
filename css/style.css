@@ -2658,7 +2658,7 @@ ul.bottom_menu li {
     min-height: auto;
     padding: 45px 65px 65px;
     max-width: 770px;
-    margin: 142px 0;
+    margin: 142px 142px;
     box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
 }
 
