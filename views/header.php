@@ -41,7 +41,7 @@
       <nav id="sidebar">
          <div class="menu_section">
             <ul>
-               <li><a href="iniciar_sesion.php">Inicia Sesion</a></li>
+               <li><a href="login.php">Login</a></li>
                <li><a href="lista_animes.php">Animes</a></li>
                <li><a href="about.php">Generos</a></li>
                <li><a href="services.php">Services</a></li>
