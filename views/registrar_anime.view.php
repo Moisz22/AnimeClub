@@ -13,29 +13,33 @@
                                  <input type="text" name="anime_nombre" placeholder="Nombre del anime" required />
                               </div>
                               <div class="field">
-                                 <input type="number" name="anime_cantidad_capitulos" placeholder="Cantida de capítulos" min="1" required />
+                                 <input type="number" name="anime_cantidad_capitulos" placeholder="Cantidad de capítulos" min="1" required />
+                              </div>
+                              <div class="field">
+                                 <input type="number" name="anime_capitulo_terminado" placeholder="Ultimo capítulo visto" min="1" required />
                               </div>
                               <div class="field">
                                  <textarea required style="border: 2px solid #ccc" name="anime_sinopsis" cols="15" rows="5" placeholder="Escriba la sinopsis aqui"></textarea>
                               </div>
+                              <br />
                               <div class="field">
                                  <label>Actualidad del anime</label>
-                                 <select name="anime_actualidad" name="anime_actualidad" required>
+                                 <select name="anime_actualidad">
                                     <option value="Terminado">Terminado</option>
                                     <option value="En emision">En emision</option>
                                  </select>
                               </div>
-
+                              <br />
                               <div class="field">
                                  <label>Imagen del anime</label>
                                  <input type="file" name="foto">
                               </div>
-
+                              <br />
                               <div class="field">
                                  <label>Banner del anime</label>
                                  <input type="file" name="banner">
                               </div>
-                              
+                                 <br />
                                  <div class="container-fluid">
                                     <label>Generos</label>
                                        <br />
@@ -53,6 +57,11 @@
                               </div>
                            </fieldset>
                         </form>
+                        <ul>
+                           <?php if(isset($errores) && !empty($errores)): ?>
+                              <?php echo $errores; ?>
+                           <?php endif; ?>
+                        </ul>
                      </div>
                   </div>
                </div>
