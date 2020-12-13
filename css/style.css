@@ -2994,7 +2994,7 @@ footer.footer-box .heading_main h2 {
     padding-bottom: 25px;
 }
 
-#animes_lista{
+.animes_lista{
 	height: 150px; 
 	width: 101px;
 }
@@ -3090,4 +3090,9 @@ footer.footer-box .heading_main h2 {
     border-radius: 20px;
     display: inline-block;
     vertical-align: top;
+}
+
+.centrar_imagen{
+	display: block;
+	margin: auto;
 }
