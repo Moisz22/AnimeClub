@@ -30,5 +30,10 @@ $paginacion_config = array(
 );
 
 
+$login = array(
+
+	'usuario' => 'root',
+	'contra'  => 'root'
+);
 
 ?>
