@@ -41,11 +41,20 @@
       <nav id="sidebar">
          <div class="menu_section">
             <ul>
-               <li><a href="login.php">Login</a></li>
-               <li><a href="lista_animes.php">Animes</a></li>
-               <li><a href="about.php">Generos</a></li>
-               <li><a href="services.php">Services</a></li>
-               <li><a href="contact.php">Contact us</a></li>
+               <?php if(isset($_SESSION['usuario'])): ?>
+                  <li><a href="cerrar.php">Cerrar Sesión</a></li>
+                  <li><a href="lista_animes.php">Animes</a></li>
+                  <li><a href="registrar_anime.php">Ingresar Anime</a></li>
+                  <li><a href="about.php">Generos</a></li>
+                  <li><a href="services.php">Services</a></li>
+                  <li><a href="contact.php">Contact us</a></li>
+               <?php else: ?>
+                  <li><a href="login.php">Login</a></li>
+                  <li><a href="lista_animes.php">Animes</a></li>
+                  <li><a href="about.php">Generos</a></li>
+                  <li><a href="services.php">Services</a></li>
+                  <li><a href="contact.php">Contact us</a></li>
+               <?php endif; ?>
             </ul>
          </div>
       </nav>
@@ -56,7 +65,7 @@
                <div class="row">
                   <div class="col-sm-6">
                      <div class="logo_main">
-                        <a href="index.php"><img src="images/main_logo.png" /></a>
+                        <a href="index.php"><img style="height: 70px;" src="images/logo.P86" /></a>
                      </div>
                   </div>
                   <div class="col-sm-6">
