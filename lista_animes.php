@@ -1,8 +1,7 @@
 <?php 
-
+session_start();
 require 'config/config.php';
 require 'functions.php';
-require 'views/header.php';
 $conexion = conexion($bd_config);
 
 if(!$conexion){
@@ -16,8 +15,4 @@ if(!$animes){
 }
 
 require 'views/lista_animes.view.php';
-
-
-
-
 ?>
