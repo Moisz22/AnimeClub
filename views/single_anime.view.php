@@ -1,9 +1,9 @@
 <div class="container-fluid">
 	<div class="row">
 		<?php if(isset($anime['anime_banner'])):?>	
-			<img style="width: 100%;" src="images/banner/<?php echo $anime['anime_banner'];?>" alt="">
+			<img style="width: 100%;" src="images/banner/<?php echo $anime['anime_banner'];?>" alt="<?php echo $anime['anime_banner'];?>">
 		<?php else: ?>
-			<img style="width: 100%;" src="images/banner/banner_no_existe.jpg" alt="">
+			<img style="width: 100%;" src="images/banner/banner_no_existe.jpg" alt="banner no disponible">
 		<?php endif;?>			
 	</div>
 </div>
@@ -13,9 +13,9 @@
 	<div class="row">
 		<div class="col-sm-3 col-12">
 			<?php if(isset($anime['anime_imagen'])):?>
-				<img style="width: 260px; display:block; margin:auto;" src="images/animes/<?php echo $anime['anime_imagen'];?>" alt="">
+				<img class="centrar_imagen" style="width: 260px;" src="images/animes/<?php echo $anime['anime_imagen'];?>" alt="<?php echo $anime['anime_imagen'];?>">
 			<?php else: ?>
-				<img style="width: 260px; display:block; margin:auto;" src="images/animes/imagen_no_existe.jpg" alt="">
+				<img class="centrar_imagen" style="width: 260px;" src="images/animes/imagen_no_existe.jpg" alt="imagen no disponible">
 			<?php endif; ?>
 			<p class="estado_anime"><i class="fa fa-television"></i>
 				<?php echo $anime['anime_actualidad']; ?></p>
@@ -35,7 +35,7 @@
 		<div class="col-sm-1"></div>
 		<div style="background: #EAF9F8;" class="col-sm-8 col-12">
 			<p></p>
-			<h3 style="text-align: center;">Sinopsis</h3>
+			<h3 class="text-align_center;">Sinopsis</h3>
 			<p></p>
 			<nav>
 				<?php if($generos == true): ?>
@@ -50,7 +50,7 @@
 </div>
 <br />
 <br />
-<div style="background: #E4FCFC" class="container">
+<div style="background: #EAF9F8" class="container">
 	<br />
 	<div class="row">
 		<div class="col-12">
