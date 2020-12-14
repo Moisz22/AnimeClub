@@ -42,14 +42,15 @@
          <div class="menu_section">
             <ul>
                <?php if(isset($_SESSION['usuario'])): ?>
-                  <li><a href="cerrar.php">Cerrar Sesión</a></li>
+                  <li><a href="cerrar.php">Salir <i class="fa fa-sign-out"></i></a></li>
                   <li><a href="lista_animes.php">Animes</a></li>
                   <li><a href="registrar_anime.php">Ingresar Anime</a></li>
                   <li><a href="about.php">Generos</a></li>
-                  <li><a href="services.php">Services</a></li>
+                  <li><a href="reseña.php">Reseñas</a></li>
                   <li><a href="contact.php">Contact us</a></li>
+                  <li><i class="fa fa-search"></li>
                <?php else: ?>
-                  <li><a href="login.php">Login</a></li>
+                  <li><a href="login.php">Login <i class="fa fa-sign-in"></i></a></li>
                   <li><a href="lista_animes.php">Animes</a></li>
                   <li><a href="about.php">Generos</a></li>
                   <li><a href="services.php">Services</a></li>
@@ -65,7 +66,7 @@
                <div class="row">
                   <div class="col-sm-6">
                      <div class="logo_main">
-                        <a href="index.php"><img style="height: 70px;" src="images/logo.P86" /></a>
+                        <a href="index.php"><img style="height: 70px;" src="images/logo.P86"/></a>
                      </div>
                   </div>
                   <div class="col-sm-6">
