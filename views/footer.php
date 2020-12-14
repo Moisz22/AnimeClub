@@ -38,8 +38,8 @@
             <ul>
               <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+              <li><a href="https://github.com/Moisz22"><i class="fa fa-github"></i></a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
             </ul>
           </p>
         </div>
@@ -54,7 +54,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <p class="crp">© Copyrights 2019 design by <a href="https://html.design" title="Free Website Templates">Free Website Templates</a></p>
+        <p class="crp">© Copyrights 2020 diseño de <a href="https://github.com/Moisz22" title="Free Website Templates">Moisz22</a></p>
       </div>
     </div>
   </div>
