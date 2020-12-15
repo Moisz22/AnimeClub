@@ -10,10 +10,10 @@
                         <form method="POST" class="contact_form_inner" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
                            <fieldset>
                               <div class="field">
-                                 <input type="text" name="user" placeholder="Usuario" />
+                                 <input type="text" name="user" placeholder="Usuario" required/>
                               </div>
                               <div class="field">
-                                 <input type="password" name="password" placeholder="Contraseña" />
+                                 <input type="password" name="password" placeholder="Contraseña" required/>
                               </div>
                               <div class="field center">
                                  <button type="submit" class="margin-top_30">INICIAR SESIÓN</button>

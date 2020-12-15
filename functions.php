@@ -26,12 +26,20 @@ function pagina_actual(){
 	return (isset($_GET['p'])) ? (int)$_GET['p'] : 1;
 }
 
-function traer_todos_los_animes($conexion, $animes_por_pagina){
+function traer_todos_los_animes($conexion, $animes_por_pagina, $b = NULL){
 
 	$inicio = (pagina_actual() > 1) ? pagina_actual() * $animes_por_pagina - $animes_por_pagina : 0;
 
-	$statement = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM anime LIMIT $inicio, $animes_por_pagina");
-	$statement->execute();
+	if(isset($b) && !empty($b)){
+		$statement = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM anime WHERE anime_nombre LIKE :b LIMIT $inicio, $animes_por_pagina");
+		$statement->execute(array(
+			'b' => "%$b%"
+		)
+		);
+	}else{
+		$statement = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM anime LIMIT $inicio, $animes_por_pagina");
+		$statement->execute();
+	}
 	return $statement->fetchAll();
 }
 
@@ -46,7 +54,6 @@ function traer_reseña_por_id($conexion, $id){
 	$statement = $conexion->query("SELECT * FROM anime as a, reseña as r where a.anime_id=$id && a.anime_id = r.anime_id LIMIT 1");
 	return $statement->fetch();
 }
-
 
 function paginacion($conexion, $animes_por_pagina){
 

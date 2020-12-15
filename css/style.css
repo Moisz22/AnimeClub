@@ -3108,7 +3108,6 @@ footer.footer-box .heading_main h2 {
 .inner-addon .glyphicon {
   position: absolute;
   padding: 10px;
-  pointer-events: none;
 }
 .left-addon .glyphicon {
   left: 0px;

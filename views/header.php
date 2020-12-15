@@ -48,7 +48,6 @@
                   <li><a href="about.php">Generos</a></li>
                   <li><a href="reseña.php">Reseñas</a></li>
                   <li><a href="contact.php">Contact us</a></li>
-                  <li><i class="fa fa-search"></li>
                <?php else: ?>
                   <li><a href="login.php">Login <i class="fa fa-sign-in"></i></a></li>
                   <li><a href="lista_animes.php">Animes</a></li>
