@@ -45,8 +45,11 @@ function traer_todos_los_animes($conexion, $animes_por_pagina, $b = NULL){
 
 //funcion de prueba para traer todos los datos de un anime en algunas tablas(anime y reseña)
 function traer_anime_por_id($conexion, $id){
-	$statement = $conexion->prepare("SELECT * FROM anime where anime_id=$id LIMIT 1");
-	$statement->execute();
+	$statement = $conexion->prepare('SELECT * FROM anime WHERE anime_id=:id');
+	$statement->execute(array(
+		':id' => $id
+	)
+	);
 	return $statement->fetch();
 }
 
@@ -81,8 +84,9 @@ function traer_genero_de_un_anime($conexion, $nombre_anime){
 	return ($generos) ? $generos : false;
 }
 
+function eliminar_anime_por_id($conexion){
+	
+}
 
 
-
-
- ?>
+?>
