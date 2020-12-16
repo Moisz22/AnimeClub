@@ -16,7 +16,7 @@
                                  <input type="number" name="anime_cantidad_capitulos" placeholder="Cantidad de capítulos" min="1" required />
                               </div>
                               <div class="field">
-                                 <input type="number" name="anime_capitulo_terminado" placeholder="Ultimo capítulo visto" min="1" required />
+                                 <input type="number" name="anime_capitulo_terminado_ver" placeholder="Ultimo capítulo visto" min="1" required />
                               </div>
                               <div class="field">
                                  <textarea required style="border: 2px solid #ccc" name="anime_sinopsis" cols="15" rows="5" placeholder="Escriba la sinopsis aqui"></textarea>

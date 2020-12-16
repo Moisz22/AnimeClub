@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
 	$total_capitulos = limpiarDatos($_POST['anime_cantidad_capitulos']);
 	$total_capitulos = filter_var($total_capitulos, FILTER_VALIDATE_INT);
 
-	$capitulo_terminado = limpiarDatos($_POST['anime_capitulo_terminado']);
+	$capitulo_terminado = limpiarDatos($_POST['anime_capitulo_terminado_ver']);
 	$capitulo_terminado = filter_var($capitulo_terminado, FILTER_VALIDATE_INT);
 
 	$sinopsis = limpiarDatos($_POST['anime_sinopsis']);
