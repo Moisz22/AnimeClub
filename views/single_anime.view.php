@@ -10,6 +10,74 @@
 
 <br />
 <div class="container">
+	<?php //if(isset($_SESSION['usuario'])): ?>
+		<div class="row">
+			<div class="col-8 col-sm-10"></div>
+			<div class="col-2 col-sm-1">
+				<button type="button" style="margin-left: 10px;" onclick="location.href='editar_anime.php?id=<?php echo $anime['anime_id'];?>'" class="btn btn-warning fa fa-pencil-square-o" title="Editar"></button>
+			</div>
+			<div class="col-2 col-sm-1">
+				<form id="borrar_anime" action="index.php" method="GET">
+					<input type="hidden" name="anime_id" value="<?php echo $anime['anime_id'];?>">
+					<button type="submit" class="btn btn-danger fa fa-trash" title="Eliminar"></button>
+				</form>
+			</div>
+		</div>
+	<?php //endif; ?>
+	<br />     
+	<div id="capa" style="z-index: 3;">
+		<div>
+			<div class="title">Confirmar la eliminación de este anime</div>
+			<div class="text">Estas seguro de eliminar el anime de <?php echo $anime['anime_nombre'];?></div>
+			<div class="buttons">
+				<input type="button" class="button" value="Confirmar" id="ok">&nbsp;
+				<input type="button" class="button" value="Cancelar" id="ko">
+			</div>
+		</div>
+	</div>
+
+
+	<script>
+	// devinimos los tres eventos del formulario
+		document.getElementById("borrar_anime").addEventListener("submit", submit);
+		document.getElementById("ok").addEventListener("click", enviar);
+		document.getElementById("ko").addEventListener("click", cancelar);
+ 
+		// Funcion que se ejecuta al pulsar el botón enviar el formulario
+		function submit(e) {
+		// Cancelams el envio a la espera de que valide el formulario
+			e.preventDefault();
+ 
+		// Mostramos la capa con el formulario de validacion
+			document.getElementById("capa").style.display="block";
+			
+		}
+ 
+		// Funcion que se ejecuta al pulsar el boton Enviar de cuadro de dialogo
+		function enviar(e) {
+			// Escondemos la capa
+			document.getElementById("capa").style.display="none";
+ 
+			// Enviamos el formulario
+			document.forms["borrar_anime"].submit();
+		}
+ 
+		// Funcion que se ejecuta al pulsar el boton Cancelar de cuadro de dialogo
+		function cancelar(e) {
+			// Simplemente escondemos el cuadro de dialogo
+			document.getElementById("capa").style.display="none";
+		}
+	</script>
+
+
+
+	<div class="row">
+		<div class="col-12">
+			<h1 class="text_align_center"><b><?php echo $anime['anime_nombre'];?></b></h1>
+		</div>
+	</div>
+
+	<br />
 	<div class="row">
 		<div class="col-sm-3 col-12">
 			<?php if(isset($anime['anime_imagen'])):?>
@@ -35,12 +103,12 @@
 		<div class="col-sm-1"></div>
 		<div style="background: #EAF9F8;" class="col-sm-8 col-12">
 			<p></p>
-			<h3 class="text-align_center;">Sinopsis</h3>
+			<h3 class="text-align_center">Sinopsis</h3>
 			<p></p>
 			<nav>
 				<?php if($generos == true): ?>
 					<?php foreach($generos as $genero): ?>
-						<a id="generos_estilo" href="<?php echo RUTA;?>lista_animes.php?g=<?php echo $genero['genero']; ?>"><?php echo $genero['genero']; ?></a>
+						<a id="generos_estilo" href="lista_animes.php?g=<?php echo $genero['genero']; ?>"><?php echo $genero['genero']; ?></a>
 					<?php endforeach; ?>
 				<?php endif;?>
 			</nav>
@@ -84,3 +152,7 @@
 	<br />
 </div>
 <br />
+			
+
+
+
