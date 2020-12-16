@@ -3121,3 +3121,51 @@ footer.footer-box .heading_main h2 {
 .right-addon input {
   padding-right: 30px;
 }
+
+/* 
+	estilos para el modal de confirmación
+
+*/
+
+#capa {
+	display:none;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:rgba(0, 0, 0, 0.5);
+}
+ 
+#capa>div:first-child {
+	margin:0;
+	position:absolute;
+	top:30%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	width:350px;
+	border:1px solid #ebebeb;
+	padding:5px;
+	background:rgba(255, 255, 255, 1);
+}
+ 
+.title {
+	background-color: #eee;
+	padding: 5px;
+	text-align: center;
+	font-weight:bold;
+}
+.text {
+	text-align:center;
+	padding: 10px;
+}
+.buttons {
+	text-align: right;
+	border-top: 1px solid #eee;
+	padding: 5px 10px;
+}
+ 
+.button {
+	font-family:Arial;
+	font-size:9pt;
+}
