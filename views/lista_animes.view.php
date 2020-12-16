@@ -2,11 +2,18 @@
 	<br />
 	<div class="container">
 		<div class="row">
+			<div class="col-10 col-sm-11"></div>	
+			<div class="col-2 col-sm-1">
+				<i class="btn btn-primary fa fa-cog" title="configuración de la página"></i>
+			</div>
+		</div>
+		<br />
+		<div class="row">
 			<div class="col-6 col-sm-9"></div>
 			<div class="col-6 col-sm-3">
 				<div class="inner-addon right-addon">
-					<form id="formulario" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="GET">
-						<a onclick="formulario.submit();" href="#" title="hola"><i class="glyphicon fa fa-search"></i></a>
+					<form id="formulario_busqueda" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="GET">
+						<a onclick="formulario_busqueda.submit();" href="#" title="buscar"><i class="glyphicon fa fa-search"></i></a>
 	  					<input type="text" name="b" class="form-control" placeholder="Buscar"/>
 	  				</form>
 				</div>
@@ -21,6 +28,14 @@
 		</div>
 		<br />
 		<div class="row">
+			<?php if(isset($_SESSION['usuario'])): ?>
+				<div class="text-center col-<?php echo (12/$paginacion_config['animes_por_columna_moviles']);?> col-sm-<?php echo (12/$paginacion_config['animes_por_columna_pc']);?>">
+					<a href="registrar_anime.php">
+						<i class="fa fa-plus-circle" style="padding-top: 40px; font-size: 60px;"></i>
+						<p class="text_align_center" style="padding-top: 50px;">Añadir</p>
+					</a>
+				</div>
+			<?php endif; ?>
 			<?php foreach($animes as $anime): ?>
 				<div class="col-<?php echo (12/$paginacion_config['animes_por_columna_moviles']);?> col-sm-<?php echo (12/$paginacion_config['animes_por_columna_pc']);?>">
 					<a href="single_anime.php?id=<?php echo $anime['anime_id'];?>">
