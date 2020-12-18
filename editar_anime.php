@@ -8,12 +8,20 @@ $errores = '';
 $conexion = conexion($bd_config);
 
 if(!$conexion){
+
 	header('Location: error.php');
+
 }
 
-@$id = ($_REQUEST['id']) ? (int)$_REQUEST['id'] : false;
+if(!isset($_SESSION['usuario'])){
 
-if($id == false){
+	header('Location: index.php');
+}
+
+$id = (isset($_REQUEST['id']) && !empty($_REQUEST['id'])) ? (int)$_REQUEST['id'] : false;
+
+//comprobar si se pasó algun id 
+if($id == false || $id == ''){
 	header('Location: error.php');
 }
 
@@ -71,7 +79,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 			)
 	); 
-		header('Location: lista_animes.php');
+		header('Location: single_anime.php?id='.$id .'&estado=actualizado');
 	}
 }
 

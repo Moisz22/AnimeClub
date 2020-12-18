@@ -1,4 +1,4 @@
-<?php require 'header.php';?>
+<?php require 'header.php'; ?>
 <div class="section contact_section">
    <div class="container-fluid">
       <div class="row">
