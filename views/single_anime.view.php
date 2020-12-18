@@ -10,20 +10,20 @@
 
 <br />
 <div class="container">
-	<?php //if(isset($_SESSION['usuario'])): ?>
+	<?php if(isset($_SESSION['usuario'])): ?>
 		<div class="row">
 			<div class="col-8 col-sm-10"></div>
 			<div class="col-2 col-sm-1">
 				<button type="button" style="margin-left: 10px;" onclick="location.href='editar_anime.php?id=<?php echo $anime['anime_id'];?>'" class="btn btn-warning fa fa-pencil-square-o" title="Editar"></button>
 			</div>
 			<div class="col-2 col-sm-1">
-				<form id="borrar_anime" action="index.php" method="GET">
+				<form id="borrar_anime" action="eliminar_anime.php" method="POST">
 					<input type="hidden" name="anime_id" value="<?php echo $anime['anime_id'];?>">
 					<button type="submit" class="btn btn-danger fa fa-trash" title="Eliminar"></button>
 				</form>
 			</div>
 		</div>
-	<?php //endif; ?>
+	<?php endif; ?>
 	<br />     
 	<div id="capa" style="z-index: 3;">
 		<div>
@@ -76,6 +76,14 @@
 			<h1 class="text_align_center"><b><?php echo $anime['anime_nombre'];?></b></h1>
 		</div>
 	</div>
+
+	<?php
+		$estado = (isset($_GET['estado'])) ? ($_GET['estado']) : false ;
+		$estado = limpiarDatos($estado);
+		if($estado == 'actualizado'){
+			modal('Anime actualizado exitosamente');
+		}
+	?>
 
 	<br />
 	<div class="row">
