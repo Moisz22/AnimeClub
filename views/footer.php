@@ -74,7 +74,6 @@
 <script src="js/isotope.min.js"></script>
 <script src="js/images-loded.min.js"></script>
 <script src="js/custom.js"></script>
-<!-- End Google Map -->
 <script>
   $(document).ready(function() {
     $('#sidebarCollapse').on('click', function() {
@@ -84,8 +83,35 @@
     });
   });
 </script>
-<!-- google map js -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
-<!-- end google map js -->
+
+<!-- Autocompletado-->
+      <script>
+      $(document).ready(function() {
+      $('#b').on('keyup', function() {
+         var key = $(this).val();    
+         var dataString = 'b='+key;
+      $.ajax({
+            type: "POST",
+            url: "autocompletado.php",
+            data: dataString,
+            success: function(data) {
+                //Escribimos las sugerencias que nos manda la consulta
+               $('#suggestions').fadeIn(1000).html(data);
+                //Al hacer click en algua de las sugerencias
+               $('.suggest-element').on('click', function(){
+                        //Obtenemos la id unica de la sugerencia pulsada
+                        var id = $(this).attr('id');
+                        //Editamos el valor del input con data de la sugerencia pulsada
+                        $('#b').val($('#'+id).attr('data'));
+                        //Hacemos desaparecer el resto de sugerencias
+                        $('#suggestions').fadeOut(1000);
+                        //alert('Has seleccionado el '+id+' '+$('#'+id).attr('data'));
+                        return false;
+               });
+            }
+      });
+      });
+      }); 
+    </script>
    </body>
 </html>
