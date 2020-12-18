@@ -12,6 +12,11 @@ $errores = '';
 
 $conexion = conexion($bd_config);
 
+if(!$conexion){
+
+	header('Location: error.php');
+}
+
 $generos = traer_todos_los_generos($conexion);
 
 
@@ -85,7 +90,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
 				'anime_estado_vista' => $anime_estado_vista
 			)
 		);
-		header('Location:lista_animes.php');
+		header('Location:lista_animes.php?estado=registrado');
 	}
 
 }
