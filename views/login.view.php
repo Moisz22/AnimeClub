@@ -22,7 +22,7 @@
                         </form>
                         <ul>
                            <?php if(isset($errores) && !empty($errores)): ?>
-                              <?php echo $errores; ?>
+                              <?php echo '<p class="text_align_center">'.$errores.'</p>'; ?>
                            <?php endif; ?>
                         </ul>
                      </div>
