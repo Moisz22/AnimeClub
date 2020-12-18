@@ -1,3 +1,4 @@
+
 <!-- Start Banner -->
 <div class="ulockd-home-slider">
   <div class="container-fluid">
@@ -67,7 +68,7 @@
       <div class="col-md-12">
         <div class="full">
           <div class="heading_main text_align_center">
-            <h2>What We Do</h2>
+            <h2>Funciones de la página</h2>
           </div>
         </div>
       </div>
@@ -81,12 +82,12 @@
             <img class="default-none" src="images/icon_1w.png" alt="#" />
           </div>
         
-        <div class="full">
-          <h4>Link Building</h4>
-        </div>
-        <div class="full">
-          <p>It is a long established fact that a reader will be distracted by the readable content..</p>
-        </div>
+          <div class="full">
+            <h4>Guarde sus animes</h4>
+          </div>
+          <div class="full">
+            <p>It is a long established fact that a reader will be distracted by the readable content..</p>
+          </div>
         </div>
       </div>
     
