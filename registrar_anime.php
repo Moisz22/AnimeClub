@@ -90,7 +90,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
 				'anime_estado_vista' => $anime_estado_vista
 			)
 		);
-		header('Location:lista_animes.php?estado=registrado');
+		//envia el estado {registrado, actualizado o eliminado} en sesion y la elimina al llegar a la vista
+		$_SESSION['estado'] = 'registrado';
+		header('Location:lista_animes');
+
 	}
 
 }

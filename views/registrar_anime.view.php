@@ -7,37 +7,37 @@
                <div class="row">
                   <div class="col-sm-12 col-md-10 offset-lg-1">
                      <div class="full contact_form">
-                        <form method="POST" class="contact_form_inner" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" enctype="multipart/form-data">
+                        <form onsubmit="return validaregistro()" method="POST" class="contact_form_inner" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" enctype="multipart/form-data">
                            <fieldset>
                               <div class="field">
-                                 <input type="text" name="anime_nombre" placeholder="Nombre del anime" required />
+                                 <input type="text" name="anime_nombre" id="anime_nombre" placeholder="Nombre del anime"/>
                               </div>
                               <div class="field">
-                                 <input type="number" name="anime_cantidad_capitulos" placeholder="Cantidad de capítulos" min="1" required />
+                                 <input type="number" name="anime_cantidad_capitulos" id="anime_cantidad_capitulos"  placeholder="Cantidad de capítulos"/>
                               </div>
                               <div class="field">
-                                 <input type="number" name="anime_capitulo_terminado_ver" placeholder="Ultimo capítulo visto" min="1" required />
+                                 <input type="number" name="anime_capitulo_terminado_ver" id="anime_capitulo_terminado_ver" placeholder="Ultimo capítulo visto" min="1" />
                               </div>
                               <div class="field">
-                                 <textarea required style="border: 2px solid #ccc" name="anime_sinopsis" cols="15" rows="5" placeholder="Escriba la sinopsis aqui"></textarea>
+                                 <textarea name="anime_sinopsis" id="anime_sinopsis" style="border: 2px solid #ccc"  cols="15" rows="5" placeholder="Escriba la sinopsis aqui"></textarea>
                               </div>
                               <br />
                               <div class="field">
-                                 <label>Actualidad del anime</label>
-                                 <select name="anime_actualidad">
-                                    <option value="Terminado">Terminado</option>
-                                    <option value="En emision">En emision</option>
+                                 <label for="anime_actualidad" class="form-control">Actualidad del anime</label>
+                                 <select class="form-control" name="anime_actualidad" id="anime_actualidad">
+                                    <option class="text_align_center" value="Terminado">Terminado</option>
+                                    <option class="text_align_center" value="En emision">En emision</option>
                                  </select>
                               </div>
                               <br />
                               <div class="field">
                                  <label>Imagen del anime</label>
-                                 <input type="file" name="foto">
+                                 <input type="file" name="foto" class="form-control">
                               </div>
                               <br />
                               <div class="field">
                                  <label>Banner del anime</label>
-                                 <input type="file" name="banner">
+                                 <input type="file" name="banner" class="form-control">
                               </div>
                                  <br />
                                  <div class="container-fluid">
@@ -46,14 +46,15 @@
                                     <div class="row">
                                        <?php foreach ($generos as $genero): ?>
                                           <div class="col-6 col-sm-4">
-                                             <label class="text_align_center" for="<?php echo $genero['genero_nombre'];?>"><?php echo $genero['genero_nombre'];?></label> <input style="width:15px; height:15px;" id="<?php echo $genero['genero_nombre'];?>" type="checkbox" name="<?php echo $genero['genero_nombre'];?>" value="<?php echo $genero['genero_nombre'];?>">
+                                             <label class="form-control" for="<?php echo $genero['genero_nombre'];?>"><?php echo $genero['genero_nombre'];?></label> <input class="form-control" id="<?php echo $genero['genero_nombre'];?>" type="checkbox" name="<?php echo $genero['genero_nombre'];?>" value="<?php echo $genero['genero_nombre'];?>">
+                                             <br/>
                                           </div>
                                        <?php endforeach ?>
                                     </div>
                                  </div>
                               
                               <div class="field center">
-                                 <button class="margin-top_30">REGISTRAR ANIME</button>
+                                 <button type="submit" class="margin-top_30">REGISTRAR ANIME</button>
                               </div>
                            </fieldset>
                         </form>

@@ -83,35 +83,9 @@
     });
   });
 </script>
-
-<!-- Autocompletado-->
-      <script>
-      $(document).ready(function() {
-      $('#b').on('keyup', function() {
-         var key = $(this).val();    
-         var dataString = 'b='+key;
-      $.ajax({
-            type: "POST",
-            url: "autocompletado.php",
-            data: dataString,
-            success: function(data) {
-                //Escribimos las sugerencias que nos manda la consulta
-               $('#suggestions').fadeIn(1000).html(data);
-                //Al hacer click en algua de las sugerencias
-               $('.suggest-element').on('click', function(){
-                        //Obtenemos la id unica de la sugerencia pulsada
-                        var id = $(this).attr('id');
-                        //Editamos el valor del input con data de la sugerencia pulsada
-                        $('#b').val($('#'+id).attr('data'));
-                        //Hacemos desaparecer el resto de sugerencias
-                        $('#suggestions').fadeOut(1000);
-                        //alert('Has seleccionado el '+id+' '+$('#'+id).attr('data'));
-                        return false;
-               });
-            }
-      });
-      });
-      }); 
-    </script>
-   </body>
+  <script src="js/autocompletado.js"></script>
+  <script src="js/autocompletado.js"></script>
+  <script src="js/validar_login.js"></script>
+  <script src="js/validar_registro.js"></script>
+  </body>
 </html>

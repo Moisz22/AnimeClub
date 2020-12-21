@@ -25,18 +25,22 @@
 		<br />
 
 		<?php
-			$estado = (isset($_GET['estado'])) ? ($_GET['estado']) : false ;
-			$estado = limpiarDatos($estado);
+			$estado = (isset($_SESSION['estado'])) ? ($_SESSION['estado']) : false ;
 			if($estado == 'registrado' && isset($_SESSION['usuario'])){
-				modal('Anime guardado exitosamente');
-			}elseif($estado && isset($_SESSION['usuario']) == 'actualizado'){
-				modal('Anime actualizado exitosamente');
-			}elseif($estado && isset($_SESSION['usuario']) == 'eliminado'){
-				modal('Anime eliminado exitosamente');
+				//modal('Anime guardado exitosamente');
+				echo '<script>alertify.success("Anime agregado :3")</script>';
+			}elseif($estado == 'actualizado' && isset($_SESSION['usuario']) ){
+				//modal('Anime actualizado exitosamente');
+				echo '<script>alertify.success("Anime actualizado :3")</script>';
+			}elseif($estado == 'eliminado' && isset($_SESSION['usuario'])){
+				//modal('Anime eliminado exitosamente');
+				echo '<script>alertify.success("Anime eliminado :(")</script>';
 			}
-		?>
-			 
-		
+
+			if(isset($_SESSION['estado'])){
+				unset($_SESSION['estado']);
+			}
+		?>	
 		<div class="row">
 			<div class="col-12">
 				<h1 class="text_align_center"><b>Lista Completa de Animes</b></h1>
@@ -44,24 +48,22 @@
 		</div>
 		<br />
 		<div class="row">
-			<?php if(isset($_SESSION['usuario'])&& pagina_actual() == 1): ?>
-				<div class="text-center col-<?php echo (12/$paginacion_config['animes_por_columna_moviles']);?> col-sm-<?php echo (12/$paginacion_config['animes_por_columna_pc']);?>">
-					<a href="registrar_anime.php">
-						<i class="fa fa-plus-circle" style="padding-top: 40px; font-size: 60px;"></i>
-						<p class="text_align_center" style="padding-top: 50px;">Añadir</p>
-					</a>
-				</div>
+			<?php if($animes): ?>
+				<?php foreach($animes as $anime): ?>
+					<div class="col-<?php echo (12/$paginacion_config['animes_por_columna_moviles']);?> col-sm-<?php echo (12/$paginacion_config['animes_por_columna_pc']);?>">
+						<a href="single_anime?id=<?php echo $anime['anime_id'];?>">
+							<img style="border-radius: 10px;"class="centrar_imagen animes_lista" src="images/animes/<?php echo $anime['anime_imagen'];?>">
+							<p class="text_align_center"><?php echo $anime['anime_nombre'];?></p>
+						</a>
+					</div>
+				<?php endforeach; ?>
+			<?php else: ?>
+				<br/><br /><br /><br/><br /><br />
 			<?php endif; ?>
-			<?php foreach($animes as $anime): ?>
-				<div class="col-<?php echo (12/$paginacion_config['animes_por_columna_moviles']);?> col-sm-<?php echo (12/$paginacion_config['animes_por_columna_pc']);?>">
-					<a href="single_anime.php?id=<?php echo $anime['anime_id'];?>">
-						<img class="centrar_imagen animes_lista" src="images/animes/<?php echo $anime['anime_imagen'];?>">
-						<p class="text_align_center"><?php echo $anime['anime_nombre'];?></p>
-					</a>
-				</div>
-			<?php endforeach; ?>
 		</div>		
 	</div>
-<?php require 'paginacion.php'; ?>
+<?php if($animes): ?>
+	<?php require 'paginacion.php'; ?>
+<?php endif; ?>
 
 <?php require 'footer.php'; ?>

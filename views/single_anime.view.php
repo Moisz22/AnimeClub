@@ -1,3 +1,4 @@
+<?php require 'header.php'; ?>
 <div class="container-fluid">
 	<div class="row">
 		<?php if(isset($anime['anime_banner'])):?>	
@@ -8,13 +9,29 @@
 	</div>
 </div>
 
+
+		<?php
+			$estado = (isset($_GET['estado'])) ? ($_GET['estado']) : false ;
+			$estado = limpiarDatos($estado);
+			if($estado == 'registrado' && isset($_SESSION['usuario'])){
+				//modal('Anime guardado exitosamente');
+				echo '<script>alertify.success("Anime agregado :3")</script>';
+			}elseif($estado == 'actualizado' && isset($_SESSION['usuario']) ){
+				//modal('Anime actualizado exitosamente');
+				echo '<script>alertify.success("Anime actualizado :3")</script>';
+			}elseif($estado == 'eliminado' && isset($_SESSION['usuario'])){
+				//modal('Anime eliminado exitosamente');
+				echo '<script>alertify.success("Anime eliminado :3")</script>';
+			}
+		?>
+
 <br />
 <div class="container">
 	<?php if(isset($_SESSION['usuario'])): ?>
 		<div class="row">
 			<div class="col-8 col-sm-10"></div>
 			<div class="col-2 col-sm-1">
-				<button type="button" style="margin-left: 10px;" onclick="location.href='editar_anime.php?id=<?php echo $anime['anime_id'];?>'" class="btn btn-warning fa fa-pencil-square-o" title="Editar"></button>
+				<button type="button" style="margin-left: 10px;" onclick="location.href='editar_anime?id=<?php echo $anime['anime_id'];?>'" class="btn btn-warning fa fa-pencil-square-o" title="Editar"></button>
 			</div>
 			<div class="col-2 col-sm-1">
 				<form id="borrar_anime" action="eliminar_anime.php" method="POST">
@@ -25,18 +42,6 @@
 		</div>
 	<?php endif; ?>
 	<br />     
-	<div id="capa" style="z-index: 3;">
-		<div>
-			<div class="title">Confirmar la eliminación de este anime</div>
-			<div class="text">Estas seguro de eliminar el anime de <?php echo $anime['anime_nombre'];?></div>
-			<div class="buttons">
-				<input type="button" class="button" value="Confirmar" id="ok">&nbsp;
-				<input type="button" class="button" value="Cancelar" id="ko">
-			</div>
-		</div>
-	</div>
-
-
 	<script>
 	// devinimos los tres eventos del formulario
 		document.getElementById("borrar_anime").addEventListener("submit", submit);
@@ -49,7 +54,9 @@
 			e.preventDefault();
  
 		// Mostramos la capa con el formulario de validacion
-			document.getElementById("capa").style.display="block";
+			//document.getElementById("capa").style.display="block";
+			alertify.confirm('Confirmar eliminación', 'Estas seguro de eliminar el anime', function(){ document.forms["borrar_anime"].submit(); }
+                , function(){ alertify.error('Cancelado')});
 			
 		}
  
@@ -57,7 +64,6 @@
 		function enviar(e) {
 			// Escondemos la capa
 			document.getElementById("capa").style.display="none";
- 
 			// Enviamos el formulario
 			document.forms["borrar_anime"].submit();
 		}
@@ -66,6 +72,7 @@
 		function cancelar(e) {
 			// Simplemente escondemos el cuadro de dialogo
 			document.getElementById("capa").style.display="none";
+			alertify.error('Se cancelo');
 		}
 	</script>
 
@@ -116,7 +123,7 @@
 			<nav>
 				<?php if($generos == true): ?>
 					<?php foreach($generos as $genero): ?>
-						<a id="generos_estilo" href="lista_animes.php?g=<?php echo $genero['genero']; ?>"><?php echo $genero['genero']; ?></a>
+						<a id="generos_estilo" href="lista_animes?g=<?php echo $genero['genero']; ?>"><?php echo $genero['genero']; ?></a>
 					<?php endforeach; ?>
 				<?php endif;?>
 			</nav>
@@ -160,6 +167,7 @@
 	<br />
 </div>
 <br />
+<?php require 'footer.php'; ?>
 			
 
 

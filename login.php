@@ -12,9 +12,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$password = limpiarDatos($_POST['password']);
 	if($usuario == $login['usuario'] && $password == $login['contra']){
 		$_SESSION['usuario'] = $usuario;
-		header('Location:lista_animes.php');
+		header('Location:lista_animes');
 	}else{
-		$errores .= '<li>Usuario o contraseña no validos</li>';
+		$errores .= '<script>alertify.error("Usuario o contraseña no validos")</script>';
 	}
 }
 

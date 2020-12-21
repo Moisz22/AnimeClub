@@ -7,7 +7,7 @@
                <div class="row">
                   <div class="col-sm-12 col-md-10 offset-lg-1">
                      <div class="full contact_form">
-                        <form method="POST" class="contact_form_inner" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+                        <form onsubmit="return validaregistro()" method="POST" class="contact_form_inner" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
                            <input type="hidden" name="id" value="<?php echo $anime['anime_id'];?>">
                            <fieldset>
                               <div class="field">
