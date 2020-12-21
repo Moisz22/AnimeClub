@@ -31,13 +31,13 @@ function traer_todos_los_animes($conexion, $animes_por_pagina, $b = NULL){
 	$inicio = (pagina_actual() > 1) ? pagina_actual() * $animes_por_pagina - $animes_por_pagina : 0;
 
 	if(isset($b) && !empty($b)){
-		$statement = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM anime WHERE anime_nombre LIKE :b && anime_estado = 1 LIMIT $inicio, $animes_por_pagina");
+		$statement = $conexion->prepare("SELECT * FROM anime WHERE anime_nombre LIKE :b && anime_estado = 1 LIMIT $inicio, $animes_por_pagina");
 		$statement->execute(array(
 			'b' => "%$b%"
 		)
 		);
 	}else{
-		$statement = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM anime WHERE anime_estado = 1 LIMIT $inicio, $animes_por_pagina");
+		$statement = $conexion->prepare("SELECT * FROM anime WHERE anime_estado = 1 LIMIT $inicio, $animes_por_pagina");
 		$statement->execute();
 	}
 	return $statement->fetchAll();
@@ -45,7 +45,7 @@ function traer_todos_los_animes($conexion, $animes_por_pagina, $b = NULL){
 
 //funcion de prueba para traer todos los datos de un anime en algunas tablas(anime y reseña)
 function traer_anime_por_id($conexion, $id){
-	$statement = $conexion->prepare('SELECT * FROM anime WHERE anime_id=:id');
+	$statement = $conexion->prepare('SELECT * FROM anime WHERE anime_id=:id && anime_estado = 1');
 	$statement->execute(array(
 		':id' => $id
 	)

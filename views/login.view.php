@@ -7,24 +7,22 @@
                <div class="row">
                   <div class="col-sm-12 col-md-10 offset-lg-1">
                      <div class="full contact_form">
-                        <form method="POST" class="contact_form_inner" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+                        <form id="formulario_login" onsubmit="return validarlogin()" method="POST" class="contact_form_inner">
                            <fieldset>
                               <div class="field">
-                                 <input type="text" name="user" placeholder="Usuario" required/>
+                                 <input type="text" name="user" id="user" placeholder="Usuario"/>
                               </div>
                               <div class="field">
-                                 <input type="password" name="password" placeholder="Contraseña" required/>
+                                 <input type="password" name="password" id="password" placeholder="Contraseña"/>
                               </div>
                               <div class="field center">
                                  <button type="submit" class="margin-top_30">INICIAR SESIÓN</button>
                               </div>
                            </fieldset>
                         </form>
-                        <ul>
                            <?php if(isset($errores) && !empty($errores)): ?>
-                              <?php echo '<p class="text_align_center">'.$errores.'</p>'; ?>
+                              <?php echo $errores; ?>
                            <?php endif; ?>
-                        </ul>
                      </div>
                   </div>
                </div>

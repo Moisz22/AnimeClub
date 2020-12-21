@@ -1,8 +1,9 @@
 <?php
 
+session_start();
+
 require 'config/config.php';
 require 'functions.php';
-require 'views/header.php';
 
 $conexion = conexion($bd_config);
 
@@ -25,7 +26,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 	if($id !== false && !empty($id)){
 		eliminar_anime_por_id($conexion, $id);
-		header('Location: lista_animes.php?estado=eliminado');
+		$_SESSION['estado'] = 'eliminado';
+		header('Location: lista_animes.php');
 	}
 
 }

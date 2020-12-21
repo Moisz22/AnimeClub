@@ -30,25 +30,19 @@
       <link rel="stylesheet" href="css/responsive.css" />
       <!-- Custom CSS -->
       <link rel="stylesheet" href="css/custom.css" />
+      <!-- Librerias alertify -->
+      <link rel="stylesheet" type="text/css" href="librerias/alertifyjs/css/alertify.css">
+      <link rel="stylesheet" type="text/css" href="librerias/alertifyjs/css/themes/default.css">
       <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
-      <!-- librerias necesarias para usar el Modal -->
+       <!--librerias necesarias para usar el Modal -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-      <!-- Login desplegable-->
-      <script src="js/login.js"></script>
-
-      <!-- Usando Modal con id=mostrarmodal como POP UP-->
-      <script>
-         $(document).ready(function()
-         {
-            $("#mostrarmodal").modal("show");
-         });
-      </script>
-
-      
+      <!-- script para alertify -->
+      <script src="librerias/alertifyjs/alertify.js"></script>
+      <!-- Usando Modal con id = mostrarmodal como POP UP -->
    </head>
    <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
       <!-- LOADER -->
@@ -65,18 +59,18 @@
          <div class="menu_section">
             <ul>
                <?php if(isset($_SESSION['usuario'])): ?>
-                  <li><a href="cerrar.php">Salir <i class="fa fa-sign-out"></i></a></li>
-                  <li><a href="lista_animes.php">Animes</a></li>
-                  <li><a href="registrar_anime.php">Ingresar Anime</a></li>
-                  <li><a href="about.php">Generos</a></li>
-                  <li><a href="reseña.php">Reseñas</a></li>
-                  <li><a href="contact.php">Contact us</a></li>
+                  <li><a href="cerrar">Salir <i class="fa fa-sign-out"></i></a></li>
+                  <li><a href="lista_animes">Animes</a></li>
+                  <li><a href="registrar_anime">Ingresar Anime</a></li>
+                  <li><a href="about">Generos</a></li>
+                  <li><a href="reseña">Reseñas</a></li>
+                  <li><a href="contact">Borrados</a></li>
                <?php else: ?>
-                  <li><a href="login.php">Login <i class="fa fa-sign-in"></i></a></li>
-                  <li><a href="lista_animes.php">Animes</a></li>
-                  <li><a href="about.php">Generos</a></li>
-                  <li><a href="services.php">Services</a></li>
-                  <li><a href="contact.php">Contact us</a></li>
+                  <li><a href="login">Login <i class="fa fa-sign-in"></i></a></li>
+                  <li><a href="lista_animes">Animes</a></li>
+                  <li><a href="about">Generos</a></li>
+                  <li><a href="services">Services</a></li>
+                  <li><a href="contact">Contact us</a></li>
                <?php endif; ?>
             </ul>
          </div>
@@ -87,36 +81,12 @@
          <header class="top-header">
             <div class="container">
                <div class="row">
-                  <div class="col-sm-2">
-                     <div class="logo_main">
-                        <a href="index.php"><img style="height: 70px;" src="images/logo.P86"/></a>
-                     </div>
-                  </div>
-
                   <div class="col-sm-6">
-                     <div id="loginContainer">
-                        <a href="#" id="loginButton"><span><i class="fa fa-user"></i></span><em></em></a>
-                        <div style="clear:both"></div>
-                           <div id="loginBox">
-                              <form id="loginForm" method="POST">
-                                 <fieldset id="body">
-                                    <fieldset>
-                                       <label for="email">Email</label>
-                                       <input type="text" name="email" id="email" />
-                                    </fieldset>
-                                    <fieldset>
-                                       <label for="password">Contrase&ntilde;a</label>
-                                       <input type="password" name="password" id="password" />
-                                    </fieldset>
-                                    <input type="submit" id="login" value="Entrar" />
-                                    <label for="checkbox"><input type="checkbox" id="checkbox" />Recu&eacute;rdame</label>
-                                 </fieldset>
-                                 <span><a href="#">Perdiste tu contrase&ntilde;a?</a></span>
-                              </form>
-                           </div>
+                     <div class="logo_main">
+                        <a href="index"><img style="height: 70px;" src="images/logo.P86"/></a>
                      </div>
                   </div>
-                  <div class="col-sm-4">
+                  <div class="col-sm-6">
                      <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn"><img src="images/menu_icon.png"></button>
                   </div>
                </div>

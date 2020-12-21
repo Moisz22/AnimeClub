@@ -20,9 +20,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['b'])){
 
 } else{
 	/*
-
 		si esta seteado como usuario va a salir una columna extra para agregar anime, para que no se descuadre la paginación se resta - 1 a la cantidad de animes requeridos por página
-
 	*/
 	if(isset($_SESSION['usuario'])){
 
@@ -34,6 +32,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['b'])){
 
 	}
 }
+
 
 if(!$animes && isset($_GET['b']) && !empty($_GET['b'])){
 	$mensaje .= '<h3>No hay resultados para la búsqueda de: ' . $b .'</h3>';
