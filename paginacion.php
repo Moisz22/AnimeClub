@@ -1,6 +1,6 @@
 <?php
 
-$total_paginas = paginacion($conexion, $paginacion_config['animes_por_pagina']);
+$total_paginas = paginacion($conexion, $linea1);
 
 ?>
 <section class="paginacion">
