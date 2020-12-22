@@ -18,27 +18,31 @@
                               <div class="field">
                                  <input type="number" name="anime_capitulo_terminado_ver" id="anime_capitulo_terminado_ver" placeholder="Ultimo capítulo visto" min="1" />
                               </div>
+                              <br />
                               <div class="field">
                                  <textarea name="anime_sinopsis" id="anime_sinopsis" style="border: 2px solid #ccc"  cols="15" rows="5" placeholder="Escriba la sinopsis aqui"></textarea>
                               </div>
                               <br />
-                              <div class="field">
-                                 <label for="anime_actualidad" class="form-control">Actualidad del anime</label>
-                                 <select class="form-control" name="anime_actualidad" id="anime_actualidad">
-                                    <option class="text_align_center" value="Terminado">Terminado</option>
-                                    <option class="text_align_center" value="En emision">En emision</option>
-                                 </select>
+                              <div class="input-group mb-3">
+                                 <div class="input-group-prepend">
+                                    <label class="input-group-text" for="anime_actualidad">Estado del anime</label>
+                                 </div>
+                                 <select class="custom-select" id="anime_actualidad" name="anime_actualidad">
+                                    <option value="Terminado">Terminado</option>
+                                    <option value="En emision">En emision</option>
+                                </select>
                               </div>
                               <br />
-                              <div class="field">
-                                 <label>Imagen del anime</label>
-                                 <input type="file" name="foto" class="form-control">
+                              <div class="custom-file">
+                                 <input type="file" class="custom-file-input" id="inputGroupFile03" name="foto" required>
+                                 <label for="inputGroupFile03" class="custom-file-label">Imagen del anime</label>
+                              </div>
+                              <br /><br />
+                              <div class="custom-file">
+                                 <input type="file" class="custom-file-input" id="inputGroupFile04" name="banner" required>
+                                 <label for="inputGroupFile03" class="custom-file-label">Banner del anime</label>
                               </div>
                               <br />
-                              <div class="field">
-                                 <label>Banner del anime</label>
-                                 <input type="file" name="banner" class="form-control">
-                              </div>
                                  <br />
                                  <div class="container-fluid">
                                     <label>Generos</label>

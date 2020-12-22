@@ -23,13 +23,27 @@
                                  <textarea style="border: 2px solid #ccc" name="anime_sinopsis" cols="15" rows="5" placeholder="Escriba la sinopsis aqui"><?php echo $anime['anime_sinopsis'];?></textarea>
                               </div>
                               <br />
-                              <div class="field">
-                                 <label>Actualidad del anime</label>
-                                 <select name="anime_actualidad">
-                                    <option value="Terminado">Terminado</option>
-                                    <option value="En emision">En emision</option>
-                                 </select>
-                              </div>            
+
+                              <div class="input-group mb-3">
+                                 <div class="input-group-prepend">
+                                    <label class="input-group-text" for="anime_actualidad">Estado</label>
+                                 </div>
+                                 <select class="custom-select" id="anime_actualidad" name="anime_actualidad">
+                                    <?php if($anime['anime_actualidad'] == 'Terminado'):?>
+                                       <option value="Terminado" selected>Terminado</option>
+                                       <option value="En emision">En emision</option>
+                                    <?php elseif($anime['anime_actualidad'] == 'En emision'): ?>
+                                       <option value="Terminado">Terminado</option>
+                                       <option value="En emision" selected>En emision</option>
+                                    <?php else:?>
+                                       <option value="Terminado">Terminado</option>
+                                       <option value="En emision" selected>En emision</option>
+                                 <?php endif; ?>
+                                </select>
+                              </div>
+
+
+
                               <div class="field center">
                                  <button class="margin-top_30">ACTUALIZAR</button>
                               </div>

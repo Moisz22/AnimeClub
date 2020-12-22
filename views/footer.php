@@ -83,8 +83,10 @@
     });
   });
 </script>
+  <!-- datatables necesario 
+  <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script> -->
   <script src="js/autocompletado.js"></script>
-  <script src="js/autocompletado.js"></script>
+  <script src="js/funciones.js"></script>
   <script src="js/validar_login.js"></script>
   <script src="js/validar_registro.js"></script>
   </body>

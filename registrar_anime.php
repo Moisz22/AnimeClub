@@ -61,7 +61,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
 
 	if($check1 !== false){
 		$carpeta_destino = 'images/animes/';
-		$archivo_subido = $carpeta_destino . $_FILES['foto']['name'];
+		$extension = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
+		$nombre_imagen = $nombre. '-imagen.'. $extension;
+		$nombre_imagen = limpiar_nombre_imagenes($nombre_imagen);
+		$archivo_subido = $carpeta_destino . $nombre_imagen;
 		move_uploaded_file($_FILES['foto']['tmp_name'], $archivo_subido);
 	}else{
 		$errores .= '<li>El archivo para su foto no es una imagen o es muy pesado</li>';
@@ -69,7 +72,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
 
 	if($check2 !== false){
 		$carpeta_destino = 'images/banner/';
-		$archivo_subido = $carpeta_destino . $_FILES['banner']['name'];
+		$extension = pathinfo($_FILES['banner']['name'], PATHINFO_EXTENSION);
+		$nombre_banner = $nombre. '-banner.'.$extension;
+		$nombre_banner = limpiar_nombre_imagenes($nombre_banner);
+		$archivo_subido = $carpeta_destino . $nombre_banner;
 		move_uploaded_file($_FILES['banner']['tmp_name'], $archivo_subido);
 	}else{
 		$errores .= '<li>El archivo para su banner no es una imagen o es muy pesado</li>';
@@ -85,8 +91,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
 				'anime_capitulo_terminado_ver' => $capitulo_terminado,
 				'anime_sinopsis' => $sinopsis,
 				'anime_actualidad' => $actualidad,
-				'anime_imagen' => $_FILES['foto']['name'],
-				'anime_banner' => $_FILES['banner']['name'],
+				'anime_imagen' => $nombre_imagen,
+				'anime_banner' => $nombre_banner,
 				'anime_estado_vista' => $anime_estado_vista
 			)
 		);

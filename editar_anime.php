@@ -78,8 +78,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 			':id' => $id
 
 			)
-	); 
-		header('Location: single_anime.php?id='.$id .'&estado=actualizado');
+	);  
+		$_SESSION['estado'] = 'actualizado';
+		header('Location: single_anime.php?id='.$id);
 	}
 }
 

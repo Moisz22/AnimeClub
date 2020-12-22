@@ -13,6 +13,20 @@ function conexion($bd_config){
 	
 }
 
+//reemplaza los caracteres especiales en los nombres de las imagenes que se van a subir por espacios en blanco
+function limpiar_nombre_imagenes($imagen){
+
+	$imagen = str_replace(':', ' ',$imagen);
+	$imagen = str_replace('/', ' ',$imagen);
+	$imagen = str_replace('*',' ',$imagen);
+	$imagen = str_replace('?',' ',$imagen);
+	$imagen = str_replace('"',' ',$imagen);
+	$imagen = str_replace('<',' ',$imagen);
+	$imagen = str_replace('>',' ',$imagen);
+	$imagen = str_replace('|',' ',$imagen);
+	return $imagen;
+}
+
 function limpiarDatos($dato){
 
 	$dato = trim($dato);
