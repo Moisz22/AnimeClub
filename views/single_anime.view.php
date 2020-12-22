@@ -11,7 +11,7 @@
 
 
 		<?php
-			$estado = (isset($_GET['estado'])) ? ($_GET['estado']) : false ;
+			$estado = (isset($_SESSION['estado'])) ? ($_SESSION['estado']) : false ;
 			$estado = limpiarDatos($estado);
 			if($estado == 'registrado' && isset($_SESSION['usuario'])){
 				//modal('Anime guardado exitosamente');
@@ -63,7 +63,7 @@
 		// Funcion que se ejecuta al pulsar el boton Enviar de cuadro de dialogo
 		function enviar(e) {
 			// Escondemos la capa
-			document.getElementById("capa").style.display="none";
+			//document.getElementById("capa").style.display="none";
 			// Enviamos el formulario
 			document.forms["borrar_anime"].submit();
 		}
@@ -71,7 +71,7 @@
 		// Funcion que se ejecuta al pulsar el boton Cancelar de cuadro de dialogo
 		function cancelar(e) {
 			// Simplemente escondemos el cuadro de dialogo
-			document.getElementById("capa").style.display="none";
+			//document.getElementById("capa").style.display="none";
 			alertify.error('Se cancelo');
 		}
 	</script>
@@ -85,10 +85,14 @@
 	</div>
 
 	<?php
-		$estado = (isset($_GET['estado'])) ? ($_GET['estado']) : false ;
+		$estado = (isset($_SESSION['estado'])) ? ($_SESSION['estado']) : false ;
 		$estado = limpiarDatos($estado);
 		if($estado == 'actualizado'){
 			modal('Anime actualizado exitosamente');
+		}
+
+		if(isset($_SESSION['estado'])){
+			unset($_SESSION['estado']);
 		}
 	?>
 
@@ -127,7 +131,7 @@
 					<?php endforeach; ?>
 				<?php endif;?>
 			</nav>
-			<p style="display:block; margin:auto; text-align: left;"><?php echo $anime['anime_sinopsis']; ?></p>
+			<p style="display:block; margin:auto; text-align: left;"><?php echo nl2br($anime['anime_sinopsis']); ?></p>
 		</div>
 	</div>
 </div>
