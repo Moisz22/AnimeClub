@@ -2997,6 +2997,7 @@ footer.footer-box .heading_main h2 {
 .animes_lista{
 	height: 150px; 
 	width: 101px;
+	border-radius: 10px;
 }
 
 
@@ -3098,15 +3099,21 @@ footer.footer-box .heading_main h2 {
     vertical-align: top;
 }
 
+#generos_estilo:hover{
+	color: white;
+	background-color: #0A4DF6;
+}
+/*
+	centrar imagen en una columna
+*/
+
 .centrar_imagen{
 	display: block;
 	margin: auto;
 }
 
 /*
-
 	Poner un icono dentro del input
-
 */
 .inner-addon {
   position: relative;

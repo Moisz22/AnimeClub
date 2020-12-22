@@ -14,9 +14,6 @@
       <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
       <!-- Site Metas -->
       <title>Anime Club</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
       <!-- Site Icons -->
       <link rel="shortcut icon" href="#" type="image/x-icon" />
       <link rel="apple-touch-icon" href="#" />
@@ -42,7 +39,8 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
       <!-- script para alertify -->
       <script src="librerias/alertifyjs/alertify.js"></script>
-      <!-- Usando Modal con id = mostrarmodal como POP UP -->
+      <!-- datatables 
+      <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css"> -->
    </head>
    <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
       <!-- LOADER -->
@@ -64,7 +62,7 @@
                   <li><a href="registrar_anime">Ingresar Anime</a></li>
                   <li><a href="about">Generos</a></li>
                   <li><a href="reseña">Reseñas</a></li>
-                  <li><a href="contact">Borrados</a></li>
+                  <li><a href="animes_eliminados">Borrados</a></li>
                <?php else: ?>
                   <li><a href="login">Login <i class="fa fa-sign-in"></i></a></li>
                   <li><a href="lista_animes">Animes</a></li>

@@ -2,6 +2,7 @@ $(document).ready(function() {
   $('#b').on('keyup', function() {
     var key = $(this).val();    
     var dataString = 'b='+key;
+    
     $.ajax({
       type: "POST",
       url: "autocompletado.php",

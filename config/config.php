@@ -3,7 +3,7 @@
 //configuracion de la base de datos
 
 $bd_config = array(
-	'servidor'    =>  'localhost',
+	'servidor'    => 'localhost',
 	'servidor_db' => 'mysql',
 	'basedatos'   => 'series_vistas',
 	'usuario'     => 'root',
