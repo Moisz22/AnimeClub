@@ -45,7 +45,7 @@
 			}
 		?>	
 
-  			<!-- Modal -->
+  			<!-- Modal de configuraciones en lista y paginación -->
 	  		<div class="modal" id="modal_config_paginacion" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
 	    		<div class="modal-dialog modal-dialog-centered">
 	      			<!-- Modal content-->
@@ -62,7 +62,7 @@
 				        			</div>
 
 				        			<div class="col-md-6 col-6">
-				        				<input value="<?php echo $linea1;?>" type="text" class="form-control input-sm" id="animes_por_pagina" name="animes_por_pagina">
+				        				<input value="<?php echo $linea1;?>" type="number" class="form-control input-sm" id="animes_por_pagina" name="animes_por_pagina">
 				        			</div>
 				        		</div>
 				        		<br />
@@ -71,7 +71,7 @@
 				        				<label><b>Animes por columna movil</b></label>
 				        			</div>
 				        			<div class="col-md-6 col-6">
-				        				<input value="<?php echo $linea2;?>" type="text" class="form-control input-sm" id="animes_por_columna_movil" name="animes_por_columna_movil">
+				        				<input type="number" value="<?php echo $linea2;?>" class="form-control input-sm" id="animes_por_columna_movil" name="animes_por_columna_movil">
 				        			</div>
 				        		</div>
 				        		<br />
@@ -80,19 +80,17 @@
 				        				<label><b>Animes por columna pc</b></label>
 				        			</div>
 				        			<div class="col-sm-6 col-6">
-				        				<input value="<?php echo $linea3;?>" type="text" class="form-control input-sm" id="animes_por_columna_pc" name="animes_por_columna_pc">
+				        				<input type="number" value="<?php echo $linea3;?>" class="form-control input-sm" id="animes_por_columna_pc" name="animes_por_columna_pc">
 				        			</div>
 				        		</div>
 		        			</div>
 	        			</div>
-	        		
 	        			<div class="modal-footer">
 	        				<button type="button" id="enviar_config" class="btn btn-success">Aplicar</button>
 	          				<button type="button" class="btn btn-info" data-dismiss="modal">Cerrar</button>
 	        			</div>
 	        		</div>
 	      		</div>
-	      
 	    	</div>
 
 
@@ -103,14 +101,16 @@
 		</div>
 		<br />
 		<div class="row">
+			<!-- aqui se muestran todos los animes -->
 			<?php if($animes): ?>
 				<?php foreach($animes as $anime): ?>
 					<div class="col-<?php echo (12/$linea2);?> col-sm-<?php echo (12/$linea3);?>">
-						<div class="todos_animes">
-						<a href="single_anime?id=<?php echo $anime['anime_id'];?>">
-							<img class="centrar_imagen animes_lista" src="images/animes/<?php echo $anime['anime_imagen'];?>">
-							<p class="text_align_center"><?php echo $anime['anime_nombre'];?></p>
-						</a>
+						<div class="todos_animes">	
+							<a href="single_anime?id=<?php echo $anime['anime_id'];?>">
+								<!--<span style="position: absolute; z-index: 500;" class="generos_estilo_lista">anime</span> -->
+								<img class="centrar_imagen animes_lista" src="images/animes/<?php echo $anime['anime_imagen'];?>">
+								<p class="text_align_center"><?php echo $anime['anime_nombre'];?></p>
+							</a>
 						</div>
 					</div>
 				<?php endforeach; ?>

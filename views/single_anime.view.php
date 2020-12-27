@@ -54,28 +54,21 @@
 			e.preventDefault();
  
 		// Mostramos la capa con el formulario de validacion
-			//document.getElementById("capa").style.display="block";
 			alertify.confirm('Confirmar eliminación', 'Estas seguro de eliminar el anime', function(){ document.forms["borrar_anime"].submit(); }
                 , function(){ alertify.error('Cancelado')});
 			
 		}
- 
 		// Funcion que se ejecuta al pulsar el boton Enviar de cuadro de dialogo
 		function enviar(e) {
-			// Escondemos la capa
-			//document.getElementById("capa").style.display="none";
 			// Enviamos el formulario
 			document.forms["borrar_anime"].submit();
 		}
- 
 		// Funcion que se ejecuta al pulsar el boton Cancelar de cuadro de dialogo
 		function cancelar(e) {
 			// Simplemente escondemos el cuadro de dialogo
-			//document.getElementById("capa").style.display="none";
 			alertify.error('Se cancelo');
 		}
 	</script>
-
 
 
 	<div class="row">
@@ -83,20 +76,15 @@
 			<h1 class="text_align_center"><b><?php echo $anime['anime_nombre'];?></b></h1>
 		</div>
 	</div>
-
 	<?php
-		$estado = (isset($_SESSION['estado'])) ? ($_SESSION['estado']) : false ;
-		$estado = limpiarDatos($estado);
-		if($estado == 'actualizado'){
-			modal('Anime actualizado exitosamente');
-		}
-
 		if(isset($_SESSION['estado'])){
 			unset($_SESSION['estado']);
 		}
 	?>
 
 	<br />
+
+
 	<div class="row">
 		<div class="col-sm-3 col-12">
 			<?php if(isset($anime['anime_imagen'])):?>
@@ -120,42 +108,49 @@
 			</div>
 		</div>
 		<div class="col-sm-1"></div>
-		<div style="background: #EAF9F8;" class="col-sm-8 col-12">
+		<div style="background: #EAF9F8; border-radius: 10px" class="col-sm-8 col-12">
 			<p></p>
-			<h3 class="text-align_center">Sinopsis</h3>
+			<h3 class="text_align_center">Sinopsis</h3>
 			<p></p>
 			<nav>
 				<?php if($generos == true): ?>
 					<?php foreach($generos as $genero): ?>
-						<a id="generos_estilo" href="lista_animes?g=<?php echo $genero['genero']; ?>"><?php echo $genero['genero']; ?></a>
+						<a class="generos_estilo" href="lista_animes?g=<?php echo $genero['genero']; ?>"><?php echo $genero['genero']; ?></a>
 					<?php endforeach; ?>
 				<?php endif;?>
 			</nav>
-			<p style="display:block; margin:auto; text-align: left;"><?php echo nl2br($anime['anime_sinopsis']); ?></p>
+			<p class="centrar_imagen text_align_left"><?php echo($anime['anime_sinopsis']); ?></p>
 		</div>
 	</div>
 </div>
 <br />
 <br />
-<div style="background: #EAF9F8" class="container">
+<div class="container" style="background: #EAF9F8; border-radius: 10px;" id="resenia_container">
 	<br />
 	<div class="row">
+	<?php if(isset($_SESSION['usuario'])): ?>
+		<?php if(!isset($reseña['resenia_valoracion'])): ?>
+			<button onclick="añadir_reseña()" style="margin-left: 10px;" class="btn btn-success fa fa-comments-o"></button>
+		<?php else: ?>
+			<button style="margin-left: 10px;" class="btn btn-danger fa fa-trash"></button>
+		<?php endif; ?>
+	<?php endif; ?>
 		<div class="col-12">
-			<h2 style="text-align: center;">Reseña</h2>
+			<h2 class="text_align_center">Reseña</h2>
 		</div>
 	</div>
 	<br />
 	<div class="row">
 		<div class="col-4">
-		<?php if(isset($reseña['reseña_valoracion'])): ?>
-			<?php for($i=1; $i<=$reseña['reseña_valoracion']; $i++):?>
+		<?php if(isset($reseña['resenia_valoracion'])): ?>
+			<?php for($i=1; $i<=$reseña['resenia_valoracion']; $i++):?>
 				<i class="fa fa-star" style="color: #E4D134;"></i>
 			<?php endfor;?>
 		<?php endif;?>
 		</div>
 		<div class="col-5">
-			<?php if(isset($reseña['reseña_titulo'])): ?>
-				<p><?php echo $reseña['reseña_titulo'];?></p>
+			<?php if(isset($reseña['resenia_titulo'])): ?>
+				<p><?php echo $reseña['resenia_titulo'];?></p>
 			<?php endif;?>
 		</div>
 		<div class="col-3">
@@ -163,14 +158,69 @@
 	</div>
 	<div class="row">
 		<div class="col-12">
-			<?php if(isset($reseña['reseña_comentarios'])): ?>
-				<p><?php echo $reseña['reseña_comentarios'];?></p>
+			<?php if(isset($reseña['resenia_comentarios'])): ?>
+				<p><?php echo $reseña['resenia_comentarios'];?></p>
 			<?php endif; ?>
 		</div>
 	</div>
 	<br />
 </div>
 <br />
+
+<input type="hidden" id="anime_id" value="<?php echo $anime['anime_id'];?>">
+
+<script type="text/javascript">
+	
+	function añadir_reseña(){
+		Swal.mixin({
+			input: 'text',
+			confirmButtonText: 'Siguiente &rarr;',
+			showCancelButton: true,
+			progressSteps: ['1', '2', '3']
+		}).queue([
+  			{
+			    title: 'titulo',
+			    text: 'Agrega el titulo de tu reseña',
+			    input: 'text'
+  			},
+  			{
+			    title: 'Reseña',
+			    text: 'Comenta aquí tu reseña',
+			    input: 'textarea'
+  			},
+  			{
+			    title: 'Valoración',
+			    text: 'Agrega tu valoracion del 1 al 5',
+			    input: 'range',
+			    inputAttributes: {
+				    min: 1,
+				    max: 5,
+				    step: 1
+				}
+  			}
+		]).then((result) => {
+  			if (result.value) {
+			    const answers = JSON.stringify(result.value)
+			    console.log(result.value[0]);
+
+			    $.post({
+					url:'agregar_reseña.php',
+					data: "titulo="+result.value[0]+
+					"&reseña="+result.value[1]+
+					"&valoracion="+result.value[2]+
+					"&anime_id="+$('#anime_id').val(),
+					success: function(r){
+						console.log(r);
+					}    	
+			    });
+			    location.href="single_anime?id="+$('#anime_id').val()
+			    alertify.success('Reseña agregada con exito');
+  			}
+		})
+	}
+
+</script>
+
 <?php require 'footer.php'; ?>
 			
 

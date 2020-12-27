@@ -20,15 +20,15 @@ if(!$conexion){
 
 if(file_exists('config/paginacion_config.txt')){
 	$archivo = fopen('config/paginacion_config.txt', 'r');
-	$linea1 = fgets($archivo);
-	$linea2 = fgets($archivo);
-	$linea3 = fgets($archivo);
+	$linea1 = (int)str_replace('animes por pagina=','',fgets($archivo));
+	$linea2 = (int)str_replace('animes por columna en moviles=','',fgets($archivo));
+	$linea3 = (int)str_replace('animes por columna en pc=','',fgets($archivo));
 }else{
 	$archivo = fopen('config/paginacion_config.txt', 'w+b');
-	fputs($archivo, "24\n3\n6\n\nEl primer valor indica la cantidad de animes por página, el segundo valor indica la cantidad de animes por fila en moviles y el tercero indica la cantidad de animes por fila en pc");
+	fputs($archivo, "animes por pagina=24\nanimes por columna en moviles=3\nanimes por columna en pc=6");
 	$linea1 = 24;
-	$linea2 = 3;
-	$linea3 = 6;
+	$linea1 = 3;
+	$linea1 = 6;
 }
 fclose($archivo);
 
