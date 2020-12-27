@@ -29,6 +29,15 @@ $anime = traer_anime_por_id($conexion, $id);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
+	//verifica que no esté vacío el campo de foto para el anime y así evitar el error de getimagesize que no puede estar vacío
+	if((!empty($_FILES['foto']['tmp_name']) && $_FILES['foto']['tmp_name'] !== null)){
+		$check1 = @getimagesize($_FILES['foto']['tmp_name']);
+	}
+
+	if((!empty($_FILES['banner']['tmp_name']) && $_FILES['banner']['tmp_name'] !== null)){
+		$check2 = @getimagesize($_FILES['banner']['tmp_name']);
+	}
+
 	$nombre = limpiarDatos($_POST['anime_nombre']);
 	$nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
 
@@ -43,6 +52,31 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 	$actualidad = limpiarDatos($_POST['anime_actualidad']);
 	$actualidad = filter_var($actualidad, FILTER_SANITIZE_STRING);
+
+	if(isset($check1) && $check1 !== false){
+		unlink('images/animes/'. $anime['anime_imagen']);
+		$carpeta_destino = 'images/animes/';
+		$extension = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
+		$nombre_imagen = $nombre. '-imagen.'. $extension;
+		$nombre_imagen = limpiar_nombre_imagenes($nombre_imagen);
+		$archivo_subido = $carpeta_destino . $nombre_imagen;
+		move_uploaded_file($_FILES['foto']['tmp_name'], $archivo_subido);
+	}else{
+		$nombre_imagen = $_POST['imagen_base'];
+	}
+
+	if(isset($check2) && $check2 !== false){
+		unlink('images/banner/'. $anime['anime_banner']);
+		$carpeta_destino = 'images/banner/';
+		$extension = pathinfo($_FILES['banner']['name'], PATHINFO_EXTENSION);
+		$nombre_banner = $nombre. '-banner.'.$extension;
+		$nombre_banner = limpiar_nombre_imagenes($nombre_banner);
+		$archivo_subido = $carpeta_destino . $nombre_banner;
+		move_uploaded_file($_FILES['banner']['tmp_name'], $archivo_subido);
+	}else{
+		$nombre_banner = $_POST['banner_base'];
+	}
+
 
 	if($capitulo_terminado > $total_capitulos){
 		$errores .= '<li>El capitulo que terminaste de ver no puede ser mayor al total de capítulos</li>';
@@ -64,7 +98,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 	if(!$errores && $errores == ''){
-		$statement = $conexion->prepare('UPDATE anime SET anime_nombre = :anime_nombre, anime_cantidad_capitulos = :anime_cantidad_capitulos, anime_capitulo_terminado_ver = :anime_capitulo_terminado_ver, anime_sinopsis = :anime_sinopsis, anime_actualidad = :anime_actualidad,
+		$statement = $conexion->prepare('UPDATE anime SET anime_nombre = :anime_nombre, anime_cantidad_capitulos = :anime_cantidad_capitulos, anime_capitulo_terminado_ver = :anime_capitulo_terminado_ver, anime_sinopsis = :anime_sinopsis, anime_actualidad = :anime_actualidad, anime_imagen = :anime_imagen, anime_banner = :anime_banner,
 			anime_estado_vista = :anime_estado_vista WHERE anime_id=:id');
 		$statement = $statement->execute(
 			array(
@@ -75,12 +109,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 			':anime_sinopsis' => $sinopsis,
 			':anime_actualidad' => $actualidad,
 			':anime_estado_vista' => $anime_estado_vista,
+			':anime_imagen' => $nombre_imagen,
+			':anime_banner' => $nombre_banner,
 			':id' => $id
 
 			)
 	);  
 		$_SESSION['estado'] = 'actualizado';
-		header('Location: single_anime.php?id='.$id);
+		header('Location: single_anime?id='.$id);
 	}
 }
 

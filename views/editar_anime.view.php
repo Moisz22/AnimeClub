@@ -7,8 +7,10 @@
                <div class="row">
                   <div class="col-sm-12 col-md-10 offset-lg-1">
                      <div class="full contact_form">
-                        <form onsubmit="return validaregistro()" method="POST" class="contact_form_inner" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+                        <form onsubmit="return validaregistro()" method="POST" class="contact_form_inner" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" enctype="multipart/form-data">
                            <input type="hidden" name="id" value="<?php echo $anime['anime_id'];?>">
+                           <input type="hidden" name="imagen_base" value="<?php echo $anime['anime_imagen'];?>">
+                           <input type="hidden" name="banner_base" value="<?php echo $anime['anime_banner'];?>">
                            <fieldset>
                               <div class="field">
                                  <input type="text" name="anime_nombre" value="<?php echo isset($anime['anime_nombre']) ? $anime['anime_nombre'] : '';?>" placeholder="Nombre del anime" required />
@@ -42,7 +44,18 @@
                                 </select>
                               </div>
 
-
+                              <br />
+                              <div class="custom-file">
+                                 <input type="file" class="custom-file-input" id="inputGroupFile03" name="foto">
+                                 <label for="inputGroupFile03" class="custom-file-label">Imagen del anime</label>
+                              </div>
+                              <br /><br />
+                              <div class="custom-file">
+                                 <input type="file" class="custom-file-input" id="inputGroupFile04" name="banner">
+                                 <label for="inputGroupFile03" class="custom-file-label">Banner del anime</label>
+                              </div>
+                              <br />
+                                 <br />
 
                               <div class="field center">
                                  <button class="margin-top_30">ACTUALIZAR</button>

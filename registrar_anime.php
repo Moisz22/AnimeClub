@@ -23,8 +23,17 @@ $generos = traer_todos_los_generos($conexion);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
 
-	$check1 = @getimagesize($_FILES['foto']['tmp_name']);
-	$check2 = @getimagesize($_FILES['banner']['tmp_name']);
+	if((!empty($_FILES['foto']['tmp_name']) && $_FILES['foto']['tmp_name'] !== null)){
+		$check1 = @getimagesize($_FILES['foto']['tmp_name']);
+	}else{
+		$check1 = false;
+	}
+
+	if((!empty($_FILES['banner']['tmp_name']) && $_FILES['banner']['tmp_name'] !== null)){
+		$check2 = @getimagesize($_FILES['banner']['tmp_name']);
+	}else{
+		$check2 = false;
+	}
 
 	$nombre = limpiarDatos($_POST['anime_nombre']);
 	$nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
