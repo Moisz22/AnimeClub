@@ -6,7 +6,7 @@ require 'functions.php';
 $conexion = conexion($bd_config);
 
 if(!$conexion){
-	header('Location:error.php');
+	echo 'error al verificar :(';
 }
 
 	$usuario = $_POST['usuario'];
@@ -21,10 +21,10 @@ if(!$conexion){
 	$resultado = $statement->fetchAll();
 
 	if($resultado){
-		
 		$_SESSION['usuario'] = $resultado['username'];
+		echo 'sesion iniciada';
 	}elseif(!$resultado){
-		echo 'alertify.error("Usuario o contraseña incorrectos");';
+		echo 'usuario o contraseña incorrectos';
 	}
 
 ?>

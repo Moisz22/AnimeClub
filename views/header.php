@@ -34,17 +34,17 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
-       <!--librerias necesarias para usar el Modal -->
+      <!--librerias necesarias para usar el Modal -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
       <!-- script para alertify -->
       <script src="librerias/alertifyjs/alertify.js"></script>
-      <!-- datatables 
-      <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css"> -->
+
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
    </head>
    <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
       <!-- LOADER -->
-      <?php if(!isset($_GET['estado'])):?>
+      <?php if(!isset($_SESSION['estado'])):?>
          <div id="preloader">
             <div class="loader">
                <img src="images/loader.gif" alt="#" />
@@ -62,7 +62,7 @@
                   <li><a href="registrar_anime">Ingresar Anime</a></li>
                   <li><a href="about">Generos</a></li>
                   <li><a href="reseña">Reseñas</a></li>
-                  <li><a href="animes_eliminados">Borrados</a></li>
+                  <li><a href="borrados">Borrados</a></li>
                <?php else: ?>
                   <li><a href="login">Login <i class="fa fa-sign-in"></i></a></li>
                   <li><a href="lista_animes">Animes</a></li>
@@ -90,6 +90,5 @@
                </div>
             </div>
          </header>
-
          <br/>
          <!-- End header -->

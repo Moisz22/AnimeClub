@@ -18,9 +18,9 @@ define('RUTA', 'http://'.$bd_config['servidor'].'/animeclub/');
 
 /*
 	configuracion de la paginacion al visualizar la lista de animes
-	recomendable usar solo multplos de 12 en esta seccion
-	el numero de animes por pagina no puede ser menor que el index de 'animes_por_columna_moviles'
-	el numero de animes por pagina no puede ser menor que el index de 'animes_por_columna_pc'
+	* recomendable usar solo multplos de 12 en esta seccion
+	* el numero de animes por pagina no puede ser menor que el index de 'animes_por_columna_moviles'
+	* el numero de animes por pagina no puede ser menor que el index de 'animes_por_columna_pc'
 
 */
 $paginacion_config = array(

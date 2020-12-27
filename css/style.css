@@ -3085,7 +3085,7 @@ footer.footer-box .heading_main h2 {
 }
 
 
-#generos_estilo{
+.generos_estilo{
     background-color: rgba(1,188,242,.1);
     color: #01bcf2;
     margin-right: 10px;
@@ -3099,10 +3099,31 @@ footer.footer-box .heading_main h2 {
     vertical-align: top;
 }
 
-#generos_estilo:hover{
+
+.generos_estilo:hover{
 	color: white;
 	background-color: #0A4DF6;
 }
+
+
+/* agregar tipo de anime en la lista_animes
+.generos_estilo_lista{
+    background-color: #84D1E2;
+    color: #F8FAFA;
+    margin-left: 50px;
+    margin-top: 122px;
+    padding: 0 15px;
+    line-height: 25px;
+    font-size: 10px;
+    font-weight: 700px;
+    border-radius: 20px;
+
+}
+
+*/
+
+
+
 /*
 	centrar imagen en una columna
 */

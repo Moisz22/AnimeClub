@@ -16,7 +16,7 @@
                                  <input type="password" name="password" id="password" placeholder="Contraseña"/>
                               </div>
                               <div class="field center">
-                                 <button type="submit" class="margin-top_30">INICIAR SESIÓN</button>
+                                 <button type="submit" id="enviar_formulario_login" class="margin-top_30">INICIAR SESIÓN</button>
                               </div>
                            </fieldset>
                         </form>
