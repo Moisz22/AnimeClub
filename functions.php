@@ -57,6 +57,20 @@ function traer_todos_los_animes($conexion, $animes_por_pagina, $b = NULL){
 	return $statement->fetchAll();
 }
 
+//traer los animes que están eliminados logicamente
+function animes_eliminados($conexion){
+	$statement = $conexion->prepare("SELECT * FROM anime WHERE anime_estado = 0");
+		$statement->execute();
+	return $statement->fetchAll();
+}
+
+//traer todas las reseñas que están eliminadas logicamente
+function reseñas_eliminadas($conexion){
+	$statement = $conexion->prepare("SELECT * FROM reseña WHERE reseña_estado = 0");
+		$statement->execute();
+	return $statement->fetchAll();
+}
+
 //funcion de prueba para traer todos los datos de un anime en algunas tablas(anime y reseña)
 function traer_anime_por_id($conexion, $id){
 	$statement = $conexion->prepare('SELECT * FROM anime WHERE anime_id=:id && anime_estado = 1');
@@ -67,8 +81,18 @@ function traer_anime_por_id($conexion, $id){
 	return $statement->fetch();
 }
 
+//trae informacion de un anime con estado 0
+function traer_anime_eliminado_por_id($conexion, $id){
+	$statement = $conexion->prepare('SELECT * FROM anime WHERE anime_id=:id && anime_estado = 0');
+	$statement->execute(array(
+		':id' => $id
+	)
+	);
+	return $statement->fetch();
+}
+
 function traer_reseña_por_id($conexion, $id){
-	$statement = $conexion->query("SELECT * FROM anime as a, reseña as r where a.anime_id=$id && a.anime_id = r.anime_id LIMIT 1");
+	$statement = $conexion->query("SELECT * FROM anime as a, resenia as r where a.anime_id=$id && a.anime_id = r.anime_id LIMIT 1");
 	return $statement->fetch();
 }
 

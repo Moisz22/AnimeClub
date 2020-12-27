@@ -59,6 +59,7 @@
     </div>
   </div>
 </div>
+</div>
 <a href="#" id="scroll-to-top" class="hvr-radial-out"><i class="fa fa-angle-up"></i></a>
 <!-- ALL JS FILES -->
 <script src="js/jquery.min.js"></script>
@@ -82,9 +83,23 @@
       $('a[aria-expanded=true]').attr('aria-expanded', 'false');
     });
   });
+
+  $(document).ready(function(){
+    //si el select cambia de estado se activa la función
+     $('#tablas_traer').on('change', function (){
+      if($('#tablas_traer').val() == 1){
+         $('#tabla_dibujar').load('tabla_animes_eliminados.php');
+      }else if($('#tablas_traer').val() == 2){
+        $('#tabla_dibujar').load('tabla_reseñas_eliminadas.php');
+      } else{
+        //limpiar comtemodp del html con ese id
+        document.getElementById("tabla_dibujar").innerHTML="";
+      }
+  });
+});
+
 </script>
-  <!-- datatables necesario 
-  <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script> -->
+  <script src="sweetalert2.all.min.js"></script>
   <script src="js/autocompletado.js"></script>
   <script src="js/funciones.js"></script>
   <script src="js/validar_login.js"></script>
