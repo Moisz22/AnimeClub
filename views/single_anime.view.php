@@ -8,20 +8,31 @@
 		<?php endif;?>			
 	</div>
 </div>
-
-
 		<?php
 			$estado = (isset($_SESSION['estado'])) ? ($_SESSION['estado']) : false ;
 			$estado = limpiarDatos($estado);
-			if($estado == 'registrado' && isset($_SESSION['usuario'])){
-				//modal('Anime guardado exitosamente');
-				echo '<script>alertify.success("Anime agregado :3")</script>';
-			}elseif($estado == 'actualizado' && isset($_SESSION['usuario']) ){
-				//modal('Anime actualizado exitosamente');
-				echo '<script>alertify.success("Anime actualizado :3")</script>';
-			}elseif($estado == 'eliminado' && isset($_SESSION['usuario'])){
-				//modal('Anime eliminado exitosamente');
-				echo '<script>alertify.success("Anime eliminado :3")</script>';
+			
+			if(isset($_SESSION['usuario'])){
+
+				if($estado == 'registrado'){
+					echo '<script>Swal.fire(
+	              		"Buen trabajo",
+	              		"Anime agregado con éxito!",
+	              		"success"
+	            	)</script>';
+				}elseif($estado == 'actualizado'){
+					echo '<script>Swal.fire(
+	              		"Buen trabajo",
+	              		"Anime actualizado con éxito!",
+	              		"success"
+	            	)</script>';	
+				}elseif($estado == 'eliminado'){	
+					echo '<script>Swal.fire(
+	              		"Buen trabajo",
+	              		"Anime eliminado con éxito!",
+	              		"success"
+	            	)</script>';
+				}
 			}
 		?>
 
@@ -41,35 +52,7 @@
 			</div>
 		</div>
 	<?php endif; ?>
-	<br />     
-	<script>
-	// devinimos los tres eventos del formulario
-		document.getElementById("borrar_anime").addEventListener("submit", submit);
-		document.getElementById("ok").addEventListener("click", enviar);
-		document.getElementById("ko").addEventListener("click", cancelar);
- 
-		// Funcion que se ejecuta al pulsar el botón enviar el formulario
-		function submit(e) {
-		// Cancelams el envio a la espera de que valide el formulario
-			e.preventDefault();
- 
-		// Mostramos la capa con el formulario de validacion
-			alertify.confirm('Confirmar eliminación', 'Estas seguro de eliminar el anime', function(){ document.forms["borrar_anime"].submit(); }
-                , function(){ alertify.error('Cancelado')});
-			
-		}
-		// Funcion que se ejecuta al pulsar el boton Enviar de cuadro de dialogo
-		function enviar(e) {
-			// Enviamos el formulario
-			document.forms["borrar_anime"].submit();
-		}
-		// Funcion que se ejecuta al pulsar el boton Cancelar de cuadro de dialogo
-		function cancelar(e) {
-			// Simplemente escondemos el cuadro de dialogo
-			alertify.error('Se cancelo');
-		}
-	</script>
-
+	<br />
 
 	<div class="row">
 		<div class="col-12">
@@ -84,7 +67,6 @@
 
 	<br />
 
-
 	<div class="row">
 		<div class="col-sm-3 col-12">
 			<?php if(isset($anime['anime_imagen'])):?>
@@ -97,7 +79,7 @@
 			<div class="row">
 				<div class="col-6">
 					<p class="capitulos_vistos"><i class="fa fa-eye"></i>
-						<?php echo $anime['anime_estado_vista']; ?>
+						<?php echo $anime['anime_capitulo_terminado_ver']; ?>
 					</p>
 				</div>
 				<div class="col-6">
@@ -132,7 +114,7 @@
 		<?php if(!isset($reseña['resenia_valoracion'])): ?>
 			<button onclick="añadir_reseña()" style="margin-left: 10px;" class="btn btn-success fa fa-comments-o"></button>
 		<?php else: ?>
-			<button style="margin-left: 10px;" class="btn btn-danger fa fa-trash"></button>
+			<button style="margin-left: 10px;" class="btn btn-danger fa fa-trash" onclick="confirmar_eliminacion_logica_reseña('<?php echo $reseña["resenia_id"];?>')"></button>
 		<?php endif; ?>
 	<?php endif; ?>
 		<div class="col-12">
@@ -201,8 +183,6 @@
 		]).then((result) => {
   			if (result.value) {
 			    const answers = JSON.stringify(result.value)
-			    console.log(result.value[0]);
-
 			    $.post({
 					url:'agregar_reseña.php',
 					data: "titulo="+result.value[0]+
@@ -210,14 +190,69 @@
 					"&valoracion="+result.value[2]+
 					"&anime_id="+$('#anime_id').val(),
 					success: function(r){
-						console.log(r);
 					}    	
 			    });
 			    location.href="single_anime?id="+$('#anime_id').val()
-			    alertify.success('Reseña agregada con exito');
   			}
 		})
 	}
+
+	function confirmar_eliminacion_logica_reseña(reseña_id){
+		alertify.confirm('Confirmar eliminación',"¿Desea eliminar la reseña?", function(){
+    	
+	  		$.post({
+	  			url: 'eliminar_reseña.php',
+	  			data: "reseña_id=" + reseña_id,
+	  			success: function(r){
+	          if(r==1){
+	            location.href="single_anime?id="+$('#anime_id').val()
+	          }else{
+
+	            Swal.fire({
+	              icon: 'error',
+	              title: 'Oops...',
+	              text: 'Hemos tenido un problema al eliminar el anime!'
+	              //footer: '<a href>Why do I have this issue?</a>'
+	            })
+
+	          }
+	  			}
+
+	  		})
+
+  		},
+  		function(){
+    		alertify.error('Cancelado');
+  		});
+
+	}
+
+
+	// devinimos los tres eventos del formulario
+	document.getElementById("borrar_anime").addEventListener("submit", submit);
+	document.getElementById("ok").addEventListener("click", enviar);
+	document.getElementById("ko").addEventListener("click", cancelar);
+ 
+	// Funcion que se ejecuta al pulsar el botón enviar el formulario
+	function submit(e) {
+	// Cancelams el envio a la espera de que valide el formulario
+		e.preventDefault();
+ 
+	// Mostramos la capa con el formulario de validacion
+		alertify.confirm('Confirmar eliminación', 'Estas seguro de eliminar el anime', function(){ document.forms["borrar_anime"].submit(); }
+                ,function(){ alertify.error('Cancelado')});
+			
+		}
+		// Funcion que se ejecuta al pulsar el boton Enviar de cuadro de dialogo
+		function enviar(e) {
+			// Enviamos el formulario
+			document.forms["borrar_anime"].submit();
+		}
+		// Funcion que se ejecuta al pulsar el boton Cancelar de cuadro de dialogo
+		function cancelar(e) {
+			// Simplemente escondemos el cuadro de dialogo
+			alertify.error('Se cancelo');
+		}
 
 </script>
 

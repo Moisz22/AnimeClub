@@ -19,9 +19,9 @@ if(!$conexion){
 
 $generos = traer_todos_los_generos($conexion);
 
-
-
 if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
+
+
 
 	if((!empty($_FILES['foto']['tmp_name']) && $_FILES['foto']['tmp_name'] !== null)){
 		$check1 = @getimagesize($_FILES['foto']['tmp_name']);
@@ -105,9 +105,39 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
 				'anime_estado_vista' => $anime_estado_vista
 			)
 		);
-		//envia el estado {registrado, actualizado o eliminado} en sesion y la elimina al llegar a la vista
+
+		//obtenemos el ultimo id del insertad
+		$last_id = $conexion->lastInsertId();
+
+
+	if(isset($_POST['generos'])){
+		if (is_array($_POST['generos'])) {
+        $selected = '';
+        $num_countries = count($_POST['generos']);
+        $current = 0;
+        foreach ($_POST['generos'] as $key => $value) {
+
+        	agregar_genero($conexion, $last_id, $value);
+
+            /*if ($current != $num_countries-1)
+                $selected .= $value.', ';
+            else
+                $selected .= $value.'.';
+            */
+            $current++;
+        	}
+    	}
+
+	}
+
+
+	//envia el estado {registrado, actualizado o eliminado} en sesion y la elimina al llegar a la vista
 		$_SESSION['estado'] = 'registrado';
 		header('Location:lista_animes');
+
+
+
+
 
 	}
 

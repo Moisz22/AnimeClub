@@ -29,24 +29,38 @@
 
 		<?php
 			$estado = (isset($_SESSION['estado'])) ? ($_SESSION['estado']) : false ;
+			$estado = limpiarDatos($estado);
 			if($estado == 'registrado' && isset($_SESSION['usuario'])){
-				//modal('Anime guardado exitosamente');
-				echo '<script>alertify.success("Anime agregado :3")</script>';
+				echo '<script>Swal.fire(
+              		"Buen trabajo",
+              		"Anime agregado con éxito!",
+              		"success"
+            	)</script>';
+				//echo '<script>alertify.success("Anime agregado :3")</script>';
 			}elseif($estado == 'actualizado' && isset($_SESSION['usuario']) ){
-				//modal('Anime actualizado exitosamente');
-				echo '<script>alertify.success("Anime actualizado :3")</script>';
+				echo '<script>Swal.fire(
+              		"Buen trabajo",
+              		"Anime actualizado con éxito!",
+              		"success"
+            	)</script>';
+				//echo '<script>alertify.success("Anime actualizado :3")</script>';
 			}elseif($estado == 'eliminado' && isset($_SESSION['usuario'])){
-				//modal('Anime eliminado exitosamente');
-				echo '<script>alertify.success("Anime eliminado :(")</script>';
+				//echo '<script>alertify.success("Anime eliminado :3")</script>';
+				echo '<script>Swal.fire(
+              		"Buen trabajo",
+              		"Anime eliminado con éxito!",
+              		"success"
+            	)</script>';
 			}
 
+			//eliminar la variable de sesión para que al recargar no me siga saliendo el mensaje
 			if(isset($_SESSION['estado'])){
 				unset($_SESSION['estado']);
 			}
-		?>	
+		?>
 
   			<!-- Modal de configuraciones en lista y paginación -->
-	  		<div class="modal" id="modal_config_paginacion" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+	  		<div class="modal fade" id="modal_config_paginacion" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
 	    		<div class="modal-dialog modal-dialog-centered">
 	      			<!-- Modal content-->
 	      			<div class="modal-content">
@@ -108,7 +122,11 @@
 						<div class="todos_animes">	
 							<a href="single_anime?id=<?php echo $anime['anime_id'];?>">
 								<!--<span style="position: absolute; z-index: 500;" class="generos_estilo_lista">anime</span> -->
+							<?php if(isset($anime['anime_imagen'])): ?>
 								<img class="centrar_imagen animes_lista" src="images/animes/<?php echo $anime['anime_imagen'];?>">
+							<?php else: ?>
+								<img class="centrar_imagen animes_lista" src="images/animes/imagen_no_existe.jpg">
+							<?php endif; ?>
 								<p class="text_align_center"><?php echo $anime['anime_nombre'];?></p>
 							</a>
 						</div>
@@ -123,5 +141,39 @@
 	<?php require 'paginacion.php'; ?>
 <?php endif; ?>
 </div>
+
+<script type="text/javascript">
+	const boton = document.querySelector("#enviar_config");
+	boton.addEventListener("click", function(evento){
+	
+		animes_por_pagina = $('#animes_por_pagina').val();
+		animes_por_columna_movil = $('#animes_por_columna_movil').val();
+		animes_por_columna_pc = $('#animes_por_columna_pc').val();
+
+		cadena = "animes_por_pagina=" + animes_por_pagina +
+		"&animes_por_columna_movil=" + animes_por_columna_movil +
+		"&animes_por_columna_pc=" + animes_por_columna_pc;
+
+	  	//validando que los campos no estén vacíos antes de agregar la configuracion
+	  	if(animes_por_pagina==""){
+	    	alertify.warning('el primer campo no puede estar vacío');
+	  	}else if(animes_por_columna_movil==""){
+	    	alertify.warning('el segundo campo no puede estar vacío');
+	  	}else if(animes_por_columna_pc==""){
+	    	alertify.warning('el tercer campo no puede estar vacío');
+	  	}
+	  	else{
+			$.post({
+				url: 'editar_archivo_config.php',
+				data: cadena,
+				success: function(r){
+					location.href="lista_animes";
+				}
+			});
+
+	  	}
+
+});
+</script>
 
 <?php require 'footer.php'; ?>

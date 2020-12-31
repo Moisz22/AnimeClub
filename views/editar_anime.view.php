@@ -13,16 +13,16 @@
                            <input type="hidden" name="banner_base" value="<?php echo $anime['anime_banner'];?>">
                            <fieldset>
                               <div class="field">
-                                 <input type="text" name="anime_nombre" value="<?php echo isset($anime['anime_nombre']) ? $anime['anime_nombre'] : '';?>" placeholder="Nombre del anime" required />
+                                 <input type="text" name="anime_nombre" id="anime_nombre" value="<?php echo isset($anime['anime_nombre']) ? $anime['anime_nombre'] : '';?>" placeholder="Nombre del anime"/>
                               </div>
                               <div class="field">
-                                 <input type="number" name="anime_cantidad_capitulos" value="<?php echo $anime['anime_cantidad_capitulos'];?>" placeholder="Cantidad de capítulos" min="1" required />
+                                 <input type="number" name="anime_cantidad_capitulos" id="anime_cantidad_capitulos" value="<?php echo $anime['anime_cantidad_capitulos'];?>" placeholder="Cantidad de capítulos" min="1" required />
                               </div>
                               <div class="field">
-                                 <input type="number" name="anime_capitulo_terminado_ver" value="<?php echo $anime['anime_capitulo_terminado_ver'];?>" placeholder="Ultimo capítulo visto" min="1" required />
+                                 <input type="number" name="anime_capitulo_terminado_ver" id="anime_capitulo_terminado_ver" value="<?php echo $anime['anime_capitulo_terminado_ver'];?>" placeholder="Ultimo capítulo visto" min="1" required />
                               </div>
                               <div class="field">
-                                 <textarea style="border: 2px solid #ccc" name="anime_sinopsis" cols="15" rows="5" placeholder="Escriba la sinopsis aqui"><?php echo $anime['anime_sinopsis'];?></textarea>
+                                 <textarea style="border: 2px solid #ccc" name="anime_sinopsis" id="anime_sinopsis" cols="15" rows="5" placeholder="Escriba la sinopsis aqui"><?php echo $anime['anime_sinopsis'];?></textarea>
                               </div>
                               <br />
 

@@ -31,6 +31,23 @@ body {
 	overflow-x: hidden !important;
 }
 
+/*
+	esta linea ayuda a ocultar el scrollbar sin que se bloquee el scroll
+*/
+
+body::-webkit-scrollbar{
+	display: none;
+}
+
+/*
+	las tablas no tomaban ese estilo en body de ocultar scrollbar, se lo agregó acá
+*/
+
+div::-webkit-scrollbar{
+	display: none;
+}
+
+
 * {
 	font-family: 'Roboto', sans-serif;
 }
@@ -3180,3 +3197,52 @@ footer.footer-box .heading_main h2 {
     width: 100%;
     float: left;
 }
+
+/* estilos para las tablas que son llamadas desde la página de eliminados */
+
+th, td{
+	text-align: center;
+}
+
+
+/* estilos para el select que se desplaza */
+
+.multiselect {
+        position:relative;
+    }
+ 
+    .selectBox {
+        position: relative;
+    }
+ 
+    .selectBox select {
+        width: 100%;
+    }
+ 
+    .overSelect {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+ 
+    #checkboxes {
+        display: block;
+        border: 1px #dadada solid;
+        position:absolute;
+        width:100%;
+        background-color:white;
+        box-sizing: border-box;
+        overflow:scroll;
+        max-height:110px;
+    }
+    #checkboxes.hide {display:none;}
+ 
+    #checkboxes label {
+        display: block;
+    }
+ 
+    #checkboxes label:hover {
+        background-color: #1e90ff;
+    }

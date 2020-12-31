@@ -59,14 +59,14 @@ function traer_todos_los_animes($conexion, $animes_por_pagina, $b = NULL){
 
 //traer los animes que están eliminados logicamente
 function animes_eliminados($conexion){
-	$statement = $conexion->prepare("SELECT * FROM anime WHERE anime_estado = 0");
+	$statement = $conexion->prepare("SELECT * FROM anime WHERE anime_estado = 0 ORDER BY anime_nombre");
 		$statement->execute();
 	return $statement->fetchAll();
 }
 
 //traer todas las reseñas que están eliminadas logicamente
 function reseñas_eliminadas($conexion){
-	$statement = $conexion->prepare("SELECT * FROM reseña WHERE reseña_estado = 0");
+	$statement = $conexion->prepare("SELECT * FROM resenia as r, anime as a WHERE r.anime_id=a.anime_id && resenia_estado = 0");
 		$statement->execute();
 	return $statement->fetchAll();
 }
@@ -92,7 +92,7 @@ function traer_anime_eliminado_por_id($conexion, $id){
 }
 
 function traer_reseña_por_id($conexion, $id){
-	$statement = $conexion->query("SELECT * FROM anime as a, resenia as r where a.anime_id=$id && a.anime_id = r.anime_id LIMIT 1");
+	$statement = $conexion->query("SELECT * FROM anime as a, resenia as r where a.anime_id=$id && a.anime_id = r.anime_id && r.resenia_estado=1 LIMIT 1");
 	return $statement->fetch();
 }
 
@@ -131,33 +131,16 @@ function eliminar_anime_por_id($conexion, $id){
 	);
 }
 
-function modal($mensaje){
+function agregar_genero($conexion, $anime_id, $genero_id){
 
-	?><div class="container">
-  			<!-- Modal -->
-	  		<div class="modal fade" id="mostrarmodal" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-	    		<div class="modal-dialog">
-	      			<!-- Modal content-->
-	      			<div class="modal-content">
-	        			<div class="modal-header">
-	        				<p class="modal-title text_align_center"><b>Mensaje</b></p>
-				        	<button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
-	        			</div>
-	        			<div class="modal-body">
-	        				<img class="centrar_imagen" src="images/success.gif" alt="">
-	          				<p class="text_align_center"><?php echo $mensaje?></p>
-	        			</div>
-	        			<div class="modal-footer">
-	          				<button type="button" class="btn btn-info" data-dismiss="modal">Cerrar</button>
-	        			</div>
-	      			</div>
-	      
-	    		</div>
-	  		</div>
-  
-		</div>
-	<?php 
+		$statement = $conexion->prepare('INSERT INTO anime_genero(anime_id, genero_id) VALUES(:anime_id, :genero_id)');
+
+		$statement->execute(array(
+			':anime_id' => $anime_id,
+			'genero_id' => $genero_id
+
+		));
+
 }
-
 
 ?>
