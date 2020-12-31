@@ -9,13 +9,13 @@ $conexion = conexion($bd_config);
 
 if(!$conexion){
 
-	header('Location: error.php');
+	header('Location: error');
 
 }
 
 if(!isset($_SESSION['usuario'])){
 
-	header('Location: index.php');
+	header('Location: index');
 	die();
 }
 
@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	if($id !== false && !empty($id)){
 		eliminar_anime_por_id($conexion, $id);
 		$_SESSION['estado'] = 'eliminado';
-		header('Location: lista_animes.php');
+		header('Location: lista_animes');
 	}
 
 }

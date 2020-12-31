@@ -25,7 +25,7 @@ function validaregistro(){
 		return false;
 	}
 
-	if(cantidad_capitulos < capitulo_terminado){
+	if(cantidad_capitulos > capitulo_terminado ){
 		alertify.warning('La cantidad de capítulos del anime no puede ser menor que la cantidad de capítulos vistos');
 		return false;
 	}

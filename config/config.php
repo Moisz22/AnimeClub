@@ -23,12 +23,6 @@ define('RUTA', 'http://'.$bd_config['servidor'].'/animeclub/');
 	* el numero de animes por pagina no puede ser menor que el index de 'animes_por_columna_pc'
 
 */
-$paginacion_config = array(
-	'animes_por_pagina' => 24,
-	'animes_por_columna_moviles' => 3,
-	'animes_por_columna_pc' => 6
-);
-
 
 $login = array(
 

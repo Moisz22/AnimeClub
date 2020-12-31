@@ -39,8 +39,8 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
       <!-- script para alertify -->
       <script src="librerias/alertifyjs/alertify.js"></script>
-
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+      <!-- libreria para sweet alert2 -->
+      <script src="librerias/sweetalert2@10/sweetalert2@10.js"></script>
    </head>
    <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
       <!-- LOADER -->
@@ -58,17 +58,12 @@
             <ul>
                <?php if(isset($_SESSION['usuario'])): ?>
                   <li><a href="cerrar">Salir <i class="fa fa-sign-out"></i></a></li>
-                  <li><a href="lista_animes">Animes</a></li>
-                  <li><a href="registrar_anime">Ingresar Anime</a></li>
-                  <li><a href="about">Generos</a></li>
-                  <li><a href="reseña">Reseñas</a></li>
-                  <li><a href="borrados">Borrados</a></li>
+                  <li><a href="lista_animes">Animes <i class="fa fa-hand-peace-o"></i></a></li>
+                  <li><a href="tablas">Tablas <i class="fa fa-table"></i></a></li>
+                  <li><a href="borrados">Borrados <i class="fa fa-trash"></i></a></li>
                <?php else: ?>
                   <li><a href="login">Login <i class="fa fa-sign-in"></i></a></li>
-                  <li><a href="lista_animes">Animes</a></li>
-                  <li><a href="about">Generos</a></li>
-                  <li><a href="services">Services</a></li>
-                  <li><a href="contact">Contact us</a></li>
+                  <li><a href="lista_animes">Animes <i class="fa fa-hand-peace-o"></i></a></li>
                <?php endif; ?>
             </ul>
          </div>
