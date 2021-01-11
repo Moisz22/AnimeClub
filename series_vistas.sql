@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-12-2020 a las 18:47:24
+-- Tiempo de generación: 11-01-2021 a las 05:58:22
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.0
 
@@ -35,21 +35,38 @@ CREATE TABLE `anime` (
   `anime_estado_vista` varchar(50) NOT NULL COMMENT 'estado de la serie: pendiente, terminado o pendiente',
   `anime_estado` int(1) NOT NULL DEFAULT 1,
   `FechaRegistro` datetime NOT NULL DEFAULT current_timestamp(),
-  `anime_imagen` varchar(50) DEFAULT NULL COMMENT '101x150 pixeles',
-  `anime_banner` varchar(50) DEFAULT NULL,
-  `anime_cantidad_capitulos` int(11) DEFAULT NULL
+  `anime_imagen` varchar(250) DEFAULT NULL COMMENT '101x150 pixeles',
+  `anime_banner` varchar(250) DEFAULT NULL,
+  `anime_cantidad_capitulos` int(11) DEFAULT NULL,
+  `anime_capitulo_terminado_ver` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `anime`
 --
 
-INSERT INTO `anime` (`anime_id`, `anime_nombre`, `anime_sinopsis`, `anime_actualidad`, `anime_estado_vista`, `anime_estado`, `FechaRegistro`, `anime_imagen`, `anime_banner`, `anime_cantidad_capitulos`) VALUES
-(1, 'naruto', 'Naruto, un aprendiz de ninja de la Aldea Oculta de Konoha es un chico travieso que desea llegar a ser el Hokage de la aldea para demostrar a todos lo que vale. Lo que descubre al inicio de la historia es que la gente le mira con desconfianza porque en su interior está encerrado el demonio Kyubi que una vez destruyó la aldea, y que el anterior líder de la misma tuvo que encerrar en su cuerpo siendo aún muy pequeño, a coste de su vida. Aunque sus compañeros no saben esto, tampoco le aprecian porque es mal estudiante y siempre está haciendo bromas. Sin embargo, la forma de actuar y la determinación de Naruto demuestran a los demás que puede llegar muy lejos, y el recelo de los otros chicos se va disipando. Naruto y sus compañeros Sakura y Sasuke, junto a su maestro Kakashi tendrán que enfrentarse a una serie de combates y misiones a lo largo de la historia que les permitirán mejorar y crecer. Naruto se vera enfrentado a sus principales enemigos Akatsuki, Itachi y Kisame.', 'terminado', 'terminado', 1, '2020-11-08 21:30:23', 'naruto.jpg', 'naruto.jpg', NULL),
-(2, 'naruto shippuden', 'Pasados dos años y medio de entrenamiento con Jiraiya, Naruto Uzumaki regresa a la aldea oculta de la hoja, donde se reúne con sus viejos amigos y conforma de nuevo el Equipo 7. Debido a la ausencia de Sasuke, aparece un nuevo personaje llamado Sai el cual retoma su lugar. En esta secuela podremos notar como los compañeros de Naruto han madurado con respecto a su desempeño previo, mejorando la mayoría de estos en su nivel. Durante su entrenamiento con Jiraiya, Naruto aprendió a controlar un poco de la chacra del Kyubi. Lo contrario a la serie original, dónde sólo desempeñó un papel secundario, la organización Akatsuki asume el papel antagónico principal en Naruto Shippuden, buscando como objetivo principal el capturar a todos los poderosos monstruos Biju.', 'terminado', 'terminado', 1, '2020-11-08 21:31:03', 'naruto_shippuden.jpg', 'naruto_shippuden.jpg', 478),
-(3, 'akame ga kill', 'La historia nos lleva a través de las aventuras de Tatsumi, un joven boxeador que viajó a la capital imperial para unirse al ejército. Sin embargo, descubre que la ciudad está dañada por el ansia de poder de los funcionarios, que se aprovechan de la falta', 'terminado', 'terminado', 1, '2020-12-08 21:18:23', 'akame_ga_kill.jpg', NULL, NULL),
-(4, 'zero no tsukaima', 'Una historia cómica de 2 personajes principales, Louis y Saito. La aventura recomienza cuando Saito, quien habia luchado contra el ejercito de los 1000 hombres, regreso a la vida luego de una ardua batalla. Tras desconocer los detalles de su milagrosa res', 'terminado', 'terminado', 1, '2020-12-08 21:22:57', 'zero_no_tsukaima.jpg', NULL, NULL),
-(5, 'gakusen toshi asterisk', 'En el siglo pasado, la humanidad fue atacada por un desastre sin precedentes... el impacto “Invertia”. El mundo fue completamente destruido. Sin embargo, los humanos adquirieron un nuevo poder: el “Genestella”.', 'terminado', 'terminado', 1, '2020-12-08 21:35:53', 'gakusen_toshi_asterisk.jpg', NULL, NULL);
+INSERT INTO `anime` (`anime_id`, `anime_nombre`, `anime_sinopsis`, `anime_actualidad`, `anime_estado_vista`, `anime_estado`, `FechaRegistro`, `anime_imagen`, `anime_banner`, `anime_cantidad_capitulos`, `anime_capitulo_terminado_ver`) VALUES
+(1, 'naruto', 'Naruto, un aprendiz de ninja de la Aldea Oculta de Konoha es un chico travieso que desea llegar a ser el Hokage de la aldea para demostrar a todos lo que vale. Lo que descubre al inicio de la historia es que la gente le mira con desconfianza porque en su interior está encerrado el demonio Kyubi que una vez destruyó la aldea, y que el anterior líder de la misma tuvo que encerrar en su cuerpo siendo aún muy pequeño, a coste de su vida. Aunque sus compañeros no saben esto, tampoco le aprecian porque es mal estudiante y siempre está haciendo bromas. Sin embargo, la forma de actuar y la determinación de Naruto demuestran a los demás que puede llegar muy lejos, y el recelo de los otros chicos se va disipando. Naruto y sus compañeros Sakura y Sasuke, junto a su maestro Kakashi tendrán que enfrentarse a una serie de combates y misiones a lo largo de la historia que les permitirán mejorar y crecer. Naruto se vera enfrentado a sus principales enemigos Akatsuki, Itachi y Kisame.', 'Terminado', 'terminado', 1, '2020-11-08 21:30:23', 'naruto-imagen.jpg', 'naruto-banner.jpg', 220, 220),
+(2, 'naruto shippuden', 'Pasados dos años y medio de entrenamiento con Jiraiya, Naruto Uzumaki regresa a la aldea oculta de la hoja, donde se reúne con sus viejos amigos y conforma de nuevo el Equipo 7. Debido a la ausencia de Sasuke, aparece un nuevo personaje llamado Sai el cual retoma su lugar. En esta secuela podremos notar como los compañeros de Naruto han madurado con respecto a su desempeño previo, mejorando la mayoría de estos en su nivel. Durante su entrenamiento con Jiraiya, Naruto aprendió a controlar un poco de la chacra del Kyubi. Lo contrario a la serie original, dónde sólo desempeñó un papel secundario, la organización Akatsuki asume el papel antagónico principal en Naruto Shippuden, buscando como objetivo principal el capturar a todos los poderosos monstruos Biju.', 'Terminado', 'terminado', 1, '2020-11-08 21:31:03', 'naruto shippuden-imagen.jpg', 'naruto_shippuden.jpg', 478, 478),
+(3, 'akame ga kill', 'La historia nos lleva a través de las aventuras de Tatsumi, un joven boxeador que viajó a la capital imperial para unirse al ejército. Sin embargo, descubre que la ciudad está dañada por el ansia de poder de los funcionarios, que se aprovechan de la falta', 'Terminado', 'terminado', 1, '2020-12-08 21:18:23', 'akame ga kill-imagen.jpg', 'akame ga kill-banner.jpg', 24, 24),
+(5, 'gakusen toshi asterisk', 'En el siglo pasado, la humanidad fue atacada por un desastre sin precedentes... el impacto “Invertia”. El mundo fue completamente destruido. Sin embargo, los humanos adquirieron un nuevo poder: el “Genestella”.', 'Terminado', 'terminado', 1, '2020-12-08 21:35:53', 'gakusen toshi asterisk-imagen.jpg', 'gakusen toshi asterisk-banner.jpg', 12, 12),
+(9, 'Gotoubun no Hanayome', 'Fuutarou Uesugi es un estudiante de segundo año de preparatoria/instituto cuya familia siempre ha sido muy pobre. Un día recibe una suculenta oferta de trabajo como tutor a medio tiempo... ¡pero sus estudiantes resultan ser unas chicas de su propia clase! Para complicar más las cosas, son quintillizas... Las cinco hermanas son todas muy atractivas, pero no es lo único que tienen en común: todas odian estudiar y sus calificaciones siempre están al límite de la catástrofe. Tendrá que conseguir que las cinco estudien, pero primero tendrá que estudiar él cómo ganarse su confianza.', 'Terminado', 'terminado', 1, '2020-12-21 13:29:55', 'Gotoubun no Hanayome-imagen.jpg', 'Gotoubun no Hanayome-banner.jpg', 12, 12),
+(10, 'Death Note', 'Light Yagami es un excelente estudiante japonés que ha tenido una vida aburrida. Esto cambia radicalmente cuando encuentra tirado en el suelo un cuaderno conocido como Death Note (Libreta de la Muerte), un cuaderno perdido por Ryuk, un Shinigami (Dios de la muerte). Cualquier humano cuyo nombre esté escrito en el cuaderno morirá, y ahora Light ha decidido utilizar este poder para crear un mundo perfecto sin criminales. Pero cuando los criminales comienzan a morir de forma masiva, las autoridades envían al legendario detective L en busca del asesino. Con L pisándole los talones, Podrá mantener Light su noble propósito incluso arriesgando su vida.', 'Terminado', 'terminado', 1, '2020-12-21 13:32:55', 'Death Note-imagen.jpg', 'Death Note-banner.jpg', 37, 37),
+(12, 'Sword Art Online', 'Escapar es imposible hasta terminar el juego; un game over significaría una verdadera &quot;muerte&quot;. Sin saber la &quot;verdad&quot; de la siguiente generación del Multijugador Masivo Online, &#39;Sword Art Online(SAO)&#39;, con 10 mil usuarios unidos juntos abriendo las cortinas para esta cruel batalla a muerte. Participando solo en SAO, el protagonista Kirito ha aceptado inmediatamente la &quot;verdad&quot; de este MMO. &lt;br/&gt;&lt;br/&gt; Y, en el mundo del juego, un gigante castillo flotante llamado &#39;Aincrad&#39;, Kirito se distinguió a si mismo como un jugador solitario. Apuntando a terminar el juego al alcanzar la planta mas alta el solo continua avanzando arriesgadamente hasta que recibe una invitación a la fuerza de una guerrera y esgrimista experta, Asuna, con la cual tendra que hacer equipo.', 'Terminado', 'terminado', 1, '2020-12-21 13:51:07', 'Sword Art Online-imagen.jpg', 'Sword Art Online-banner.jpg', 25, 25),
+(21, 'Boruto: Naruto Next Generations', 'Esta es una secuela de las series de Naruto, la cual sigue la historia de Boruto el hijo de Naruto. La aldea oculta de la hoja ha continuado su moderinización pero siempre manateniendo la paz. Carros eléctricos recorren toda la ciudad conectada por distritos llenos de rascacielos con enormes monitores mostrando todo tipo de imágenes. En esta era, la aldea oculta de la hoja es ahora una cuidad ninja solo en nombre ya que ahora muchas personas normales han venido a vivir aquí. También el estilo de vida de los ninjas ha cambiado... Boruto, el hijo del séptimo Hokage y el actual lider de la aldea, se ha matriculado en la academia ninja para aprender todo sobre lo que necesita saber en las artes ninjas. Los estudiantes que rodean a Boruto se refieren a él como &quot;el hijo del Hokage&quot;, pero Boruto con su peculiar personalidad se hará un nombre por él mismo. Boruto encontrá nuevos amigos y aliados, pero ¿cómo podrá lidear con todos esos misteriorsos incidentes que se le presentarán? Es así como comienza la historia de Boruto Uzumaki.', 'En emision', 'proceso', 1, '2020-12-21 15:23:21', 'Boruto  Naruto Next Generations-imagen.jpg', 'Boruto  Naruto Next Generations-banner.jpg', 180, 179),
+(32, 'zero no tsukaima', 'La trama se desarrolla en un mundo donde existe la magia y existe algo de desigualdad social entre la gente que puede realizar magia y la que no, este mundo se asemeja mucho al mapa Europeo por la zona de Inglaterra, Francia, España, Alemania... en el mismo se aprecia que no existe tecnología sobresaliente más allá del siglo XIX. La gente se transporta a caballo, carrozas y en unos extraños barcos que vuelan.Hay seres mitológicos como duendes, elfos, dragones, ogros y por supuesto magos los cuales pueden manejar diferentes elementos (el fuego, el agua, el viento y la tierra). Nuestra protagonista es una maga de nombre Louise Françoise Le Blanc de La Vallière, también llamada por sus compañeros en la academia de magia &quot;Louise la Cero&quot;, debido a que ella no es capaz de realizar algún hechizo sin que pase algo.', 'Terminado', 'terminado', 1, '2020-12-25 12:35:32', 'zero no tsukaima-imagen.jpg', 'zero no tsukaima-banner.jpg', 13, 13),
+(33, 'Zero no Tsukaima: Futatsuki no Kishi', 'Zero no Tsukaima: Futatski no Kishi, Continua exactamente donde termino la anterior temporada. Louise continúa siendo la Noble que trata a Saito como un animal, mientras el sigue siendo exactamente igual o peor. De hecho, la cosa parece empeorar desde que Saito parece tener comportamientos pervertidos con cualquier chica que ve excepto con Louise, y por esto ella se vuelve mas frustrada y celosa provocando momentos y situaciones con un extremo contenido cómico.', 'Terminado', 'terminado', 1, '2020-12-25 12:45:36', 'Zero no Tsukaima  Futatsuki no Kishi-imagen.jpg', 'Zero no Tsukaima  Futatsuki no Kishi-banner.jpg', 12, 12),
+(34, 'Zero no Tsukaima: Princess no Rondo', 'Una historia cómica de 2 personajes principales, Louis y Saito. La aventura recomienza cuando Saito, quien habia luchado contra el ejercito de los 1000 hombres, regreso a la vida luego de una ardua batalla. Tras desconocer los detalles de su milagrosa resurreción la reina les encomienda una expedición para encontrar la misteriosa fuente de la vida. Al encontrarse con milagrosa fuente se descencadenan hechos que darán comienzo a una emocionante e ironica historia.', 'Terminado', 'terminado', 1, '2020-12-25 12:48:10', 'Zero no Tsukaima  Princess no Rondo-imagen.jpg', 'Zero no Tsukaima  Princess no Rondo-banner.jpg', 12, 12),
+(35, 'Zero no Tsukaima: Final', 'Secuela de Zero no Tsukaima: Princess no Rondo, 4ª y última temporada del anime de Zero no Tsukaima. La historia se ambienta en un mundo donde existe la magia y existe cierta desigualdad social entre la gente que puede realizar magia y la que no. Nuestra protagonista: Louise Françoise Le Blanc de La Vallière, también llamada por sus compañeros en la academia de magia Louise la Zero, debido a que ella no es capaz de realizar algún hechizo sin que haya una explosión. En la academia existe un ritual mediante el cual todos convocan a su familiar (criatura que acompañara al mago y estará a su servicio durante el resto de su vida), y Louise convoca a Saito, un humano de la Tierra, siendo un gran alboroto porque nunca se había visto que alguien convocara a un plebeyo que no puede utilizar la magia, lo cual sorprende a todos ya que adquiere como familiar la habilidad de usar armas diestramente con solo tocarlas.', 'Terminado', 'terminado', 1, '2020-12-25 12:53:22', 'Zero no Tsukaima  Final-imagen.jpg', 'Zero no Tsukaima  Final-banner.jpg', 12, 12),
+(36, 'Gakusen Toshi Asterisk: Temporada 2', 'Invertia, la catástrife astral que aniquiló muchas ciudades en el siglo XX, supuso también el nacimiento de una nueva raza de humanos con habilidades especiales: los Genestella. Al mismo tiempo, se encontró un elemento especial en el interior del meteoro, &quot;maná&quot;, que ayudó a que la humanidad diera un salto tecnológico. En Rikka, la ciudad académica sobre el agua, el &quot;Asterisk&quot; como muchos la llaman, estudiantes de seis escuelas se preparan para un torneo que se celebra anualmente y que enfrenta a los mejores estudiantes. Ayato Amagiri, de la Academia Seidoukan, se enfrentará al reto acompañado de Julis, la Bruja de las Llamas Resplandecientes.', 'Terminado', 'proceso', 1, '2020-12-25 12:59:34', 'Gakusen Toshi Asterisk Temporada 2-imagen.jpg', 'Gakusen Toshi Asterisk Temporada 2-banner.jpg', 12, 11),
+(37, 'High School DxD', 'La historia está protagonizada por Issei Hyoudou, un muchacho de segundo año de instituto bastante salido al que una chica asesina en la primera cita de su vida. Issei se reencarna como demonio, y desde ese mismo día trabaja como sirviente de Riasu, una chica demonio de altísimo nivel que resulta ser la más guapa y popular de todo el instituto.', 'Terminado', 'terminado', 1, '2020-12-25 13:05:31', 'High School DxD-imagen.jpg', 'High School DxD-banner.jpg', 18, 18),
+(38, 'high score girl', 'La historia sigue a Yaguchi Haruo, un muchacho de sexto en el año 1991 y que vive para los videojuegos. No es popular en la escuela, no es guapo, no es divertido y ni siquiera es simpático. Lo único que se le dan bien, son los videojuegos. Un día, en una sala de juegos, se encuentra a Oono Akira, compañera de clase y que es linda, inteligente, lista y popular. Ambos jugarán a Street Fighter II, solo para que Haruo pierda muchas partidas seguidas contra la chica, la cual resulta ser invencible en cualquier juego. Akira comenzará a seguir a Haruo en todas sus visitas a los recreativos para pegarle palizas en todo juego existente, algo que al muchacho molestará bastante en un inicio… pero que acabará haciendo que forjen una extraña amistad.', 'Terminado', 'terminado', 1, '2020-12-27 11:46:13', 'high score girl-imagen.jpg', 'high score girl-banner.jpg', 15, 15),
+(49, 'Seikoku no Dragonar', 'Aprender a domar y montar dragones es algo sencillo para la mayoría de estudiantes de la academia Ansarivan Dragonar, a excepción de para Ash Blake de primero, chico que es conocido por sus compañeros por ser toda una fuente de problemas. Ash es el hazmerreír de la escuela, y es que aunque tiene una enorme estrella que le señala como un futuro señor de los dragones, no parece que tenga ninguna capacidad para serlo. De hecho, su dragón no ha aparecido nunca. Un día el dragón de Ash despierta y muestra todo su poder, aunque parece ser muy distinto de todos los dragones que se conocían hasta el momento, pues tiene la forma de una preciosa chica. Eso sí, no solo su aspecto es lo que está fuera de lo habitual, ya que su actitud es bastante particular: ella le dice que es la señora y él el sirviente. Al pobre Ash le salen los problemas de debajo de las piedras.', 'Terminado', 'terminado', 1, '2020-12-30 12:35:24', 'Seikoku no Dragonar-imagen.jpg', 'Seikoku no Dragonar-banner.png', 12, 12),
+(50, 'Dragon Ball', 'Con Goku como protagonista principal de la historia, el argumento se centra en la búsqueda de las legendarias esferas del dragon, un total de siete que al ser reunidas daban lugar a la aparición del dragón sagrado que puede conceder cualquier deseo. Goku, con la ayuda de su compañera Bulma además de otros personajes que se irán uniendo con el paso de la historia, se adentrará en la búsqueda de las esferas del dragon y desafiará a todo tipo de villanos para convertirse en el hombre más fuerte del mundo. También se hará especial incapié al Budokai Tenkaichi, un gran Torneo Mundial de Artes Marciales en el que los mejores luchadores de todo el Mundo se darán cita, batiéndose en Duelo a fin de demostrar quien es el mas fuerte luchador sobre la Tierra.', 'Terminado', 'terminado', 1, '2020-12-30 12:38:36', 'Dragon Ball-imagen.jpg', 'Dragon Ball-banner.jpg', 153, 153),
+(51, 'Dragon Ball Z', 'En Dragon ball Z Goku se ha convertido en un adulto y está casado con Milk, con la que tiene un hijo llamado Gohan. En esta segunda saga de Dragon ball Goku descubrirá que no es un terricola, sino que pertenece a una raza de guerreros conocida por ser una de las más poderosas de la galaxia, para posteriormente dar paso a los verdaderos enemigos de la serie. Para poder vencer a los nuevos enemigos que irán surgiendo, Goku y sus amigos tendrán que viajar por otros planetas e incluso al cielo y al infierno. Cada enemigo será más fuerte que el anterior, por lo que tendrán que entrenar muy duro para poder derrotarlos además de que se les irán uniendo nuevos personajes que les ayudarán a vencerlos.', 'Terminado', 'terminado', 1, '2020-12-30 12:40:46', 'Dragon Ball Z-imagen.png', 'Dragon Ball Z-banner.jpg', 291, 291),
+(52, 'Dragon Ball GT', 'Ésta es la etapa final de Dragon Ball, aquí veremos a un Goku un poco más viejo acompañado de Oob, la reencarnación de Boo. Ahora Oob, después de un largo entrenamiento, se ha vuelto muy fuerte junto a Goku. Ahora un nuevo problema se le presenta a Goku, él ha sido convertido en niño por un viejo enemigo, con unas esferas de dragón nunca antes vistas, pero éstas no se esparcen por La Tierra, si no por la galaxia, además, si no encuentran las esferas en un determinado tiempo, La Tierra explotará. Esto llevará a Goku, Trunks y su nieta Pan, a una aventura por toda la galaxia.', 'Terminado', 'terminado', 1, '2020-12-30 12:43:31', 'Dragon Ball GT-imagen.jpg', 'Dragon Ball GT-banner.jpg', 64, 64),
+(65, 'High School DxD Hero', 'Cuarta temporada de High School DxD.', 'Terminado', 'terminado', 1, '2020-12-30 15:39:35', 'High School DxD Hero-imagen.jpg', 'High School DxD Hero-banner.jpg', 13, 13),
+(66, 'sora', 'fcfhgchgchchgc', 'Terminado', 'terminado', 1, '2021-01-08 22:42:12', 'sora-imagen.jpg', 'sora-banner.jpg', 11, 11);
 
 -- --------------------------------------------------------
 
@@ -74,7 +91,21 @@ INSERT INTO `anime_genero` (`anime_genero_id`, `anime_id`, `genero_id`, `anime_g
 (8, 1, 11, 1, '2020-12-08 19:11:24'),
 (9, 1, 12, 1, '2020-12-08 19:11:43'),
 (10, 1, 9, 1, '2020-12-08 19:11:56'),
-(12, 1, 29, 1, '2020-12-08 19:12:10');
+(12, 1, 29, 1, '2020-12-08 19:12:10'),
+(13, 2, 2, 1, '2020-12-25 13:12:07'),
+(14, 2, 11, 1, '2020-12-25 13:12:19'),
+(15, 2, 12, 1, '2020-12-25 13:12:29'),
+(16, 2, 9, 1, '2020-12-25 13:12:54'),
+(17, 2, 29, 1, '2020-12-25 13:13:03'),
+(32, 65, 2, 1, '2020-12-30 15:39:35'),
+(33, 65, 12, 1, '2020-12-30 15:39:35'),
+(34, 65, 32, 1, '2020-12-30 15:39:35'),
+(35, 65, 23, 1, '2020-12-30 15:39:35'),
+(36, 65, 33, 1, '2020-12-30 15:39:35'),
+(37, 65, 24, 1, '2020-12-30 15:39:35'),
+(38, 65, 8, 1, '2020-12-30 15:39:35'),
+(39, 66, 2, 1, '2021-01-08 22:42:12'),
+(40, 66, 11, 1, '2021-01-08 22:42:12');
 
 -- --------------------------------------------------------
 
@@ -152,31 +183,27 @@ INSERT INTO `genero` (`genero_id`, `genero_nombre`, `genero_estado`, `FechaRegis
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proceso`
+-- Estructura de tabla para la tabla `resenia`
 --
 
-CREATE TABLE `proceso` (
-  `proceso_id` int(11) NOT NULL,
-  `anime_id` int(11) NOT NULL,
-  `proceso_capitulos_vistos` int(11) NOT NULL COMMENT 'capitulo en el que dejaste de ver la serie',
-  `proceso_estado` int(1) NOT NULL,
-  `FechaRegistro` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `reseña`
---
-
-CREATE TABLE `reseña` (
-  `reseña_id` int(11) NOT NULL,
-  `reseña_titulo` varchar(50) NOT NULL,
-  `reseña_comentarios` varchar(255) NOT NULL,
-  `reseña_estado` int(1) NOT NULL,
+CREATE TABLE `resenia` (
+  `resenia_id` int(11) NOT NULL,
+  `resenia_titulo` varchar(100) NOT NULL,
+  `resenia_comentarios` text NOT NULL,
+  `resenia_estado` int(1) NOT NULL DEFAULT 1,
   `Fecha_Registro` datetime NOT NULL DEFAULT current_timestamp(),
-  `anime_id` int(11) NOT NULL
+  `anime_id` int(11) NOT NULL,
+  `resenia_valoracion` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `resenia`
+--
+
+INSERT INTO `resenia` (`resenia_id`, `resenia_titulo`, `resenia_comentarios`, `resenia_estado`, `Fecha_Registro`, `anime_id`, `resenia_valoracion`) VALUES
+(28, 'buen anime', 'tiene buenas batallas sobre todo, muy entretenido', 1, '2021-01-05 23:08:57', 65, 5),
+(31, 'grandioso', 'bueno', 1, '2021-01-06 15:23:04', 37, 5),
+(32, 'buena', 'ffghjghjhj', 1, '2021-01-08 22:42:42', 66, 5);
 
 --
 -- Índices para tablas volcadas
@@ -210,17 +237,10 @@ ALTER TABLE `genero`
   ADD PRIMARY KEY (`genero_id`);
 
 --
--- Indices de la tabla `proceso`
+-- Indices de la tabla `resenia`
 --
-ALTER TABLE `proceso`
-  ADD PRIMARY KEY (`proceso_id`),
-  ADD KEY `fk_proceso1` (`anime_id`);
-
---
--- Indices de la tabla `reseña`
---
-ALTER TABLE `reseña`
-  ADD PRIMARY KEY (`reseña_id`),
+ALTER TABLE `resenia`
+  ADD PRIMARY KEY (`resenia_id`) USING BTREE,
   ADD KEY `fk_reseña1` (`anime_id`);
 
 --
@@ -231,13 +251,13 @@ ALTER TABLE `reseña`
 -- AUTO_INCREMENT de la tabla `anime`
 --
 ALTER TABLE `anime`
-  MODIFY `anime_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `anime_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT de la tabla `anime_genero`
 --
 ALTER TABLE `anime_genero`
-  MODIFY `anime_genero_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `anime_genero_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `etiqueta`
@@ -252,16 +272,10 @@ ALTER TABLE `genero`
   MODIFY `genero_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
--- AUTO_INCREMENT de la tabla `proceso`
+-- AUTO_INCREMENT de la tabla `resenia`
 --
-ALTER TABLE `proceso`
-  MODIFY `proceso_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `reseña`
---
-ALTER TABLE `reseña`
-  MODIFY `reseña_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `resenia`
+  MODIFY `resenia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Restricciones para tablas volcadas
@@ -281,15 +295,9 @@ ALTER TABLE `etiqueta`
   ADD CONSTRAINT `fk_etiqueta1` FOREIGN KEY (`anime_id`) REFERENCES `anime` (`anime_id`);
 
 --
--- Filtros para la tabla `proceso`
+-- Filtros para la tabla `resenia`
 --
-ALTER TABLE `proceso`
-  ADD CONSTRAINT `fk_proceso1` FOREIGN KEY (`anime_id`) REFERENCES `anime` (`anime_id`);
-
---
--- Filtros para la tabla `reseña`
---
-ALTER TABLE `reseña`
+ALTER TABLE `resenia`
   ADD CONSTRAINT `fk_reseña1` FOREIGN KEY (`anime_id`) REFERENCES `anime` (`anime_id`);
 COMMIT;
 
