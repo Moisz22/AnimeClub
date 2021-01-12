@@ -40,18 +40,25 @@ function pagina_actual(){
 	return (isset($_GET['p'])) ? (int)$_GET['p'] : 1;
 }
 
+function total_animes($conexion){
+
+	$totalanimes = $conexion->prepare('SELECT COUNT(*) anime from anime WHERE anime_estado = 1');
+	$totalanimes->execute();
+	return $totalanimes = $totalanimes->fetch()[0];
+}
+
 function traer_todos_los_animes($conexion, $animes_por_pagina, $b = NULL){
 
 	$inicio = (pagina_actual() > 1) ? pagina_actual() * $animes_por_pagina - $animes_por_pagina : 0;
 
 	if(isset($b) && !empty($b)){
-		$statement = $conexion->prepare("SELECT * FROM anime WHERE anime_nombre LIKE :b && anime_estado = 1 LIMIT $inicio, $animes_por_pagina");
+		$statement = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM anime WHERE anime_nombre LIKE :b && anime_estado = 1 LIMIT $inicio, $animes_por_pagina");
 		$statement->execute(array(
 			'b' => "%$b%"
 		)
 		);
 	}else{
-		$statement = $conexion->prepare("SELECT * FROM anime WHERE anime_estado = 1 LIMIT $inicio, $animes_por_pagina");
+		$statement = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM anime WHERE anime_estado = 1 LIMIT $inicio, $animes_por_pagina");
 		$statement->execute();
 	}
 	return $statement->fetchAll();
@@ -81,6 +88,18 @@ function traer_anime_por_id($conexion, $id){
 	return $statement->fetch();
 }
 
+function traer_animes_por_genero($conexion, $animes_por_pagina, $g){
+
+	$inicio = (pagina_actual() > 1) ? pagina_actual() * $animes_por_pagina - $animes_por_pagina : 0;
+	$statement = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM anime as a, anime_genero as ag, genero as g  WHERE a.anime_id=ag.anime_id && ag.genero_id=g.genero_id && g.genero_nombre=:g && a.anime_estado=1 LIMIT $inicio, $animes_por_pagina");
+		$statement->execute(array(
+
+			'g' => $g
+		)
+		);
+		return $statement->fetchAll();
+}
+
 //trae informacion de un anime con estado 0
 function traer_anime_eliminado_por_id($conexion, $id){
 	$statement = $conexion->prepare('SELECT * FROM anime WHERE anime_id=:id && anime_estado = 0');
@@ -97,12 +116,29 @@ function traer_reseña_por_id($conexion, $id){
 }
 
 function paginacion($conexion, $animes_por_pagina){
-
-	$totalanimes = $conexion->prepare('SELECT COUNT(*) anime from anime WHERE anime_estado = 1');
+	if(isset($_GET['g']) && !empty($_GET['g'])){
+		$totalanimes = $conexion->prepare('SELECT FOUND_ROWS() as total');
+	}elseif (isset($_GET['b']) && !empty($_GET['b'])) {
+		$totalanimes = $conexion->prepare('SELECT FOUND_ROWS() as total');
+	}else{
+		$totalanimes = $conexion->prepare('SELECT COUNT(*) anime from anime WHERE anime_estado = 1');
+		$totalanimes->execute();
+	}
 	$totalanimes->execute();
 	$totalanimes = $totalanimes->fetch()[0];
 	return ceil($totalanimes / $animes_por_pagina);
 }
+
+
+function paginacion_tablas($conexion, $registros_por_pagina, $tabla){
+
+	$totalregistros = $conexion->prepare("SELECT COUNT(*) FROM $tabla");
+	$totalregistros->execute();
+	$totalregistros = $totalregistros->fetch()[0];
+	return ceil($totalregistros / $registros_por_pagina);
+
+}
+
 
 function traer_todos_los_generos($conexion){
 	$statement = $conexion->query('SELECT * FROM genero ORDER BY genero_nombre');

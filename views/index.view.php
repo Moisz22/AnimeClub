@@ -143,7 +143,8 @@
 </div>
 
           <!-- end section -->
-         <!-- section -->
+         <!-- section
+
 <div class="section about_section layout_padding padding_top_0">
   <div class="container">
     <div class="row">
@@ -178,8 +179,8 @@
     </div>
   </div>
 </div>
-         <!-- end section -->
-         <!-- section -->
+        end section -->
+        <!-- section
 <div class="section about_section layout_padding padding_top_0">
   <div class="container">
     <div class="row">
@@ -213,8 +214,8 @@
     </div>
   </div>
 </div>
-         <!-- end section -->
-         <!-- section -->
+          end section -->
+         <!-- section 
 <div class="section dark_blue_layout white_fonts layout_padding">
   <div class="container">
     <div class="row">
@@ -242,8 +243,8 @@
     </div>
   </div>
 </div>
-         <!-- end section -->
-         <!-- section -->
+          end section -->
+         <!-- section 
 <div class="section about_section layout_padding">
   <div class="container">
     <div class="row">
@@ -297,8 +298,8 @@
     </div>
   </div>
 </div>
-         <!-- end section -->
-         <!-- section -->
+          end section -->
+         <!-- section 
          <div class="section about_section layout_padding padding_top_0">
             <div class="row">
                   <div class="col-md-12">
@@ -310,7 +311,8 @@
                   </div>
                </div>
          </div>
-         <!-- section -->
+        end section -->
+        <!-- section
          <div class="section contact_section">
             <div class="container-fluid">
                <div class="row">
@@ -359,4 +361,5 @@
                </div>
             </div>
          </div>
-         <!-- end section -->
+         end section -->
+

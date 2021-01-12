@@ -3,7 +3,12 @@
 	<div class="container">
 		<div class="row">
 			<?php if(isset($_SESSION['usuario'])):?>
-			<div class="col-8 col-sm-10"></div>
+			<div class="col-7 col-sm-3">
+				<div class="alert alert-secondary" role="alert">
+					<h3>Animes: <?php echo $total_animes_activos;?></h3>
+				</div>
+			</div>
+			<div class="col-1 col-sm-7"></div>
 			<div class="col-2 col-sm-1">
 				<button class="btn btn-success" onclick="location.href='registrar_anime'" title="registrar anime"><i class="fa fa-plus-square"></i></button>
 			</div>	
@@ -155,19 +160,28 @@
 		"&animes_por_columna_pc=" + animes_por_columna_pc;
 
 	  	//validando que los campos no estén vacíos antes de agregar la configuracion
-	  	if(animes_por_pagina==""){
+	  	if(animes_por_pagina=="" || animes_por_pagina == null){
 	    	alertify.warning('el primer campo no puede estar vacío');
-	  	}else if(animes_por_columna_movil==""){
+	  	}else if(animes_por_columna_movil=="" || animes_por_columna_movil == null){
 	    	alertify.warning('el segundo campo no puede estar vacío');
-	  	}else if(animes_por_columna_pc==""){
+	  	}else if(animes_por_columna_pc=="" || animes_por_columna_pc == null){
 	    	alertify.warning('el tercer campo no puede estar vacío');
 	  	}
 	  	else{
 			$.post({
-				url: 'editar_archivo_config.php',
+				url: 'back-end/editar_archivo_config.php',
 				data: cadena,
 				success: function(r){
-					location.href="lista_animes";
+					if(r==1){
+						location.href="lista_animes";
+					}else{
+						Swal.fire({
+			              icon: 'error',
+			              title: 'Oops...',
+			              text: 'Hemos tenido un problema al ingresar su configuracion!'
+			              //footer: '<a href>Why do I have this issue?</a>'
+			            })
+					}
 				}
 			});
 

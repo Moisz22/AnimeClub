@@ -35,17 +35,21 @@ body {
 	esta linea ayuda a ocultar el scrollbar sin que se bloquee el scroll
 */
 
+/*
 body::-webkit-scrollbar{
 	display: none;
 }
+*/
 
 /*
 	las tablas no tomaban ese estilo en body de ocultar scrollbar, se lo agregó acá
 */
 
+
 div::-webkit-scrollbar{
 	display: none;
 }
+
 
 
 * {

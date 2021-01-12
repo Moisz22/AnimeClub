@@ -12,6 +12,12 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <!-- Mobile Metas -->
       <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+      <!-- limpiar caché cada que se recargue la página -->
+      <meta http-equiv='cache-control' content='no-cache'>
+      <meta http-equiv='expires' content='0'>
+      <meta http-equiv='pragma' content='no-cache'>
+
       <!-- Site Metas -->
       <title>Anime Club</title>
       <!-- Site Icons -->
@@ -61,6 +67,7 @@
                   <li><a href="lista_animes">Animes <i class="fa fa-hand-peace-o"></i></a></li>
                   <li><a href="tablas">Tablas <i class="fa fa-table"></i></a></li>
                   <li><a href="borrados">Borrados <i class="fa fa-trash"></i></a></li>
+                  <li><a href="borrados">Configuraciones <i class="fa fa-cog"></i></a></li>
                <?php else: ?>
                   <li><a href="login">Login <i class="fa fa-sign-in"></i></a></li>
                   <li><a href="lista_animes">Animes <i class="fa fa-hand-peace-o"></i></a></li>

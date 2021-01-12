@@ -36,6 +36,10 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['b'])){
 	$b = limpiarDatos(filter_var($_GET['b'], FILTER_SANITIZE_STRING));
 	$animes = traer_todos_los_animes($conexion, $linea1, $b);
 
+}elseif($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['g'])){
+	$g = limpiarDatos(filter_var($_GET['g'], FILTER_SANITIZE_STRING));
+	$animes = traer_animes_por_genero($conexion, $linea1, $g);
+	
 } else{
 		$animes = traer_todos_los_animes($conexion, $linea1);
 }
@@ -46,6 +50,8 @@ if(!$animes && isset($_GET['b']) && !empty($_GET['b'])){
 }elseif($animes && isset($_GET['b']) && !empty($_GET['b'])){
 	$mensaje .= '<h3>Aquí están los resultados para la búsqueda de: ' . $b .'</h3>';
 }
+
+$total_animes_activos = total_animes($conexion);
 
 require 'views/lista_animes.view.php';
 ?>
