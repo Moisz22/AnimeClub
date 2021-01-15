@@ -3,5 +3,4 @@ el archivo functions va a tener las funciones importantes para el manejo del pro
 
 Credenciales de acceso:
 
-usuario: root
-password: 123456
+usuario: root; password: 123456
