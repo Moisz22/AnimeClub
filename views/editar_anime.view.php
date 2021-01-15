@@ -7,6 +7,16 @@
                <div class="row">
                   <div class="col-sm-12 col-md-10 offset-lg-1">
                      <div class="full contact_form">
+                        <?php if($errores): ?>
+                           <?php  foreach($errores as $error): ?>
+                           <div class="alert alert-danger alert-dismissible fade show" role="alert"> 
+                              <?php echo $error;?>
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                 <span aria-hidden="true">&times;</span>
+                              </button>
+                           </div>
+                           <?php  endforeach; ?>
+                        <?php endif; ?>
                         <form onsubmit="return validaregistro()" method="POST" class="contact_form_inner" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" enctype="multipart/form-data">
                            <input type="hidden" name="id" value="<?php echo $anime['anime_id'];?>">
                            <input type="hidden" name="imagen_base" value="<?php echo $anime['anime_imagen'];?>">
@@ -63,11 +73,6 @@
                            </fieldset>
                         </form>
                         <br />
-                           <?php if(isset($errores) && !empty($errores)): ?>
-                           <ul class="alert alert-danger">
-                              <?php echo $errores; ?>
-                           </ul>
-                           <?php endif; ?>
                      </div>
                   </div>
                </div>

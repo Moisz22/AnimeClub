@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-01-2021 a las 05:58:22
+-- Tiempo de generación: 15-01-2021 a las 06:23:50
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.0
 
@@ -53,7 +53,7 @@ INSERT INTO `anime` (`anime_id`, `anime_nombre`, `anime_sinopsis`, `anime_actual
 (9, 'Gotoubun no Hanayome', 'Fuutarou Uesugi es un estudiante de segundo año de preparatoria/instituto cuya familia siempre ha sido muy pobre. Un día recibe una suculenta oferta de trabajo como tutor a medio tiempo... ¡pero sus estudiantes resultan ser unas chicas de su propia clase! Para complicar más las cosas, son quintillizas... Las cinco hermanas son todas muy atractivas, pero no es lo único que tienen en común: todas odian estudiar y sus calificaciones siempre están al límite de la catástrofe. Tendrá que conseguir que las cinco estudien, pero primero tendrá que estudiar él cómo ganarse su confianza.', 'Terminado', 'terminado', 1, '2020-12-21 13:29:55', 'Gotoubun no Hanayome-imagen.jpg', 'Gotoubun no Hanayome-banner.jpg', 12, 12),
 (10, 'Death Note', 'Light Yagami es un excelente estudiante japonés que ha tenido una vida aburrida. Esto cambia radicalmente cuando encuentra tirado en el suelo un cuaderno conocido como Death Note (Libreta de la Muerte), un cuaderno perdido por Ryuk, un Shinigami (Dios de la muerte). Cualquier humano cuyo nombre esté escrito en el cuaderno morirá, y ahora Light ha decidido utilizar este poder para crear un mundo perfecto sin criminales. Pero cuando los criminales comienzan a morir de forma masiva, las autoridades envían al legendario detective L en busca del asesino. Con L pisándole los talones, Podrá mantener Light su noble propósito incluso arriesgando su vida.', 'Terminado', 'terminado', 1, '2020-12-21 13:32:55', 'Death Note-imagen.jpg', 'Death Note-banner.jpg', 37, 37),
 (12, 'Sword Art Online', 'Escapar es imposible hasta terminar el juego; un game over significaría una verdadera &quot;muerte&quot;. Sin saber la &quot;verdad&quot; de la siguiente generación del Multijugador Masivo Online, &#39;Sword Art Online(SAO)&#39;, con 10 mil usuarios unidos juntos abriendo las cortinas para esta cruel batalla a muerte. Participando solo en SAO, el protagonista Kirito ha aceptado inmediatamente la &quot;verdad&quot; de este MMO. &lt;br/&gt;&lt;br/&gt; Y, en el mundo del juego, un gigante castillo flotante llamado &#39;Aincrad&#39;, Kirito se distinguió a si mismo como un jugador solitario. Apuntando a terminar el juego al alcanzar la planta mas alta el solo continua avanzando arriesgadamente hasta que recibe una invitación a la fuerza de una guerrera y esgrimista experta, Asuna, con la cual tendra que hacer equipo.', 'Terminado', 'terminado', 1, '2020-12-21 13:51:07', 'Sword Art Online-imagen.jpg', 'Sword Art Online-banner.jpg', 25, 25),
-(21, 'Boruto: Naruto Next Generations', 'Esta es una secuela de las series de Naruto, la cual sigue la historia de Boruto el hijo de Naruto. La aldea oculta de la hoja ha continuado su moderinización pero siempre manateniendo la paz. Carros eléctricos recorren toda la ciudad conectada por distritos llenos de rascacielos con enormes monitores mostrando todo tipo de imágenes. En esta era, la aldea oculta de la hoja es ahora una cuidad ninja solo en nombre ya que ahora muchas personas normales han venido a vivir aquí. También el estilo de vida de los ninjas ha cambiado... Boruto, el hijo del séptimo Hokage y el actual lider de la aldea, se ha matriculado en la academia ninja para aprender todo sobre lo que necesita saber en las artes ninjas. Los estudiantes que rodean a Boruto se refieren a él como &quot;el hijo del Hokage&quot;, pero Boruto con su peculiar personalidad se hará un nombre por él mismo. Boruto encontrá nuevos amigos y aliados, pero ¿cómo podrá lidear con todos esos misteriorsos incidentes que se le presentarán? Es así como comienza la historia de Boruto Uzumaki.', 'En emision', 'proceso', 1, '2020-12-21 15:23:21', 'Boruto  Naruto Next Generations-imagen.jpg', 'Boruto  Naruto Next Generations-banner.jpg', 180, 179),
+(21, 'Boruto: Naruto Next Generations', 'Esta es una secuela de las series de Naruto, la cual sigue la historia de Boruto el hijo de Naruto. La aldea oculta de la hoja ha continuado su moderinización pero siempre manateniendo la paz. Carros eléctricos recorren toda la ciudad conectada por distritos llenos de rascacielos con enormes monitores mostrando todo tipo de imágenes. En esta era, la aldea oculta de la hoja es ahora una cuidad ninja solo en nombre ya que ahora muchas personas normales han venido a vivir aquí. También el estilo de vida de los ninjas ha cambiado... Boruto, el hijo del séptimo Hokage y el actual lider de la aldea, se ha matriculado en la academia ninja para aprender todo sobre lo que necesita saber en las artes ninjas. Los estudiantes que rodean a Boruto se refieren a él como &quot;el hijo del Hokage&quot;, pero Boruto con su peculiar personalidad se hará un nombre por él mismo. Boruto encontrá nuevos amigos y aliados, pero ¿cómo podrá lidear con todos esos misteriorsos incidentes que se le presentarán? Es así como comienza la historia de Boruto Uzumaki.', 'En emision', 'terminado', 1, '2020-12-21 15:23:21', 'Boruto  Naruto Next Generations-imagen.jpg', 'Boruto  Naruto Next Generations-banner.jpg', 181, 181),
 (32, 'zero no tsukaima', 'La trama se desarrolla en un mundo donde existe la magia y existe algo de desigualdad social entre la gente que puede realizar magia y la que no, este mundo se asemeja mucho al mapa Europeo por la zona de Inglaterra, Francia, España, Alemania... en el mismo se aprecia que no existe tecnología sobresaliente más allá del siglo XIX. La gente se transporta a caballo, carrozas y en unos extraños barcos que vuelan.Hay seres mitológicos como duendes, elfos, dragones, ogros y por supuesto magos los cuales pueden manejar diferentes elementos (el fuego, el agua, el viento y la tierra). Nuestra protagonista es una maga de nombre Louise Françoise Le Blanc de La Vallière, también llamada por sus compañeros en la academia de magia &quot;Louise la Cero&quot;, debido a que ella no es capaz de realizar algún hechizo sin que pase algo.', 'Terminado', 'terminado', 1, '2020-12-25 12:35:32', 'zero no tsukaima-imagen.jpg', 'zero no tsukaima-banner.jpg', 13, 13),
 (33, 'Zero no Tsukaima: Futatsuki no Kishi', 'Zero no Tsukaima: Futatski no Kishi, Continua exactamente donde termino la anterior temporada. Louise continúa siendo la Noble que trata a Saito como un animal, mientras el sigue siendo exactamente igual o peor. De hecho, la cosa parece empeorar desde que Saito parece tener comportamientos pervertidos con cualquier chica que ve excepto con Louise, y por esto ella se vuelve mas frustrada y celosa provocando momentos y situaciones con un extremo contenido cómico.', 'Terminado', 'terminado', 1, '2020-12-25 12:45:36', 'Zero no Tsukaima  Futatsuki no Kishi-imagen.jpg', 'Zero no Tsukaima  Futatsuki no Kishi-banner.jpg', 12, 12),
 (34, 'Zero no Tsukaima: Princess no Rondo', 'Una historia cómica de 2 personajes principales, Louis y Saito. La aventura recomienza cuando Saito, quien habia luchado contra el ejercito de los 1000 hombres, regreso a la vida luego de una ardua batalla. Tras desconocer los detalles de su milagrosa resurreción la reina les encomienda una expedición para encontrar la misteriosa fuente de la vida. Al encontrarse con milagrosa fuente se descencadenan hechos que darán comienzo a una emocionante e ironica historia.', 'Terminado', 'terminado', 1, '2020-12-25 12:48:10', 'Zero no Tsukaima  Princess no Rondo-imagen.jpg', 'Zero no Tsukaima  Princess no Rondo-banner.jpg', 12, 12),
@@ -66,7 +66,7 @@ INSERT INTO `anime` (`anime_id`, `anime_nombre`, `anime_sinopsis`, `anime_actual
 (51, 'Dragon Ball Z', 'En Dragon ball Z Goku se ha convertido en un adulto y está casado con Milk, con la que tiene un hijo llamado Gohan. En esta segunda saga de Dragon ball Goku descubrirá que no es un terricola, sino que pertenece a una raza de guerreros conocida por ser una de las más poderosas de la galaxia, para posteriormente dar paso a los verdaderos enemigos de la serie. Para poder vencer a los nuevos enemigos que irán surgiendo, Goku y sus amigos tendrán que viajar por otros planetas e incluso al cielo y al infierno. Cada enemigo será más fuerte que el anterior, por lo que tendrán que entrenar muy duro para poder derrotarlos además de que se les irán uniendo nuevos personajes que les ayudarán a vencerlos.', 'Terminado', 'terminado', 1, '2020-12-30 12:40:46', 'Dragon Ball Z-imagen.png', 'Dragon Ball Z-banner.jpg', 291, 291),
 (52, 'Dragon Ball GT', 'Ésta es la etapa final de Dragon Ball, aquí veremos a un Goku un poco más viejo acompañado de Oob, la reencarnación de Boo. Ahora Oob, después de un largo entrenamiento, se ha vuelto muy fuerte junto a Goku. Ahora un nuevo problema se le presenta a Goku, él ha sido convertido en niño por un viejo enemigo, con unas esferas de dragón nunca antes vistas, pero éstas no se esparcen por La Tierra, si no por la galaxia, además, si no encuentran las esferas en un determinado tiempo, La Tierra explotará. Esto llevará a Goku, Trunks y su nieta Pan, a una aventura por toda la galaxia.', 'Terminado', 'terminado', 1, '2020-12-30 12:43:31', 'Dragon Ball GT-imagen.jpg', 'Dragon Ball GT-banner.jpg', 64, 64),
 (65, 'High School DxD Hero', 'Cuarta temporada de High School DxD.', 'Terminado', 'terminado', 1, '2020-12-30 15:39:35', 'High School DxD Hero-imagen.jpg', 'High School DxD Hero-banner.jpg', 13, 13),
-(66, 'sora', 'fcfhgchgchchgc', 'Terminado', 'terminado', 1, '2021-01-08 22:42:12', 'sora-imagen.jpg', 'sora-banner.jpg', 11, 11);
+(67, 'Darling in the FranXX', 'Los chicos sueñan con poder volar algún día por el infinito cielo, aunque son dolorosamente conscientes de cuán lejos está el cielo más allá del cristal que les impide salir volando. En un futuro distante la humanidad ha creado Plantation, una ciudad fortaleza móvil construida sobre las ruinas del mundo y en la que ha florecido la civilización. En la ciudad hay barracones especiales para pilotos llamados Mistilteinn, aunque popularmente se los conoce como &quot;jaulas de pájaros&quot;. Allí es donde viven estos chicos... sin saber nada del mundo exterior, sin poder sentir nunca el enorme cielo. Su única misión en la vida siempre fue luchar. Sus enemigos son los misteriosos organismos gigantes conocidos como Kyoryu, a los cuales enfrentan con los robots llamados FRANXX. No saben hacer otra cosa y no se lo plantean, pues creen que este es su propósito único en la vida. entre ellos está un niño al que en su día consideraron un niño prodigio: Código 016, Hiro. Sin embargo, ahora es un fracaso y se lo considera innecesario. Quienes no pueden pilotar un FRANXX es como si no existieran. Un día aparece ante Hiro una chica llamada Zero Two y de su cabeza surgen dos cuernos. &quot;Te encontré, cariño mío&quot;', 'Terminado', 'proceso', 1, '2021-01-11 00:28:54', 'Darling in the FranXX-imagen.jpg', 'Darling in the FranXX-banner.webp', 24, 4);
 
 -- --------------------------------------------------------
 
@@ -104,8 +104,8 @@ INSERT INTO `anime_genero` (`anime_genero_id`, `anime_id`, `genero_id`, `anime_g
 (36, 65, 33, 1, '2020-12-30 15:39:35'),
 (37, 65, 24, 1, '2020-12-30 15:39:35'),
 (38, 65, 8, 1, '2020-12-30 15:39:35'),
-(39, 66, 2, 1, '2021-01-08 22:42:12'),
-(40, 66, 11, 1, '2021-01-08 22:42:12');
+(41, 67, 1, 1, '2021-01-11 00:28:54'),
+(42, 67, 6, 1, '2021-01-11 00:28:54');
 
 -- --------------------------------------------------------
 
@@ -202,8 +202,51 @@ CREATE TABLE `resenia` (
 
 INSERT INTO `resenia` (`resenia_id`, `resenia_titulo`, `resenia_comentarios`, `resenia_estado`, `Fecha_Registro`, `anime_id`, `resenia_valoracion`) VALUES
 (28, 'buen anime', 'tiene buenas batallas sobre todo, muy entretenido', 1, '2021-01-05 23:08:57', 65, 5),
-(31, 'grandioso', 'bueno', 1, '2021-01-06 15:23:04', 37, 5),
-(32, 'buena', 'ffghjghjhj', 1, '2021-01-08 22:42:42', 66, 5);
+(34, 'increible', 'buenisima la serie', 1, '2021-01-11 00:08:48', 32, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `rol`
+--
+
+CREATE TABLE `rol` (
+  `rol_id` int(11) NOT NULL,
+  `rol_nombre` varchar(50) DEFAULT NULL,
+  `rol_estado` int(1) DEFAULT 1,
+  `FechaRegistro` datetime(1) DEFAULT current_timestamp(1)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `rol`
+--
+
+INSERT INTO `rol` (`rol_id`, `rol_nombre`, `rol_estado`, `FechaRegistro`) VALUES
+(1, 'administrador', 1, '2021-01-14 22:11:55.2'),
+(2, 'editor', 1, '2021-01-14 22:12:08.5');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `usuario_id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL DEFAULT '0',
+  `password` varchar(150) NOT NULL DEFAULT '0',
+  `FechaRegistro` datetime DEFAULT current_timestamp(),
+  `usuario_estado` int(1) DEFAULT 1,
+  `rol_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`usuario_id`, `username`, `password`, `FechaRegistro`, `usuario_estado`, `rol_id`) VALUES
+(3, 'root', 'ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413', '2021-01-14 22:13:08', 1, 1),
+(5, 'root2', 'ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413', '2021-01-15 00:21:51', 1, 2);
 
 --
 -- Índices para tablas volcadas
@@ -244,6 +287,19 @@ ALTER TABLE `resenia`
   ADD KEY `fk_reseña1` (`anime_id`);
 
 --
+-- Indices de la tabla `rol`
+--
+ALTER TABLE `rol`
+  ADD PRIMARY KEY (`rol_id`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`usuario_id`),
+  ADD KEY `fk_rol_1` (`rol_id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -251,13 +307,13 @@ ALTER TABLE `resenia`
 -- AUTO_INCREMENT de la tabla `anime`
 --
 ALTER TABLE `anime`
-  MODIFY `anime_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `anime_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT de la tabla `anime_genero`
 --
 ALTER TABLE `anime_genero`
-  MODIFY `anime_genero_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `anime_genero_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `etiqueta`
@@ -275,7 +331,19 @@ ALTER TABLE `genero`
 -- AUTO_INCREMENT de la tabla `resenia`
 --
 ALTER TABLE `resenia`
-  MODIFY `resenia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `resenia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT de la tabla `rol`
+--
+ALTER TABLE `rol`
+  MODIFY `rol_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
@@ -299,6 +367,12 @@ ALTER TABLE `etiqueta`
 --
 ALTER TABLE `resenia`
   ADD CONSTRAINT `fk_reseña1` FOREIGN KEY (`anime_id`) REFERENCES `anime` (`anime_id`);
+
+--
+-- Filtros para la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD CONSTRAINT `fk_rol_1` FOREIGN KEY (`rol_id`) REFERENCES `rol` (`rol_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

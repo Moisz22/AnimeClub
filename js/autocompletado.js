@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $('#b').on('keyup', function() {
-    var key = $(this).val();    
-    var dataString = 'b='+key;
+    let key = $(this).val();    
+    let dataString = 'b='+key;
     
     $.ajax({
       type: "POST",
@@ -13,7 +13,7 @@ $(document).ready(function() {
         //Al hacer click en algua de las sugerencias
         $('.suggest-element').on('click', function(){
           //Obtenemos la id unica de la sugerencia pulsada
-          var id = $(this).attr('id');
+          let id = $(this).attr('id');
           //redirecciona al anime donde se le hace clic
           location.href='single_anime?id='+id;
           //Editamos el valor del input con data de la sugerencia pulsada

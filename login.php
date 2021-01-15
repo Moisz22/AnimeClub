@@ -4,17 +4,37 @@ session_start();
 require 'config/config.php';
 require 'functions.php';
 
-$errores = '';
+$errores = [];
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 	$usuario = limpiarDatos($_POST['user']);
 	$password = limpiarDatos($_POST['password']);
-	if($usuario == $login['usuario'] && $password == $login['contra']){
+
+	$password = hash('sha512', $password);
+
+	$conexion = conexion($bd_config);
+
+	if(!$conexion){
+		header('Location: error');
+	}
+
+	$statement = $conexion->prepare('SELECT * FROM usuario as u, rol as r WHERE u.rol_id=r.rol_id AND username=:username AND password=:password');
+	$statement->execute(array(
+
+		':username' => $usuario,
+		':password' => $password
+
+	));
+
+	$resultados = $statement->fetch();
+
+	if($resultados !== false){
 		$_SESSION['usuario'] = $usuario;
+		$_SESSION['rol'] = $resultados['rol_nombre'];
 		header('Location:lista_animes');
 	}else{
-		$errores .= '<script>alertify.error("Usuario o contraseña no validos")</script>';
+		array_push($errores, 'Usuario o contraseña no validos');
 	}
 }
 

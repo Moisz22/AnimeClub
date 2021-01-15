@@ -15,13 +15,13 @@
                   
       <div class="col-lg-3 col-md-6 col-sm-6 white_fonts">
         <div class="full footer_blog f_icon_1">
-          <p>Dirección<br><small>151 Ho Ba Kien Street,<br>Ward 15, District 10,<br>Ho Chi Minh City, Vietnam</small></p>
+          <p>Dirección<br><small>Ecuador</small></p>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 col-sm-6 white_fonts">
         <div class="full footer_blog f_icon_2">
-          <p>Teléfono<br><small>+84 126 922 0162<br>+84 905 333 333<br>Monday - Sunday<br>08:00 am - 05:00 pm</small></p>
+          <p>Teléfono<br><small><br><br><br></small></p>
         </div>
       </div>
 

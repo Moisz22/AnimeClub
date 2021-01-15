@@ -1,9 +1,9 @@
 function submitForm(){
     // Initiate Variables With Form Content
-    var name = $("#name").val();
-    var email = $("#email").val();
-    var msg_subject = $("#msg_subject").val();
-    var message = $("#message").val();
+    let name = $("#name").val();
+    let email = $("#email").val();
+    let msg_subject = $("#msg_subject").val();
+    let message = $("#message").val();
 
 
     $.ajax({

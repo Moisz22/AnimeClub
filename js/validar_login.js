@@ -1,7 +1,7 @@
 function validarlogin(){
 
-	var usuario = document.getElementById("user").value;
-	var password = document.getElementById("password").value;
+	let usuario = document.getElementById("user").value;
+	let password = document.getElementById("password").value;
 	
 	if(usuario === '' || usuario === null){
 		alertify.warning('El usuario no puede estar vacío');

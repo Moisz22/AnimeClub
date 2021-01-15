@@ -4,25 +4,25 @@ session_start();
 require 'config/config.php';
 require 'functions.php';
 
-$errores = '';
+$errores = [];
 $conexion = conexion($bd_config);
 
 if(!$conexion){
 
-	header('Location: error.php');
+	header('Location: error');
 
 }
 
 if(!isset($_SESSION['usuario'])){
 
-	header('Location: index.php');
+	header('Location: index');
 }
 
 $id = (isset($_REQUEST['id']) && !empty($_REQUEST['id'])) ? (int)$_REQUEST['id'] : false;
 
 //comprobar si se pasó algun id 
 if($id == false || $id == ''){
-	header('Location: error.php');
+	header('Location: error');
 }
 
 $anime = traer_anime_por_id($conexion, $id);
@@ -79,7 +79,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 	if($capitulo_terminado > $total_capitulos){
-		$errores .= '<li>El capitulo que terminaste de ver no puede ser mayor al total de capítulos</li>';
+		array_push($errores, 'El capitulo que terminaste de ver no puede ser mayor al total de capítulos');
 	}
 
 	if($capitulo_terminado < $total_capitulos){
@@ -89,15 +89,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	}
 
 	if(!isset($nombre) || $nombre == '' || !isset($total_capitulos) || $total_capitulos == '' || !isset($sinopsis) || $sinopsis == '' || !isset($actualidad) || $actualidad == ''){
-		$errores .= '<li>Uno o mas campos están vacíos</li>';
+		array_push($errores, 'Uno o mas campos están vacíos');
 	}
 
 	if($total_capitulos == false || $capitulo_terminado == false){
-		$errores .= '<li>Uno o más campos están incorrectos</li>';
+		array_push($errores, 'Uno o más campos están incorrectos');
 	}
 
 
-	if(!$errores && $errores == ''){
+	if(!$errores){
 		$statement = $conexion->prepare('UPDATE anime SET anime_nombre = :anime_nombre, anime_cantidad_capitulos = :anime_cantidad_capitulos, anime_capitulo_terminado_ver = :anime_capitulo_terminado_ver, anime_sinopsis = :anime_sinopsis, anime_actualidad = :anime_actualidad, anime_imagen = :anime_imagen, anime_banner = :anime_banner,
 			anime_estado_vista = :anime_estado_vista WHERE anime_id=:id');
 		$statement = $statement->execute(

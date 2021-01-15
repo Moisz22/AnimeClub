@@ -14,7 +14,7 @@
                   <h4>Marketing</h4>
                   <br>-->
                   <br /><br /><br /><br /><br /><br /><br /><br /><br />
-                  <a class="readmore_bt" href="about.html">Read More</a>
+                  <!--<a class="readmore_bt" href="about.html">Read More</a> -->
                 </div>
               </div>
             </div>
@@ -32,7 +32,7 @@
                   <h4>Marketing</h4>
                   <br>-->
                   <br /><br /><br /><br /><br /><br /><br /><br /><br />
-                  <a class="readmore_bt" href="about.html">Read More</a>
+                  <!--<a class="readmore_bt" href="about.html">Read More</a>-->
                 </div>
               </div>
             </div>
@@ -49,7 +49,7 @@
                   <h4>Marketing</h4>
                   <br>-->
                   <br /><br /><br /><br /><br /><br /><br /><br /><br />
-                  <a class="readmore_bt" href="about.html">Read More</a>
+                  <!--<a class="readmore_bt" href="about.html">Read More</a> -->
                 </div>
               </div>
             </div>
@@ -86,7 +86,7 @@
             <h4>Guarde sus animes</h4>
           </div>
           <div class="full">
-            <p>It is a long established fact that a reader will be distracted by the readable content..</p>
+            <p>Guarde información importante del anime que ya terminó de ver o el cual está empezandolo</p>
           </div>
         </div>
       </div>
@@ -99,10 +99,10 @@
           </div>
           
           <div class="full">
-            <h4>Monthly SEO Task</h4>
+            <h4>Edite el anime</h4>
           </div>
           <div class="full">
-            <p>It is a long established fact that a reader will be distracted by the readable content..</p>
+            <p>Si cometió un error en el guardado del anime puede corregirlo en cualquier momento.</p>
           </div>
         </div>
       </div>
@@ -115,10 +115,10 @@
           </div>
           
           <div class="full">
-            <h4>On Page SEO</h4>
+            <h4>Elimine sus animes</h4>
           </div>
           <div class="full">
-            <p>It is a long established fact that a reader will be distracted by the readable content..</p>
+            <p>Podemos ocultarlo temporalmente o eliminarlo permanentemente de la página</p>
           </div>
         </div>
       </div>
@@ -136,10 +136,12 @@
           <div class="full">
             <p>It is a long established fact that a reader will be distracted by the readable content..</p>
           </div>
+
         </div>
       </div>
     </div>
   </div>
+  <br /><br />
 </div>
 
           <!-- end section -->

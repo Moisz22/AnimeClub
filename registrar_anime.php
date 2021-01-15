@@ -2,26 +2,24 @@
 session_start();
 
 if(!isset($_SESSION['usuario']) || $_SESSION['usuario'] == ''){
-	header('Location: index.php');
+	header('Location: index');
 }
 
 require 'config/config.php';
 require 'functions.php';
 
-$errores = '';
+$errores = [];
 
 $conexion = conexion($bd_config);
 
 if(!$conexion){
 
-	header('Location: error.php');
+	header('Location: error');
 }
 
 $generos = traer_todos_los_generos($conexion);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
-
-
 
 	if((!empty($_FILES['foto']['tmp_name']) && $_FILES['foto']['tmp_name'] !== null)){
 		$check1 = @getimagesize($_FILES['foto']['tmp_name']);
@@ -51,7 +49,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
 	$actualidad = filter_var($actualidad, FILTER_SANITIZE_STRING);
 
 	if($capitulo_terminado > $total_capitulos){
-		$errores .= '<li>El capitulo que terminaste de ver no puede ser mayor al total de capítulos</li>';
+		array_push($errores,'El capitulo que terminaste de ver no puede ser mayor al total de capítulos');
 	}
 
 	if($capitulo_terminado < $total_capitulos){
@@ -61,11 +59,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
 	}
 
 	if(!isset($nombre) || $nombre == '' || !isset($total_capitulos) || $total_capitulos == '' || !isset($sinopsis) || $sinopsis == '' || !isset($actualidad) || $actualidad == ''){
-		$errores .= '<li>Uno o mas campos están vacíos</li>';
+		array_push($errores, 'Uno o mas campos están vacíos');
 	}
 
 	if($total_capitulos == false || $capitulo_terminado == false){
-		$errores .= '<li>Uno o más campos están incorrectos</li>';
+		array_push($errores, 'Uno o más campos están incorrectos');
 	}
 
 	if($check1 !== false){
@@ -76,7 +74,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
 		$archivo_subido = $carpeta_destino . $nombre_imagen;
 		move_uploaded_file($_FILES['foto']['tmp_name'], $archivo_subido);
 	}else{
-		$errores .= '<li>El archivo para su foto no es una imagen o es muy pesado</li>';
+		array_push($errores, 'El archivo para su foto no es una imagen o es muy pesado');
 	}
 
 	if($check2 !== false){
@@ -87,10 +85,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
 		$archivo_subido = $carpeta_destino . $nombre_banner;
 		move_uploaded_file($_FILES['banner']['tmp_name'], $archivo_subido);
 	}else{
-		$errores .= '<li>El archivo para su banner no es una imagen o es muy pesado</li>';
+		array_push($errores, 'El archivo para su banner no es una imagen o es muy pesado');
 	}
 
-	if(!$errores && $errores == ''){
+	if(!$errores){
 		$statement = $conexion->prepare('INSERT INTO anime(anime_nombre,anime_cantidad_capitulos, anime_capitulo_terminado_ver, anime_sinopsis, anime_estado_vista, anime_actualidad, anime_imagen, anime_banner) VALUES(:anime_nombre, :anime_cantidad_capitulos, :anime_capitulo_terminado_ver, :anime_sinopsis, :anime_estado_vista,:anime_actualidad, :anime_imagen, :anime_banner )');
 		$statement->execute(
 			array(
@@ -134,10 +132,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
 	//envia el estado {registrado, actualizado o eliminado} en sesion y la elimina al llegar a la vista
 		$_SESSION['estado'] = 'registrado';
 		header('Location:lista_animes');
-
-
-
-
 
 	}
 

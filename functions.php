@@ -1,11 +1,9 @@
 <?php 
 
-
-
 function conexion($bd_config){
 
 	try{
-		$conexion = new PDO($bd_config['servidor_db'].':host='.$bd_config['servidor'].';dbname='.$bd_config['basedatos'],$bd_config['usuario'],$bd_config['password']);
+		$conexion = new PDO($bd_config['servidor_db'].':host='.$bd_config['servidor'].';port='.$bd_config['puerto'].';dbname='.$bd_config['basedatos'],$bd_config['usuario'],$bd_config['password']);
 		return $conexion;
 	}catch(PDOException $e){
 		return false;

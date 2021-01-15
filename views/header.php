@@ -62,12 +62,17 @@
       <nav id="sidebar">
          <div class="menu_section">
             <ul>
-               <?php if(isset($_SESSION['usuario'])): ?>
+               <?php if(isset($_SESSION['usuario']) && $_SESSION['rol'] == 'administrador'): ?>
                   <li><a href="cerrar">Salir <i class="fa fa-sign-out"></i></a></li>
                   <li><a href="lista_animes">Animes <i class="fa fa-hand-peace-o"></i></a></li>
                   <li><a href="tablas">Tablas <i class="fa fa-table"></i></a></li>
                   <li><a href="borrados">Borrados <i class="fa fa-trash"></i></a></li>
+                  <li><a href="usuarios">Usuarios <i class="fa fa-user"></i></a></li>
                   <li><a href="borrados">Configuraciones <i class="fa fa-cog"></i></a></li>
+               <?php elseif(isset($_SESSION['usuario']) && $_SESSION['rol'] == 'editor'): ?>
+                  <li><a href="cerrar">Salir <i class="fa fa-sign-out"></i></a></li>
+                  <li><a href="lista_animes">Animes <i class="fa fa-hand-peace-o"></i></a></li>
+                  <li><a href="usuarios">Usuarios <i class="fa fa-user"></i></a></li>
                <?php else: ?>
                   <li><a href="login">Login <i class="fa fa-sign-in"></i></a></li>
                   <li><a href="lista_animes">Animes <i class="fa fa-hand-peace-o"></i></a></li>
