@@ -9,9 +9,6 @@ if(!$conexion){
 	die();
 }
 
-
-
-
 $animes = animes_eliminados($conexion);
 
 ?>

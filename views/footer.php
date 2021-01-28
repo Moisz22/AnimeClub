@@ -116,9 +116,7 @@
     });
   });
 
-
   
-
 </script>
   <script src="sweetalert2.all.min.js"></script>
   <script src="js/autocompletado.js"></script>

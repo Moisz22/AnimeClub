@@ -42,7 +42,8 @@ $animes = $statement->fetchAll();
 						   $anime['anime_actualidad']."||".
 						   $anime['anime_sinopsis']."||".
 						   $anime['anime_estado']."||".
-						   $anime['anime_cantidad_capitulos']; 
+						   $anime['anime_cantidad_capitulos']."||".
+						   $anime['anime_id']; 
 
 					?>
 					<tr>
@@ -53,7 +54,7 @@ $animes = $statement->fetchAll();
 						<td><?php echo $anime['anime_actualidad'];?></td>
 						<td><?php echo $anime['anime_estado_vista'];?></td>
 						<td><?php echo $anime['anime_estado'];?></td>
-						<td><button onclick="mostrar_datos_anime('<?php echo $datos;?>')" class="btn btn-warning fa fa-pencil"></button></td>
+						<td><button onclick="mostrar_datos_completos_anime('<?php echo $datos;?>')" class="btn btn-warning fa fa-pencil"></button></td>
 						<td><button class="btn btn-danger fa fa-trash"></button></td>
 					</tr>
 				<?php endforeach; ?>
@@ -78,6 +79,9 @@ $animes = $statement->fetchAll();
       <div class="modal-body">
       	<div class="container-fluid">
       		<div class="row">
+      			<input class="form-control col-md-8 col-8" type="hidden" id="anime_id_mostrar">
+      		</div>
+      		<div class="row">
       			<label class="col-md-4 col-4">Nombre: </label><input class="form-control col-md-8 col-8" type="text" id="anime_nombre_mostrar">
       		</div>
       		<br />
@@ -100,31 +104,26 @@ $animes = $statement->fetchAll();
       	</div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-warning">Actualizar</button>
+        <button type="button" onclick="guardar_datos_completos_anime()" class="btn btn-warning">Actualizar</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
 </div>
 
-
 <script type="text/javascript">
 	
+	function mostrar_datos_completos_anime(datos){
 
+      d=datos.split('||');
 
-	function mostrar_datos_anime(datos){
-
-		d=datos.split('||');
-
-		$("#anime_nombre_mostrar").val(d[0]);
-		$("#anime_actualidad_mostrar").val(d[1]);
-		$("#anime_sinopsis_mostrar").val(d[2]);
-		$("#anime_estado_mostrar").val(d[3]);
-		$("#anime_cantidad_capitulos_mostrar").val(d[4]);
-		$("#modal_editar_anime").modal('show');
-	}
-
-
+      $("#anime_nombre_mostrar").val(d[0]);
+      $("#anime_actualidad_mostrar").val(d[1]);
+      $("#anime_sinopsis_mostrar").val(d[2]);
+      $("#anime_estado_mostrar").val(d[3]);
+      $("#anime_cantidad_capitulos_mostrar").val(d[4]);
+      $("#anime_id_mostrar").val(d[5]);
+      $("#modal_editar_anime").modal('show');
+  }
 </script>
-
 

@@ -4,17 +4,18 @@
 
 $bd_config = array(
 	'servidor'    => 'localhost',
-	'servidor_db' => 'mysql',
-	'puerto'      => '3306',
-	'basedatos'   => 'series_vistas',
-	'usuario'     => 'root',
-	'password'    =>  ''
+	'servidor_db'    => 'mysql',
+	'puerto'         => '3306',
+	'basedatos'      => 'series_vistas',
+	'usuario'        => 'root',
+	'password'       =>  '',
+	'servidor_pagina' => 'localhost'
 
 );
 
 //ruta de la pagina principal
 
-define('RUTA', 'http://'.$bd_config['servidor'].'/animeclub/');
+define('RUTA', 'http://'.$bd_config['servidor_pagina'].'/animeclub/');
 
 
 /*
@@ -24,11 +25,5 @@ define('RUTA', 'http://'.$bd_config['servidor'].'/animeclub/');
 	* el numero de animes por pagina no puede ser menor que el index de 'animes_por_columna_pc'
 
 */
-
-$login = array(
-
-	'usuario' => 'root',
-	'contra'  => 'root'
-);
 
 ?>

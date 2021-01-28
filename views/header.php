@@ -81,7 +81,7 @@
          </div>
       </nav>
 
-      <div id="content">
+      
          <!-- Start header -->
          <header class="top-header">
             <div class="container">
@@ -98,4 +98,5 @@
             </div>
          </header>
          <br/>
+         <div id="content">
          <!-- End header -->

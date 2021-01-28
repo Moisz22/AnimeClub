@@ -2887,6 +2887,7 @@ ul.bottom_menu li {
     
     #content.active {
       width: 100%;
+      background: gray;
     }
     /* ---------------------------------------------------
     MEDIAQUERIES
