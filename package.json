@@ -1,0 +1,27 @@
+{
+  "name": "animeclub",
+  "version": "1.0.0",
+  "description": "Registro de animes",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Moisz22/AnimeClub.git"
+  },
+  "keywords": [
+    "\"anime\"",
+    "\"php\""
+  ],
+  "author": "Moisz22",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Moisz22/AnimeClub/issues"
+  },
+  "homepage": "https://github.com/Moisz22/AnimeClub#readme",
+  "dependencies": {
+    "alertifyjs": "^1.13.1",
+    "sweetalert2": "^10.14.0"
+  }
+}

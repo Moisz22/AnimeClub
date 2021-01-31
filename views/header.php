@@ -34,8 +34,8 @@
       <!-- Custom CSS -->
       <link rel="stylesheet" href="css/custom.css" />
       <!-- Librerias alertify -->
-      <link rel="stylesheet" type="text/css" href="librerias/alertifyjs/css/alertify.css">
-      <link rel="stylesheet" type="text/css" href="librerias/alertifyjs/css/themes/default.css">
+      <link rel="stylesheet" type="text/css" href="node_modules/alertifyjs/build/css/alertify.css">
+      <link rel="stylesheet" type="text/css" href="node_modules/alertifyjs/build/css/themes/default.css">
       <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -44,9 +44,9 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
       <!-- script para alertify -->
-      <script src="librerias/alertifyjs/alertify.js"></script>
+      <script src="node_modules/alertifyjs/build/alertify.js"></script>
       <!-- libreria para sweet alert2 -->
-      <script src="librerias/sweetalert2@10/sweetalert2@10.js"></script>
+      <script src="node_modules/sweetalert2/dist/sweetalert2.js"></script>
    </head>
    <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
       <!-- LOADER -->
