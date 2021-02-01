@@ -1,6 +1,6 @@
 <?php
-require 'config/config.php';
-require 'functions.php';
+require '../config/config.php';
+require '../functions.php';
 
 $conexion = conexion($bd_config);
 if(!$conexion){
@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 	$reseña_id = $_POST['reseña_id'];
 
-	$statement = $conexion->prepare("DELETE FROM resenia WHERE resenia_estado=0 && resenia_id=:resenia_id");
+	$statement = $conexion->prepare("UPDATE resenia SET resenia_estado=0 WHERE resenia_id=:resenia_id");
 	$statement->execute(array(
 		':resenia_id' => $reseña_id
 		)

@@ -1,12 +1,40 @@
 # AnimeClub
 
-VERSIÓN DE PHP: PHP 8.0.0
+## Construido con 🛠️
 
+- PHP
 
+- MYSQL
 
-Cree la base de datos con el nombre de:series_vistas y a continuación importe el archivo series_vistas.sql
+- <a href="https://getbootstrap.com/">Bootstrap</a>
 
-modifique el arreglo bd_config en el archivo config.php que se encuentra en la ruta config/config.php con sus credenciales para el acceso a su base de datos.
+- <a href="https://alertifyjs.com/">AlertifyJS</a>
 
-Usuario por defecto creado para entrar como administrador en la página web.
-usuario: root; password: 123456
+- <a href="https://sweetalert2.github.io/">Sweet Alert 2</a>
+
+- <a href="https://jquery.com/">Jquery</a>
+
+## Pre-requisitos 📋
+
+- <a href="https://www.npmjs.com/">NPM</a>
+
+## Inicio rápido 🚀
+
+- Instale las dependencias
+    ```
+    npm install
+    ```
+
+- Cree la base de datos con el nombre **series_vistas** y a continuación importe el archivo **series_vistas.sql** que se encuentra en el directorio raiz del proyecto.
+
+- Vaya al archivo **config.php** que se encuentra en la ruta config/config.php y modifique el arreglo **bd_config** con sus credenciales de base de datos.
+
+## Credenciales por defecto
+
+- usuario: root
+
+- password: 123456
+
+## Licencia 📄
+
+Este proyecto está bajo la Licencia (MIT) - mira el archivo [LICENSE.md](LICENSE.md) para detalles.

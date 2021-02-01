@@ -3,7 +3,7 @@ function confirmar_retorno_anime(anime_id){
   	function(){
     	
   		$.post({
-  			url: 'regresar_anime.php',
+  			url: 'back-end/regresar_anime.php',
   			data: "anime_id=" + anime_id,
   			success: function(r){
           if(r==1){
@@ -42,7 +42,7 @@ function confirmar_eliminacion_fisica_anime(anime_id){
   	function(){
     	
   		$.post({
-  			url: 'eliminar_anime_permanente.php',
+  			url: 'back-end/eliminar_anime_permanente.php',
   			data: "anime_id=" + anime_id,
   			success: function(r){
           if(r==1){
@@ -79,7 +79,7 @@ function confirmar_retorno_reseña(reseña_id){
     function(){
       
       $.post({
-        url: 'regresar_reseña.php',
+        url: 'back-end/regresar_reseña.php',
         data: "resenia_id=" + reseña_id,
         success: function(r){
           if(r==1){
@@ -120,7 +120,7 @@ function confirmar_eliminacion_fisica_reseña(reseña_id){
     function(){
       
       $.post({
-        url: 'eliminar_reseña_permanente.php',
+        url: 'back-end/eliminar_reseña_permanente.php',
         data: "reseña_id=" + reseña_id,
         success: function(r){
           if(r==1){

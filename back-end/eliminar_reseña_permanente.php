@@ -1,6 +1,6 @@
 <?php
-require 'config/config.php';
-require 'functions.php';
+require '../config/config.php';
+require '../functions.php';
 
 $conexion = conexion($bd_config);
 if(!$conexion){
@@ -9,9 +9,9 @@ if(!$conexion){
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-	$reseña_id = $_POST['resenia_id'];
+	$reseña_id = $_POST['reseña_id'];
 
-	$statement = $conexion->prepare("UPDATE resenia SET resenia_estado=1 WHERE resenia_id=:resenia_id");
+	$statement = $conexion->prepare("DELETE FROM resenia WHERE resenia_estado=0 && resenia_id=:resenia_id");
 	$statement->execute(array(
 		':resenia_id' => $reseña_id
 		)
@@ -23,6 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	if($num_filas_afectadas > 0){
 		echo 1;	
 	}
+
 }
 
 ?>

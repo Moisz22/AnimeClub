@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		header('Location: error');
 	}
 
-	$statement = $conexion->prepare('SELECT * FROM usuario as u, rol as r WHERE u.rol_id=r.rol_id AND username=:username AND password=:password');
+	$statement = $conexion->prepare('SELECT * FROM usuario WHERE username=:username AND password=:password');
 	$statement->execute(array(
 
 		':username' => $usuario,
@@ -31,7 +31,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 	if($resultados !== false){
 		$_SESSION['usuario'] = $usuario;
-		$_SESSION['rol'] = $resultados['rol_nombre'];
 		header('Location:lista_animes');
 	}else{
 		array_push($errores, 'Usuario o contraseña no validos');

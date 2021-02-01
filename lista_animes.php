@@ -54,4 +54,5 @@ if(!$animes && isset($_GET['b']) && !empty($_GET['b'])){
 $total_animes_activos = total_animes($conexion);
 
 require 'views/lista_animes.view.php';
+
 ?>

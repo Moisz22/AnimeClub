@@ -62,9 +62,7 @@
 </div>
 <a href="#" id="scroll-to-top" class="hvr-radial-out"><i class="fa fa-angle-up"></i></a>
 <!-- ALL JS FILES -->
-<script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
 <!-- ALL PLUGINS -->
 <script src="js/jquery.magnific-popup.min.js"></script>
 <script src="js/jquery.pogo-slider.min.js"></script>
@@ -118,7 +116,6 @@
 
   
 </script>
-  <script src="sweetalert2.all.min.js"></script>
   <script src="js/autocompletado.js"></script>
   <script src="js/funciones.js"></script>
   <script src="js/validar_login.js"></script>

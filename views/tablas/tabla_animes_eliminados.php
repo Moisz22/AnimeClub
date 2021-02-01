@@ -32,8 +32,8 @@ $animes = animes_eliminados($conexion);
 						<td><img class="animes_lista centrar_imagen" src="images/animes/<?php echo $anime['anime_imagen'];?>" alt="<?php echo $anime['anime_nombre'];?>"></td>
 						<td><?php echo $anime['anime_actualidad'];?></td>
 						<td><?php echo $anime['anime_estado_vista'];?></td>
-						<td><button style="margin-top: 50px;" class="btn btn-warning fa fa-arrow-up" onclick="confirmar_retorno_anime('<?php echo $anime["anime_id"];?>')"></button></td>
-						<td><button style="margin-top: 50px;" onclick="confirmar_eliminacion_fisica_anime('<?php echo $anime["anime_id"];?>')" class="btn btn-danger fa fa-trash"></button></td>
+						<td><button style="margin-top: 50px;" class="btn btn-warning fa fa-arrow-up" onclick="confirmar_retorno_anime(<?php echo $anime['anime_id'];?>)"></button></td>
+						<td><button style="margin-top: 50px;" onclick="confirmar_eliminacion_fisica_anime(<?php echo $anime['anime_id'];?>)" class="btn btn-danger fa fa-trash"></button></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>

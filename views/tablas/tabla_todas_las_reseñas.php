@@ -27,8 +27,6 @@ $reseñas = $statement->fetchAll();
 					<th>Valoración</th>
 					<th>Fecha</th>
 					<th>Estado</th>
-					<th>Editar</th>
-					<th>Eliminar</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -41,8 +39,6 @@ $reseñas = $statement->fetchAll();
 						<td><?php echo $reseña['resenia_valoracion'];?></td>
 						<td><?php echo $reseña['Fecha_Registro'];?></td>
 						<td><?php echo $reseña['resenia_estado'];?></td>
-						<td><button class="btn btn-warning fa fa-pencil"></button></td>
-						<td><button class="btn btn-danger fa fa-trash"></button></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>

@@ -24,7 +24,7 @@
       <link rel="shortcut icon" href="#" type="image/x-icon" />
       <link rel="apple-touch-icon" href="#" />
       <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="css/bootstrap.min.css" />
+      <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
       <!-- Pogo Slider CSS -->
       <link rel="stylesheet" href="css/pogo-slider.min.css" />
       <!-- Site CSS -->
@@ -35,18 +35,19 @@
       <link rel="stylesheet" href="css/custom.css" />
       <!-- Librerias alertify -->
       <link rel="stylesheet" type="text/css" href="node_modules/alertifyjs/build/css/alertify.css">
-      <link rel="stylesheet" type="text/css" href="node_modules/alertifyjs/build/css/themes/default.css">
+      <link rel="stylesheet" type="text/css" href="node_modules/alertifyjs/build/css/themes/bootstrap.css">
       <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
       <!--librerias necesarias para usar el Modal -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <script src="node_modules/jquery/dist/jquery.min.js"></script>
+      <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
       <!-- script para alertify -->
       <script src="node_modules/alertifyjs/build/alertify.js"></script>
       <!-- libreria para sweet alert2 -->
-      <script src="node_modules/sweetalert2/dist/sweetalert2.js"></script>
+      <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+      <script src="node_modules/sweetalert2/dist/sweetalert2.min.css"></script>
    </head>
    <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
       <!-- LOADER -->
@@ -62,17 +63,12 @@
       <nav id="sidebar">
          <div class="menu_section">
             <ul>
-               <?php if(isset($_SESSION['usuario']) && $_SESSION['rol'] == 'administrador'): ?>
+               <?php if(isset($_SESSION['usuario'])): ?>
                   <li><a href="cerrar">Salir <i class="fa fa-sign-out"></i></a></li>
                   <li><a href="lista_animes">Animes <i class="fa fa-hand-peace-o"></i></a></li>
                   <li><a href="tablas">Tablas <i class="fa fa-table"></i></a></li>
                   <li><a href="borrados">Borrados <i class="fa fa-trash"></i></a></li>
-                  <li><a href="usuarios">Usuarios <i class="fa fa-user"></i></a></li>
-                  <li><a href="borrados">Configuraciones <i class="fa fa-cog"></i></a></li>
-               <?php elseif(isset($_SESSION['usuario']) && $_SESSION['rol'] == 'editor'): ?>
-                  <li><a href="cerrar">Salir <i class="fa fa-sign-out"></i></a></li>
-                  <li><a href="lista_animes">Animes <i class="fa fa-hand-peace-o"></i></a></li>
-                  <li><a href="usuarios">Usuarios <i class="fa fa-user"></i></a></li>
+                  <li><a href="#">Configuraciones <i class="fa fa-cog"></i></a></li>
                <?php else: ?>
                   <li><a href="login">Login <i class="fa fa-sign-in"></i></a></li>
                   <li><a href="lista_animes">Animes <i class="fa fa-hand-peace-o"></i></a></li>

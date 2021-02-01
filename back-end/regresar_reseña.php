@@ -1,20 +1,19 @@
 <?php
-require 'config/config.php';
-require 'functions.php';
+require '../config/config.php';
+require '../functions.php';
 
 $conexion = conexion($bd_config);
-
 if(!$conexion){
 	header('Location:error');
 	die();
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-	$anime_id = $_POST['anime_id'];
+	$reseña_id = $_POST['resenia_id'];
 
-	$statement = $conexion->prepare("UPDATE anime SET anime_estado=1 WHERE anime_id=:anime_id");
+	$statement = $conexion->prepare("UPDATE resenia SET resenia_estado=1 WHERE resenia_id=:resenia_id");
 	$statement->execute(array(
-		':anime_id' => $anime_id
+		':resenia_id' => $reseña_id
 		)
 	);
 
@@ -24,8 +23,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	if($num_filas_afectadas > 0){
 		echo 1;	
 	}
-
-}else
-
+}
 
 ?>

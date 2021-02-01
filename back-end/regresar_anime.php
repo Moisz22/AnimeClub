@@ -1,19 +1,20 @@
 <?php
-require 'config/config.php';
-require 'functions.php';
+require '../config/config.php';
+require '../functions.php';
 
 $conexion = conexion($bd_config);
+
 if(!$conexion){
 	header('Location:error');
 	die();
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-	$reseña_id = $_POST['reseña_id'];
+	$anime_id = $_POST['anime_id'];
 
-	$statement = $conexion->prepare("UPDATE resenia SET resenia_estado=0 WHERE resenia_id=:resenia_id");
+	$statement = $conexion->prepare("UPDATE anime SET anime_estado=1 WHERE anime_id=:anime_id");
 	$statement->execute(array(
-		':resenia_id' => $reseña_id
+		':anime_id' => $anime_id
 		)
 	);
 
@@ -25,5 +26,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	}
 
 }
+
 
 ?>

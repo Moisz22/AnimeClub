@@ -127,7 +127,7 @@
 						<div class="todos_animes">	
 							<a href="single_anime?id=<?php echo $anime['anime_id'];?>">
 								<!--<span style="position: absolute; z-index: 500;" class="generos_estilo_lista">anime</span> -->
-							<?php if(isset($anime['anime_imagen'])): ?>
+							<?php if(isset($anime['anime_imagen']) && file_exists("images/animes/$anime[anime_imagen]")): ?>
 								<img class="centrar_imagen animes_lista" src="images/animes/<?php echo $anime['anime_imagen'];?>">
 							<?php else: ?>
 								<img class="centrar_imagen animes_lista" src="images/animes/imagen_no_existe.jpg">

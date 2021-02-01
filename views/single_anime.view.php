@@ -1,15 +1,15 @@
 <?php require 'header.php'; ?>
 <div class="container-fluid">
 	<div class="row">
-		<?php if(isset($anime['anime_banner'])):?>	
+		<?php if(isset($anime['anime_banner']) && file_exists("images/banner/$anime[anime_banner]")):?>	
 			<img style="width: 100%;" src="images/banner/<?php echo $anime['anime_banner'];?>" alt="<?php echo $anime['anime_banner'];?>">
 		<?php else: ?>
-			<img style="width: 100%;" src="images/banner/banner_no_existe.jpg" alt="banner no disponible">
+			<img style="width: 100%;" src="images/banner_no_existe.jpg" alt="banner no disponible">
 		<?php endif;?>			
 	</div>
 </div>
 		<?php
-			$estado = (isset($_SESSION['estado'])) ? ($_SESSION['estado']) : false ;
+			$estado = (isset($_SESSION['estado'])) ? ($_SESSION['estado']) : false;
 			$estado = limpiarDatos($estado);
 			
 			if(isset($_SESSION['usuario'])){
@@ -45,7 +45,7 @@
 				<button type="button" style="margin-left: 10px;" onclick="location.href='editar_anime?id=<?php echo $anime['anime_id'];?>'" class="btn btn-warning fa fa-pencil-square-o" title="Editar"></button>
 			</div>
 			<div class="col-2 col-sm-1">
-				<form id="borrar_anime" action="eliminar_anime.php" method="POST">
+				<form id="borrar_anime" action="back-end/eliminar_anime.php" method="POST">
 					<input type="hidden" name="anime_id" value="<?php echo $anime['anime_id'];?>">
 					<button type="submit" class="btn btn-danger fa fa-trash" title="Eliminar"></button>
 				</form>
@@ -69,10 +69,10 @@
 
 	<div class="row">
 		<div class="col-sm-3 col-12">
-			<?php if(isset($anime['anime_imagen'])):?>
+			<?php if(isset($anime['anime_imagen']) && file_exists("images/animes/$anime[anime_imagen]")):?>
 				<img class="centrar_imagen" style="width: 260px;" src="images/animes/<?php echo $anime['anime_imagen'];?>" alt="<?php echo $anime['anime_imagen'];?>">
 			<?php else: ?>
-				<img class="centrar_imagen" style="width: 260px;" src="images/animes/imagen_no_existe.jpg" alt="imagen no disponible">
+				<img class="centrar_imagen" style="width: 260px;" src="images/imagen_no_existe.jpg" alt="imagen no disponible">
 			<?php endif; ?>
 			<p class="estado_anime"><i class="fa fa-television"></i>
 				<?php echo $anime['anime_actualidad']; ?></p>
@@ -184,15 +184,25 @@
   			if (result.value) {
 			    const answers = JSON.stringify(result.value)
 			    $.post({
-					url:'agregar_reseña.php',
+					url:'back-end/agregar_reseña.php',
 					data: "titulo="+result.value[0]+
 					"&reseña="+result.value[1]+
 					"&valoracion="+result.value[2]+
 					"&anime_id="+$('#anime_id').val(),
 					success: function(r){
+						if(r==1){
+							location.href="single_anime?id="+$('#anime_id').val()
+						}else{
+							Swal.fire({
+								icon: 'error',
+								title: 'Oops...',
+								text: 'Hemos tenido un problema al agregar la reseña!'
+								//footer: '<a href>Why do I have this issue?</a>'
+							})
+						}
 					}    	
 			    });
-			    location.href="single_anime?id="+$('#anime_id').val()
+			    
   			}
 		})
 	}
@@ -201,7 +211,7 @@
 		alertify.confirm('Confirmar eliminación',"¿Desea eliminar la reseña?", function(){
     	
 	  		$.post({
-	  			url: 'eliminar_reseña.php',
+	  			url: 'back-end/eliminar_reseña.php',
 	  			data: "reseña_id=" + reseña_id,
 	  			success: function(r){
 	          if(r==1){
