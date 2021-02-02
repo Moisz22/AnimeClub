@@ -6,7 +6,6 @@
 ?>
 <!DOCTYPE html>
 <html lang="es">
-   <!-- Basic -->
    <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +20,7 @@
       <!-- Site Metas -->
       <title>Anime Club</title>
       <!-- Site Icons -->
-      <link rel="shortcut icon" href="#" type="image/x-icon" />
+      <link rel="shortcut icon" href="images/icono.png" type="image/x-icon" />
       <link rel="apple-touch-icon" href="#" />
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
@@ -31,8 +30,6 @@
       <link rel="stylesheet" href="css/style.css" />
       <!-- Responsive CSS -->
       <link rel="stylesheet" href="css/responsive.css" />
-      <!-- Custom CSS -->
-      <link rel="stylesheet" href="css/custom.css" />
       <!-- Librerias alertify -->
       <link rel="stylesheet" type="text/css" href="node_modules/alertifyjs/build/css/alertify.css">
       <link rel="stylesheet" type="text/css" href="node_modules/alertifyjs/build/css/themes/bootstrap.css">
@@ -44,7 +41,7 @@
       <script src="node_modules/jquery/dist/jquery.min.js"></script>
       <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
       <!-- script para alertify -->
-      <script src="node_modules/alertifyjs/build/alertify.js"></script>
+      <script src=">node_modules/alertifyjs/build/alertify.js"></script>
       <!-- libreria para sweet alert2 -->
       <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
       <script src="node_modules/sweetalert2/dist/sweetalert2.min.css"></script>

@@ -17,7 +17,6 @@
 @import url(magnific-popup.css);
 @import url(responsiveslides.css);
 @import url(timeline.css);
-@import url(flaticon.css);
 
 /*------------------------------------------------------------------ 
     SKELETON
@@ -44,7 +43,6 @@ body::-webkit-scrollbar{
 /*
 	las tablas no tomaban ese estilo en body de ocultar scrollbar, se lo agregó acá
 */
-
 
 div::-webkit-scrollbar{
 	display: none;
@@ -419,7 +417,7 @@ a:hover,a:focus {
     display: block;
     position: absolute;
     right: 0;
-    bottom: 100px;
+    bottom: 30px;
     left: 70px;
 	
 }
@@ -1007,6 +1005,12 @@ button#sidebarCollapse {
 .feature_box:hover img.default-none,
 .feature_box:focus img.default-none {
 	display: initial;
+	
+}
+
+.imagen_icono{
+	height: 120px; 
+	width: 95px;
 }
 
 .feature_box h4 {
@@ -2326,11 +2330,6 @@ ul.social_icon li {
     margin: 0 5%;
     box-shadow: 0 0 25px 0 rgba(0,0,0,.1);
     padding: 40px 30px;
-}
-
-#map {
-    height: 100%;
-    min-height: 830px;
 }
 
 .blog_img_popular {

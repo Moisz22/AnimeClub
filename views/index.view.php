@@ -12,9 +12,9 @@
                   <!--<h6>Grow your business</h6>
                   <h3>Digital</h3>
                   <h4>Marketing</h4>
-                  <br>-->
+                  <br>
                   <br /><br /><br /><br /><br /><br /><br /><br /><br />
-                  <!--<a class="readmore_bt" href="about.html">Read More</a> -->
+                  <a class="readmore_bt" href="about.html">Read More</a> -->
                 </div>
               </div>
             </div>
@@ -30,9 +30,9 @@
                   <!--<h6>Grow your business</h6>
                   <h3>Digital</h3>
                   <h4>Marketing</h4>
-                  <br>-->
+                  <br>
                   <br /><br /><br /><br /><br /><br /><br /><br /><br />
-                  <!--<a class="readmore_bt" href="about.html">Read More</a>-->
+                  <a class="readmore_bt" href="about.html">Read More</a>-->
                 </div>
               </div>
             </div>
@@ -47,9 +47,9 @@
                   <!--<h6>Grow your business</h6>
                   <h3>Digital</h3>
                   <h4>Marketing</h4>
-                  <br>-->
+                  <br>
                   <br /><br /><br /><br /><br /><br /><br /><br /><br />
-                  <!--<a class="readmore_bt" href="about.html">Read More</a> -->
+                  <a class="readmore_bt" href="about.html">Read More</a> -->
                 </div>
               </div>
             </div>
@@ -78,8 +78,8 @@
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
         <div class="full feature_box">
           <div class="full icon">
-            <img class="default-block" src="images/icon_1.png" alt="#" />
-            <img class="default-none" src="images/icon_1w.png" alt="#" />
+            <img class="default-block imagen_icono" src="images/icon_1.png" alt="#" />
+            <img class="default-none imagen_icono" src="images/icon_1.png" alt="#" />
           </div>
         
           <div class="full">
@@ -94,8 +94,8 @@
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
         <div class="full feature_box">
           <div class="full icon">
-            <img class="default-block" src="images/icon_2.png" alt="#" />
-            <img class="default-none" src="images/icon_2w.png" alt="#" />
+            <img class="default-block imagen_icono" src="images/icon_2.png" alt="#" />
+            <img class="default-none imagen_icono" src="images/icon_2.png" alt="#" />
           </div>
           
           <div class="full">
@@ -110,8 +110,8 @@
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
         <div class="full feature_box">
           <div class="full icon">
-            <img class="default-block" src="images/icon_3.png" alt="#" />
-            <img class="default-none" src="images/icon_3w.png" alt="#" />
+            <img class="default-block imagen_icono" src="images/icon_3.png" alt="#" />
+            <img class="default-none imagen_icono" src="images/icon_3.png" alt="#" />
           </div>
           
           <div class="full">
@@ -125,23 +125,22 @@
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
         <div class="full feature_box">
           <div class="full icon">
-            <img class="default-block" src="images/icon_4.png" alt="#" />
-            <img class="default-none" src="images/icon_4w.png" alt="#" />
+            <img class="default-block imagen_icono" src="images/icon_4.png" alt="#" />
+            <img class="default-none imagen_icono" src="images/icon_4.png" alt="#" />
           </div>
           
           <div class="full">
-            <h4>Online marketing</h4>
+            <h4>Búsqueda</h4>
           </div>
           
           <div class="full">
-            <p>It is a long established fact that a reader will be distracted by the readable content..</p>
+            <p>Los animes que usted guarda los puede buscar por nombre o los puede filtrar por género</p>
           </div>
 
         </div>
       </div>
     </div>
   </div>
-  <br /><br />
 </div>
 
           <!-- end section -->

@@ -86,6 +86,15 @@ function traer_anime_por_id($conexion, $id){
 	return $statement->fetch();
 }
 
+function traer_anime_por_url($conexion, $slug){
+	$statement = $conexion->prepare('SELECT * FROM anime WHERE anime_url=:anime_url && anime_estado = 1');
+	$statement->execute(array(
+		':anime_url' => $slug
+	)
+	);
+	return $statement->fetch();
+}
+
 function traer_animes_por_genero($conexion, $animes_por_pagina, $g){
 
 	$inicio = (pagina_actual() > 1) ? pagina_actual() * $animes_por_pagina - $animes_por_pagina : 0;
@@ -167,13 +176,35 @@ function eliminar_anime_por_id($conexion, $id){
 
 function agregar_genero($conexion, $anime_id, $genero_id){
 
-		$statement = $conexion->prepare('INSERT INTO anime_genero(anime_id, genero_id) VALUES(:anime_id, :genero_id)');
+	$statement = $conexion->prepare('INSERT INTO anime_genero(anime_id, genero_id) VALUES(:anime_id, :genero_id)');
 
-		$statement->execute(array(
-			':anime_id' => $anime_id,
-			'genero_id' => $genero_id
+	$statement->execute(array(
+		':anime_id' => $anime_id,
+		'genero_id' => $genero_id
 
-		));
+	));
+
+}
+
+function url($tag){
+
+	$tag = str_replace(' ', '-',$tag);
+	$tag = strtolower($tag);
+	return $tag;
+}
+
+function traer_id_por_url($conexion, $slug){
+
+	$statement = $conexion->prepare('SELECT anime_id FROM anime where anime_url=:anime_url');
+	$statement->execute(
+		array(
+			'anime_url' => $slug
+		)
+	);
+	
+	$result = $statement->fetch()[0];
+
+	return $result;
 
 }
 

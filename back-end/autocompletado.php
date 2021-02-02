@@ -1,7 +1,7 @@
 <?php
 
-require 'config/config.php';
-require 'functions.php';
+require '../config/config.php';
+require '../functions.php';
 
 $conexion = conexion($bd_config);
 

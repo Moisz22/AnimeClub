@@ -91,16 +91,14 @@
       }else if($('#tablas_traer').val() == 2){
         $('#tabla_dibujar').load('views/tablas/tabla_reseñas_eliminadas.php');
       }else{
-        //limpiar comtemodp del html con ese id
+        //limpiar comtenido del html con ese id
         document.getElementById("tabla_dibujar").innerHTML="";
       }
   });
-});
 
-  //script para todas las tablas
-  $(document).ready(function(){
-    //si el select cambia de estado se activa la función
-     $('#tablas_bd').on('change', function (){
+   /*script para todas las tablas
+  si el select cambia de estado se activa la función */
+  $('#tablas_bd').on('change', function (){
       if($('#tablas_bd').val() == 1){
         $('#tablas_traer_todas').load('views/tablas/tabla_todos_los_animes.php');
       }else if($('#tablas_bd').val() == 2){
@@ -108,12 +106,11 @@
       }else if($('#tablas_bd').val() == 3){
         $('#tablas_traer_todas').load('views/tablas/tabla_todos_los_generos.php');
       }else {
-        //limpiar comtemodp del html con ese id
+        //limpiar contenido del html con ese id
         document.getElementById("tablas_traer_todas").innerHTML="";
       }
     });
-  });
-
+});
   
 </script>
   <script src="js/autocompletado.js"></script>
