@@ -41,7 +41,7 @@
       <script src="node_modules/jquery/dist/jquery.min.js"></script>
       <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
       <!-- script para alertify -->
-      <script src=">node_modules/alertifyjs/build/alertify.js"></script>
+      <script src="node_modules/alertifyjs/build/alertify.js"></script>
       <!-- libreria para sweet alert2 -->
       <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
       <script src="node_modules/sweetalert2/dist/sweetalert2.min.css"></script>

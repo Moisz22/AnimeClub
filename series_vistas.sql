@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-02-2021 a las 21:53:13
+-- Tiempo de generación: 03-02-2021 a las 00:54:50
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.0
 
@@ -149,31 +149,31 @@ CREATE TABLE `genero` (
 --
 
 INSERT INTO `genero` (`genero_id`, `genero_nombre`, `genero_estado`, `FechaRegistro`) VALUES
-(1, 'Ciencia ficción', 1, '2021-01-31 20:27:55'),
-(2, 'Acción', 1, '2021-01-31 20:27:55'),
-(3, 'Deportes', 1, '2021-01-31 20:27:55'),
-(4, 'Espacial', 1, '2021-01-31 20:27:55'),
-(5, 'Infantil', 1, '2021-01-31 20:27:55'),
-(6, 'Mecha', 1, '2021-01-31 20:27:55'),
-(7, 'Parodia', 1, '2021-01-31 20:27:55'),
-(8, 'Romance', 1, '2021-01-31 20:27:55'),
-(9, 'Shounen', 1, '2021-01-31 20:27:55'),
-(10, 'Terror', 1, '2021-01-31 20:27:55'),
-(11, 'Artes Marciales', 1, '2021-01-31 20:27:55'),
-(12, 'Comedia', 1, '2021-01-31 20:27:55'),
-(13, 'Drama', 1, '2021-01-31 20:27:55'),
-(14, 'Fantasía', 1, '2021-01-31 20:27:55'),
-(15, 'Josei', 1, '2021-01-31 20:27:55'),
-(16, 'Militar', 1, '2021-01-31 20:27:55'),
-(17, 'Policía', 1, '2021-01-31 20:27:55'),
-(18, 'Samurai', 1, '2021-01-31 20:27:55'),
-(19, 'Sobrenatural', 1, '2021-01-31 20:27:55'),
-(20, 'Vampiros', 1, '2021-01-31 20:27:55'),
-(21, 'Aventuras', 1, '2021-01-31 20:27:55'),
-(22, 'Demencia', 1, '2021-01-31 20:27:55'),
-(23, 'Ecchi', 1, '2021-01-31 20:27:55'),
-(24, 'Harem', 1, '2021-01-31 20:27:55'),
-(25, 'Juegos', 1, '2021-01-31 20:27:55'),
+(1, 'ciencia ficcion', 1, '2021-01-31 20:27:55'),
+(2, 'accion', 1, '2021-01-31 20:27:55'),
+(3, 'deportes', 1, '2021-01-31 20:27:55'),
+(4, 'espacial', 1, '2021-01-31 20:27:55'),
+(5, 'infantil', 1, '2021-01-31 20:27:55'),
+(6, 'mecha', 1, '2021-01-31 20:27:55'),
+(7, 'parodia', 1, '2021-01-31 20:27:55'),
+(8, 'romance', 1, '2021-01-31 20:27:55'),
+(9, 'shounen', 1, '2021-01-31 20:27:55'),
+(10, 'terror', 1, '2021-01-31 20:27:55'),
+(11, 'artes marciales', 1, '2021-01-31 20:27:55'),
+(12, 'comedia', 1, '2021-01-31 20:27:55'),
+(13, 'drama', 1, '2021-01-31 20:27:55'),
+(14, 'fantasía', 1, '2021-01-31 20:27:55'),
+(15, 'josei', 1, '2021-01-31 20:27:55'),
+(16, 'militar', 1, '2021-01-31 20:27:55'),
+(17, 'policia', 1, '2021-01-31 20:27:55'),
+(18, 'samurai', 1, '2021-01-31 20:27:55'),
+(19, 'sobrenatural', 1, '2021-01-31 20:27:55'),
+(20, 'vampiros', 1, '2021-01-31 20:27:55'),
+(21, 'aventuras', 1, '2021-01-31 20:27:55'),
+(22, 'demencia', 1, '2021-01-31 20:27:55'),
+(23, 'ecchi', 1, '2021-01-31 20:27:55'),
+(24, 'harem', 1, '2021-01-31 20:27:55'),
+(25, 'juegos', 1, '2021-01-31 20:27:55'),
 (26, 'Misterio', 1, '2021-01-31 20:27:55'),
 (27, 'Psicológico', 1, '2021-01-31 20:27:55'),
 (28, 'Seinen', 1, '2021-01-31 20:27:55'),
@@ -189,25 +189,6 @@ INSERT INTO `genero` (`genero_id`, `genero_nombre`, `genero_estado`, `FechaRegis
 (38, 'Shoujo', 1, '2021-01-31 20:27:55'),
 (39, 'Suspenso', 1, '2021-01-31 20:27:55'),
 (40, 'Yuri', 1, '2021-01-31 20:27:55');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pma__tracking`
---
-
-CREATE TABLE `pma__tracking` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `version` int(10) UNSIGNED NOT NULL,
-  `date_created` datetime NOT NULL,
-  `date_updated` datetime NOT NULL,
-  `schema_snapshot` text COLLATE utf8_bin NOT NULL,
-  `schema_sql` text COLLATE utf8_bin DEFAULT NULL,
-  `data_sql` longtext COLLATE utf8_bin DEFAULT NULL,
-  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') COLLATE utf8_bin DEFAULT NULL,
-  `tracking_active` int(1) UNSIGNED NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Database changes tracking for phpMyAdmin';
 
 -- --------------------------------------------------------
 
@@ -285,13 +266,6 @@ ALTER TABLE `etiqueta`
 ALTER TABLE `genero`
   ADD PRIMARY KEY (`genero_id`);
 
---
--- Indices de la tabla `pma__tracking`
---
-ALTER TABLE `pma__tracking`
-  ADD PRIMARY KEY (`db_name`,`table_name`,`version`);
-
---
 -- Indices de la tabla `resenia`
 --
 ALTER TABLE `resenia`
@@ -312,13 +286,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `anime`
 --
 ALTER TABLE `anime`
-  MODIFY `anime_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `anime_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT de la tabla `anime_genero`
 --
 ALTER TABLE `anime_genero`
-  MODIFY `anime_genero_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `anime_genero_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT de la tabla `etiqueta`
@@ -336,7 +310,7 @@ ALTER TABLE `genero`
 -- AUTO_INCREMENT de la tabla `resenia`
 --
 ALTER TABLE `resenia`
-  MODIFY `resenia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `resenia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`

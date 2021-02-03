@@ -15,29 +15,29 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$anime = traer_anime_eliminado_por_id($conexion, $anime_id);
 
 	//guardar las rutas de las imagenes 
-	$imagen_eliminar = 'images/animes/'.$anime['anime_imagen'];
-	$banner_eliminar = 'images/banner/'.$anime['anime_banner'];
+	$imagen_eliminar = '../images/animes/'.$anime['anime_imagen'];
+	$banner_eliminar = '../images/banner/'.$anime['anime_banner'];
 
 	//eliminar los generos asociados a ese anime
 	$statement = $conexion->prepare("DELETE FROM anime_genero WHERE anime_id=:anime_id");
 	$statement->execute(array(
 
-		':anime_id' => $anime_id
+		'anime_id' => $anime_id
 
 	));
 
 	//eliminando todas las reseñas asociadas a ese anime
-	$statement = $conexion->prepare("DELETE FROM resenia WHERE anime_id=:anime_id");
-	$statement->execute(array(
+	$statement2 = $conexion->prepare("DELETE FROM resenia WHERE anime_id=:anime_id");
+	$statement2->execute(array(
 
-		':anime_id' => $anime_id
+		'anime_id' => $anime_id
 
 	));
 
 	//eliminando el anime
-	$statement3 = $conexion->prepare("DELETE FROM anime WHERE anime_estado=0 && anime_id=:anime_id");
+	$statement3 = $conexion->prepare("DELETE FROM anime WHERE anime_id=:anime_id");
 	$statement3->execute(array(
-		':anime_id' => $anime_id
+		'anime_id' => $anime_id
 		)
 	);
 
@@ -48,9 +48,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		//si se elimina el registro correctamente, se eliminan las fotos tambien
 		unlink($imagen_eliminar);
 		unlink($banner_eliminar);
-		echo 1;	
+		echo $num_filas_afectadas;	
 	}
 
 }
+
+
 
 ?>

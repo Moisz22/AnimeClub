@@ -4,7 +4,6 @@ RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.*)$ $1.php
 
 #Redireccionamiento a la página de error
-ErrorDocument 404 /animeclub/error.php
-
+ErrorDocument 404 /animeclub/views/error.php
 
 
