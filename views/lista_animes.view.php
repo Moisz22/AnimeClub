@@ -130,7 +130,7 @@
 							<?php if(isset($anime['anime_imagen']) && file_exists("images/animes/$anime[anime_imagen]")): ?>
 								<img class="centrar_imagen animes_lista" src="images/animes/<?php echo $anime['anime_imagen'];?>">
 							<?php else: ?>
-								<img class="centrar_imagen animes_lista" src="images/animes/imagen_no_existe.jpg">
+								<img class="centrar_imagen animes_lista" src="<?php echo RUTA_IMAGEN_DE_ERROR; ?>">
 							<?php endif; ?>
 								<p class="text_align_center"><?php echo $anime['anime_nombre'];?></p>
 							</a>

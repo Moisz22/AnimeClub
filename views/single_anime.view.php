@@ -4,7 +4,7 @@
 		<?php if(isset($anime['anime_banner']) && file_exists("images/banner/$anime[anime_banner]")):?>	
 			<img style="width: 100%;" src="images/banner/<?php echo $anime['anime_banner'];?>" alt="<?php echo $anime['anime_banner'];?>">
 		<?php else: ?>
-			<img style="width: 100%;" src="images/banner_no_existe.jpg" alt="banner no disponible">
+			<img style="width: 100%;" src="<?php echo RUTA_BANNER_DE_ERROR; ?>" alt="banner no disponible">
 		<?php endif;?>			
 	</div>
 </div>
@@ -72,7 +72,7 @@
 			<?php if(isset($anime['anime_imagen']) && file_exists("images/animes/$anime[anime_imagen]")):?>
 				<img class="centrar_imagen" style="width: 260px;" src="images/animes/<?php echo $anime['anime_imagen'];?>" alt="<?php echo $anime['anime_imagen'];?>">
 			<?php else: ?>
-				<img class="centrar_imagen" style="width: 260px;" src="images/imagen_no_existe.jpg" alt="imagen no disponible">
+				<img class="centrar_imagen" style="width: 260px;" src="<?php echo RUTA_IMAGEN_DE_ERROR; ?>" alt="imagen no disponible">
 			<?php endif; ?>
 			<p class="estado_anime"><i class="fa fa-television"></i>
 				<?php echo $anime['anime_actualidad']; ?></p>
