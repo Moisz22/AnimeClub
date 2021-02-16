@@ -26,4 +26,17 @@ $(document).ready(function(){
         document.getElementById("tablas_traer_todas").innerHTML="";
       }
     });
-});
+
+  $('#anime_actualidad').on('change', function(){
+
+    if($('#anime_actualidad').val() == 'En emision'){
+      $('#select_estreno').show()
+    }else{
+      $('#select_estreno').hide()
+    }
+
+  })
+
+
+  });
+

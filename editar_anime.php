@@ -27,6 +27,21 @@ if($id == false || $id == ''){
 
 $anime = traer_anime_por_id($conexion, $id);
 
+$generos = traer_todos_los_generos($conexion);
+
+$generos_seleccionados = traer_genero_de_un_anime($conexion, $anime['anime_nombre']);
+
+//para traer seleccionados los generos del anime
+if($generos_seleccionados !== false){
+	$genr = array();
+	$genr_id = array();
+	foreach($generos_seleccionados as $gs){
+		array_push($genr,$gs['genero_nombre']);
+		array_push($genr_id,$gs['genero_id']);
+	}
+}
+
+
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 	//verifica que no esté vacío el campo de foto para el anime y así evitar el error de getimagesize que no puede estar vacío
@@ -115,10 +130,32 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 			)
 	);  
+
+		$borrar_generos = $conexion->prepare('DELETE FROM anime_genero where anime_id=:id');
+		$borrar_generos->execute(
+			array(
+				':id' => $id
+			)
+		);
+
+		//guardar generos del anime
+		if(isset($_POST['generos'])){
+			if (is_array($_POST['generos'])) {
+				foreach ($_POST['generos'] as $key => $value) {	
+					agregar_genero($conexion, $id, $value);
+				}
+			}
+		}
+
 		$_SESSION['estado'] = 'actualizado';
 		header('Location: single_anime?id='.$id);
 	}
 }
 
 require 'views/editar_anime.view.php';
-?>
+
+$statement = null;
+$anime = null;
+$generos = null;
+$generos_seleccionados = null;
+$borrar_generos = null;

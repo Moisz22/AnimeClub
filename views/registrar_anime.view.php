@@ -35,19 +35,40 @@
                               <br />
                               <div class="input-group mb-3">
                                  <div class="input-group-prepend">
-                                    <label class="input-group-text" for="anime_actualidad">Estado del anime</label>
+                                    <label class="input-group-text" for="anime_actualidad">Estado</label>
                                  </div>
                                  <select class="custom-select" id="anime_actualidad" name="anime_actualidad">
                                     <option value="Terminado">Terminado</option>
                                     <option value="En emision">En emision</option>
                                 </select>
                               </div>
+                              <small class="form-text text-muted">Estado del anime en television: en emisión o terminado</small>
                               <br />
+
+                              <div class="input-group mb-3" id="select_estreno" style="display:none">
+                                 <div class="input-group-prepend">
+                                    <label class="input-group-text" for="dia_estreno">Día proximos episodios</label>
+                                 </div>
+                                 <select class="custom-select" id="dia_estreno" name="dia_estreno" required>
+                                    <option value="">Elija opcion</option>
+                                    <option value="Lunes">Lunes</option>
+                                    <option value="Martes">Martes</option>
+                                    <option value="Miércoles">Miércoles</option>
+                                    <option value="Jueves">Jueves</option>
+                                    <option value="Viernes">Viernes</option>
+                                    <option value="Sábado">Sábado</option>
+                                    <option value="Domingo">Domingo</option>
+                                </select>
+                                <br />
+                              </div>
+                              
+                              
                               <div class="custom-file">
                                  <input type="file" class="custom-file-input" id="inputGroupFile03" name="foto" required>
                                  <label for="inputGroupFile03" class="custom-file-label">Imagen del anime</label>
                               </div>
                               <br /><br />
+
                               <div class="custom-file">
                                  <input type="file" class="custom-file-input" id="inputGroupFile04" name="banner" required>
                                  <label for="inputGroupFile03" class="custom-file-label">Banner del anime</label>
@@ -56,25 +77,17 @@
                               <br />
 
                               <div class="custom-file">
-                                 <div class="multiselect">
-                                   <div class="selectBox" onclick="showCheckboxes()">
-                                       <select>
-                                           <option>Selecciona los generos</option>
-                                       </select>
-                                       <div class="overSelect"></div>
-                                   </div>
-                                   <div id="checkboxes" class="hide">
-
-                                    <?php foreach ($generos as $genero): ?>
-                                       <label for="<?php echo $genero['genero_nombre'];?>"><input type="checkbox" name="generos[]" value="<?php echo $genero['genero_id'];?>" id="<?php echo $genero['genero_nombre'];?>" /><?php echo $genero['genero_nombre'];?></label>
-                                    <?php endforeach ?>
-
-                                   </div>
-                                 </div>
+                                 <select class="js-example-basic-multiple" id="id_label_multiple" name="generos[]" multiple="multiple">
+                                    <?php foreach($generos as $genero): ?>
+                                    <option value="<?php echo $genero['genero_id'];?>"><?php echo $genero['genero_nombre'];?></option>
+                                    <?php endforeach; ?>
+                                 </select>
                               </div>
+                              <small class="form-text text-muted">Géneros del anime</small>
                               
+                              <br />
                               <div class="field center">
-                                 <button type="submit" class="margin-top_30">REGISTRAR ANIME</button>
+                                 <button type="submit" class="margin-top_30 btn btn-success">REGISTRAR ANIME</button>
                               </div>
                            </fieldset>
                         </form>
@@ -88,17 +101,8 @@
    </div>
 </div>
 
-<script type="text/javascript">
+<script>
 
-   //funcion para chechboxs desplegables de los generos de un anime
-   function showCheckboxes() {
-      var checkboxes = document.getElementById("checkboxes");
-      if(checkboxes.classList.contains("hide")) {
-         checkboxes.classList.remove("hide");
-      } else {
-         checkboxes.classList.add("hide");
-      }
-   }
 </script>
 
 <?php require 'footer.php';?>

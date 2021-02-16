@@ -26,5 +26,3 @@ if(!$anime){
 @$generos = traer_genero_de_un_anime($conexion, $anime['anime_nombre']);
 
 require 'views/single_anime.view.php';
-
-?>

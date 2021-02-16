@@ -59,5 +59,5 @@ $animes = $statement->fetchAll();
 	</div>
 
 	<?php 
-	require '../../paginacion_tablas.php'; ?>
+	//require '../../paginacion_tablas.php'; ?>
 </div>

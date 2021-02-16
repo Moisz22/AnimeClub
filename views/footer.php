@@ -54,7 +54,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <p class="crp">© Copyrights 2020 diseño de <a href="https://github.com/Moisz22" title="Free Website Templates">Moisz22</a></p>
+        <p class="crp">© Copyrights 2020 diseño de <a href="https://github.com/Moisz22" target="_blank">Moisz22</a></p>
       </div>
     </div>
   </div>
@@ -67,8 +67,6 @@
 <script src="js/jquery.magnific-popup.min.js"></script>
 <script src="js/jquery.pogo-slider.min.js"></script>
 <script src="js/slider-index.js"></script>
-<script src="js/form-validator.min.js"></script>
-<script src="js/contact-form-script.js"></script>
 <script src="js/isotope.min.js"></script>
 <script src="js/images-loded.min.js"></script>
 <script src="js/custom.js"></script>
@@ -79,6 +77,11 @@
       $('.collapse.in').toggleClass('in');
       $('a[aria-expanded=true]').attr('aria-expanded', 'false');
     });
+  });
+
+  $('.js-example-basic-multiple').select2({
+      width: '100%',
+      theme: 'classic'
   });
 </script>
   <script src="js/funciones_anime.js"></script>

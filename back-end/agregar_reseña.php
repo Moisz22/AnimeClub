@@ -2,6 +2,8 @@
 require '../config/config.php';
 require '../functions.php';
 
+session_start();
+
 $conexion = conexion($bd_config);
 
 $titulo = $_POST['titulo'];
@@ -22,6 +24,12 @@ $statement->execute(array(
 	':anime_id' => $anime_id
 ));
 
-echo 1;
+//rowcount cuenta las filas que fueron afectadas por un insert, delete o update
+$num_filas_afectadas = $statement->rowCount();
+//en el caso de que se actualice correctamente enviará la respuesta a ajax con 1
+if($num_filas_afectadas > 0){
+	$_SESSION['estado'] = 'reseña agregada';
+	echo 1;
+}
 
 ?>

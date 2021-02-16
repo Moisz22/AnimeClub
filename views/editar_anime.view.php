@@ -64,11 +64,28 @@
                                  <input type="file" class="custom-file-input" id="inputGroupFile04" name="banner">
                                  <label for="inputGroupFile03" class="custom-file-label">Banner del anime</label>
                               </div>
+                              <br /><br />
+                              <div class="custom-file">
+                                 <select class="js-example-basic-multiple" id="id_label_multiple" name="generos[]" multiple="multiple">
+                                    <?php foreach($generos as $genero): ?>
+                                       <?php if($generos_seleccionados !== false): ?>
+                                          <?php if(in_array($genero['genero_nombre'], $genr)): ?>
+                                             <option selected value="<?php echo $genero['genero_id'];?>"><?php echo $genero['genero_nombre'];?></option>
+                                          <?php else: ?>
+                                             <option value="<?php echo $genero['genero_id'];?>"><?php echo $genero['genero_nombre'];?></option>
+                                          <?php endif; ?>
+                                       <?php else: ?>
+                                          <option value="<?php echo $genero['genero_id'];?>"><?php echo $genero['genero_nombre'];?></option>
+                                       <?php endif; ?>
+                                    <?php endforeach; ?> 
+                                 </select>
+                              </div>
+                              <small class="form-text text-muted">Géneros del anime</small>
                               <br />
-                                 <br />
+                              <br />
 
                               <div class="field center">
-                                 <button class="margin-top_30">ACTUALIZAR</button>
+                              <button type="submit" class="margin-top_30 btn btn-success">GUARDAR CAMBIOS</button>
                               </div>
                            </fieldset>
                         </form>

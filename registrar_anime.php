@@ -36,6 +36,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
 	$nombre = limpiarDatos($_POST['anime_nombre']);
 	$nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
 
+	if(isset($_POST['dia_estreno'])){
+		$dia_estreno = limpiarDatos($_POST['dia_estreno']);
+		$dia_estreno = filter_var($dia_estreno, FILTER_SANITIZE_STRING);
+	}else{
+		$dia_estreno = '';
+	}
+	
 	$total_capitulos = limpiarDatos($_POST['anime_cantidad_capitulos']);
 	$total_capitulos = filter_var($total_capitulos, FILTER_VALIDATE_INT);
 
@@ -89,7 +96,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
 	}
 
 	if(!$errores){
-		$statement = $conexion->prepare('INSERT INTO anime(anime_nombre,anime_cantidad_capitulos, anime_capitulo_terminado_ver, anime_sinopsis, anime_estado_vista, anime_actualidad, anime_imagen, anime_banner) VALUES(:anime_nombre, :anime_cantidad_capitulos, :anime_capitulo_terminado_ver, :anime_sinopsis, :anime_estado_vista,:anime_actualidad, :anime_imagen, :anime_banner )');
+		$statement = $conexion->prepare('INSERT INTO anime(anime_nombre,anime_cantidad_capitulos, anime_capitulo_terminado_ver, anime_sinopsis, anime_estado_vista, anime_actualidad, anime_dia_capitulo_siguiente, anime_imagen, anime_banner) VALUES(:anime_nombre, :anime_cantidad_capitulos, :anime_capitulo_terminado_ver, :anime_sinopsis, :anime_estado_vista, :anime_actualidad, :anime_dia_capitulo_siguiente, :anime_imagen, :anime_banner )');
 		$statement->execute(
 			array(
 
@@ -98,6 +105,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
 				'anime_capitulo_terminado_ver' => $capitulo_terminado,
 				'anime_sinopsis' => $sinopsis,
 				'anime_actualidad' => $actualidad,
+				'anime_dia_capitulo_siguiente' => $dia_estreno,
 				'anime_imagen' => $nombre_imagen,
 				'anime_banner' => $nombre_banner,
 				'anime_estado_vista' => $anime_estado_vista
