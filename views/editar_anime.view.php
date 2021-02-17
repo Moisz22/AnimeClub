@@ -53,8 +53,26 @@
                                  <?php endif; ?>
                                 </select>
                               </div>
-
+                              <small class="form-text text-muted">Estado del anime en television: en emisión o terminado</small>
                               <br />
+                              
+                              <div class="input-group mb-3" id="select_estreno" style="display:none">
+                                 <div class="input-group-prepend">
+                                    <label class="input-group-text" for="dia_estreno">Día proximos episodios</label>
+                                 </div>
+                                 <select class="custom-select" id="dia_estreno" name="dia_estreno">
+                                    <option value="">Elija opcion</option>
+                                    <?php foreach($dias as $dia): ?>
+                                       <?php if($dia == $anime['anime_dia_capitulo_siguiente']): ?>
+                                          <option selected value="<?php echo $dia; ?>"><?php echo $dia; ?></option>
+                                       <?php else: ?>
+                                          <option value="<?php echo $dia; ?>"><?php echo $dia; ?></option>
+                                       <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </select>
+                                <br />
+                              </div>
+
                               <div class="custom-file">
                                  <input type="file" class="custom-file-input" id="inputGroupFile03" name="foto">
                                  <label for="inputGroupFile03" class="custom-file-label">Imagen del anime</label>

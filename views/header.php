@@ -30,9 +30,9 @@
       <link rel="stylesheet" href="css/style.css" />
       <!-- Responsive CSS -->
       <link rel="stylesheet" href="css/responsive.css" />
-      <!-- splide -->
-      <link rel="stylesheet" href="node_modules/@splidejs/splide/dist/css/splide.min.css">
-      <script src="node_modules/@splidejs/splide/dist/js/splide.min.js"></script>
+      <!-- Glide -->
+      <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+      <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
       <!-- Librerias alertify -->
       <link rel="stylesheet" type="text/css" href="node_modules/alertifyjs/build/css/alertify.css">
       <link rel="stylesheet" type="text/css" href="node_modules/alertifyjs/build/css/themes/bootstrap.css">

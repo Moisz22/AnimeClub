@@ -61,8 +61,6 @@
 </div>
 </div>
 <a href="#" id="scroll-to-top" class="hvr-radial-out"><i class="fa fa-angle-up"></i></a>
-<!-- ALL JS FILES -->
-<script src="js/popper.min.js"></script>
 <!-- ALL PLUGINS -->
 <script src="js/jquery.magnific-popup.min.js"></script>
 <script src="js/jquery.pogo-slider.min.js"></script>
@@ -71,6 +69,17 @@
 <script src="js/images-loded.min.js"></script>
 <script src="js/custom.js"></script>
 <script>
+
+if(screen.width > 992){
+  var card_presentar = 4
+}
+if(screen.width > 768 && screen.width < 992){
+  var card_presentar = 3
+}
+if(screen.width < 768){
+  var card_presentar = 1
+}
+
   $(document).ready(function() {
     $('#sidebarCollapse').on('click', function() {
       $('#sidebar, #content').toggleClass('active');
@@ -80,10 +89,40 @@
   });
 
   $('.js-example-basic-multiple').select2({
-      width: '100%',
-      theme: 'classic'
+    width: '100%',
+    theme: 'classic'
   });
+
+ //mostrar imagen al subirla
+
+$('.custom-file-input').change(function(){
+
+  let imagen = this.files[0];
+  if(imagen['type'] == 'image/jpg' || imagen['type'] == 'image/jpeg' || imagen['type'] == 'image/png'){
+
+    let leerImagen = new FileReader;
+    leerImagen.readAsDataURL(imagen)
+
+    console.log(imagen)
+
+    $(leerImagen).on("load", function(event){
+
+      let rutaImagen = event.target.result
+
+      Swal.fire({
+      title: 'Previsualizacion',
+      imageUrl: rutaImagen,
+      imageAlt: imagen['name'],
+    })
+
+    })
+  }
+
+})
+
+
 </script>
+  <script src="js/funciones_glide.js"></script>
   <script src="js/funciones_anime.js"></script>
   <script src="js/funciones_reseña.js"></script>
   <script src="js/funciones_tablas.js"></script>

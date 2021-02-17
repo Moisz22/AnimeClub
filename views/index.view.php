@@ -140,6 +140,78 @@
         </div>
       </div>
     </div>
+
+    <br /><br />
+    <div class="row">
+      <div class="col-md-12">
+        <div class="full">
+          <div class="heading_main text_align_center">
+            <h2>Últimos animes agregados</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="glide">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+          <?php foreach($resultados as $r): ?>
+            <li class="glide__slide">
+              <a href="single_anime?id=<?php echo $r['anime_id']; ?>">
+                <div class="col-12">
+                  <div class="full feature_box">
+                    <div class="full icon">
+                      <img class="default-block animes_lista" src="images/animes/<?php echo $r['anime_imagen'];?>" alt="#" />
+                      <img class="default-none animes_lista" src="images/animes/<?php echo $r['anime_imagen'];?>" alt="#" />
+                    </div>
+                    
+                    <div class="full">
+                      <h4><?php echo $r['anime_nombre'];?></h4>
+                    </div>
+                    <div class="full">
+                      <p></p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <?php endforeach; ?>
+            </div>
+          </ul>
+        </div>
+      </div>
+      
+
+      <br />
+      <?php if ($resultados2): ?>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="full">
+            <div class="heading_main text_align_center">
+              <h2>Animes por ver hoy</h2>
+            </div>
+          </div>
+        </div>
+    </div>
+      
+        <div class="row">
+          <?php foreach($resultados2 as $r2): ?>
+            <div class="col-sm-12 col-lg-4">
+              <a class="cards_anime" href="single_anime?id=<?php echo $r2['anime_id']; ?>">
+                <div class="card centrar_imagen cards_anime" style="width: 18rem;">
+                  <img class="card-img-top" src="images/animes/<?php echo $r2['anime_imagen'];?>" alt="Card image cap">
+                  <div class="card-body cards_anime">
+                    <p class="card-text text_align_center text_card_anime"><b><?php echo $r2['anime_nombre'];?></b></p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <?php endforeach; ?>
+        </div>
+      <?php endif; ?>
+          
+
+
   </div>
 </div>
 
@@ -363,4 +435,5 @@
             </div>
          </div>
          end section -->
+
 

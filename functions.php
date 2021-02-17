@@ -210,4 +210,8 @@ function traer_id_por_url($conexion, $slug){
 
 }
 
-?>
+function dia_actual(){
+
+	$dias = array("domingo","lunes","martes","miercoles","jueves","viernes","sabado");
+	return $dias[date("w")];
+}

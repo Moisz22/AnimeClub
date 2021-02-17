@@ -31,6 +31,9 @@ $generos = traer_todos_los_generos($conexion);
 
 $generos_seleccionados = traer_genero_de_un_anime($conexion, $anime['anime_nombre']);
 
+
+$dias = array("domingo","lunes","martes","miercoles","jueves","viernes","sabado");
+
 //para traer seleccionados los generos del anime
 if($generos_seleccionados !== false){
 	$genr = array();
@@ -41,7 +44,6 @@ if($generos_seleccionados !== false){
 	}
 }
 
-
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 	//verifica que no esté vacío el campo de foto para el anime y así evitar el error de getimagesize que no puede estar vacío
@@ -51,6 +53,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 	if((!empty($_FILES['banner']['tmp_name']) && $_FILES['banner']['tmp_name'] !== null)){
 		$check2 = @getimagesize($_FILES['banner']['tmp_name']);
+	}
+
+	if(isset($_POST['dia_estreno']) && $_POST['anime_actualidad'] == 'En emision'){
+		$dia_estreno = limpiarDatos($_POST['dia_estreno']);
+		$dia_estreno = filter_var($dia_estreno, FILTER_SANITIZE_STRING);
+	}else{
+		$dia_estreno = '';
 	}
 
 	$nombre = limpiarDatos($_POST['anime_nombre']);
@@ -113,7 +122,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 	if(!$errores){
-		$statement = $conexion->prepare('UPDATE anime SET anime_nombre = :anime_nombre, anime_cantidad_capitulos = :anime_cantidad_capitulos, anime_capitulo_terminado_ver = :anime_capitulo_terminado_ver, anime_sinopsis = :anime_sinopsis, anime_actualidad = :anime_actualidad, anime_imagen = :anime_imagen, anime_banner = :anime_banner,
+		$statement = $conexion->prepare('UPDATE anime SET anime_nombre = :anime_nombre, anime_cantidad_capitulos = :anime_cantidad_capitulos, anime_capitulo_terminado_ver = :anime_capitulo_terminado_ver, anime_sinopsis = :anime_sinopsis, anime_actualidad = :anime_actualidad, anime_dia_capitulo_siguiente = :anime_dia_capitulo_siguiente, anime_imagen = :anime_imagen, anime_banner = :anime_banner,
 			anime_estado_vista = :anime_estado_vista WHERE anime_id=:id');
 		$statement = $statement->execute(
 			array(
@@ -123,6 +132,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 			':anime_capitulo_terminado_ver' => $capitulo_terminado,
 			':anime_sinopsis' => $sinopsis,
 			':anime_actualidad' => $actualidad,
+			':anime_dia_capitulo_siguiente' => $dia_estreno,
 			':anime_estado_vista' => $anime_estado_vista,
 			':anime_imagen' => $nombre_imagen,
 			':anime_banner' => $nombre_banner,

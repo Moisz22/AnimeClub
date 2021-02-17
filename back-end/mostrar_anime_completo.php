@@ -9,13 +9,15 @@ $anime_id = $_POST['anime_id'];
 
 $statement = $conexion->prepare('SELECT * FROM anime where anime_id = :anime_id');
 $statement->execute(
-
-	'anime_id' => $anime_id
-
+	array(
+		'anime_id' => $anime_id
+	)
 );
 
 $resultado = $statement->fetch();
 
 echo $resultado;
+
+$resultado = null;
 
 ?>

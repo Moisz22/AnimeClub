@@ -1915,8 +1915,6 @@ p.count-text {
 	color: #57cef8;
 }
 
-.contact-block {}
-
 .contact-block .form-group .form-control {
 	background: #333;
 	height: 48px;
@@ -3250,3 +3248,11 @@ th, td{
   .slider.round:before {
 	border-radius: 50%;
   }
+
+.cards_anime:hover div{
+	background: #00bed3; 
+}
+
+.cards_anime:hover p{
+	color:white;
+}

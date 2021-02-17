@@ -27,7 +27,7 @@ $(document).ready(function(){
       }
     });
 
-  $('#anime_actualidad').on('change', function(){
+    $('#anime_actualidad').on('change', function(){
 
     if($('#anime_actualidad').val() == 'En emision'){
       $('#select_estreno').show()
@@ -36,6 +36,12 @@ $(document).ready(function(){
     }
 
   })
+
+  if($('#anime_actualidad').val() == 'En emision'){
+
+    $('#select_estreno').show()
+
+  }
 
 
   });

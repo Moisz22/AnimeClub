@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/Moisz22/AnimeClub#readme",
   "dependencies": {
-    "@splidejs/splide": "^2.4.21",
+    "@glidejs/glide": "^3.4.1",
     "alertifyjs": "^1.13.1",
     "bootstrap": "^4.6.0",
     "jquery": "^3.5.1",

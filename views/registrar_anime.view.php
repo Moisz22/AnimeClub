@@ -49,15 +49,15 @@
                                  <div class="input-group-prepend">
                                     <label class="input-group-text" for="dia_estreno">Día proximos episodios</label>
                                  </div>
-                                 <select class="custom-select" id="dia_estreno" name="dia_estreno" required>
+                                 <select class="custom-select" id="dia_estreno" name="dia_estreno">
                                     <option value="">Elija opcion</option>
-                                    <option value="Lunes">Lunes</option>
-                                    <option value="Martes">Martes</option>
-                                    <option value="Miércoles">Miércoles</option>
-                                    <option value="Jueves">Jueves</option>
-                                    <option value="Viernes">Viernes</option>
-                                    <option value="Sábado">Sábado</option>
-                                    <option value="Domingo">Domingo</option>
+                                    <option value="lunes">Lunes</option>
+                                    <option value="martes">Martes</option>
+                                    <option value="miercoles">Miércoles</option>
+                                    <option value="jueves">Jueves</option>
+                                    <option value="viernes">Viernes</option>
+                                    <option value="sabado">Sábado</option>
+                                    <option value="domingo">Domingo</option>
                                 </select>
                                 <br />
                               </div>

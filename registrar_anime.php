@@ -36,7 +36,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
 	$nombre = limpiarDatos($_POST['anime_nombre']);
 	$nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
 
-	if(isset($_POST['dia_estreno'])){
+	if(isset($_POST['dia_estreno']) && $_POST['anime_actualidad'] == 'En emision'){
 		$dia_estreno = limpiarDatos($_POST['dia_estreno']);
 		$dia_estreno = filter_var($dia_estreno, FILTER_SANITIZE_STRING);
 	}else{
