@@ -36,7 +36,7 @@
           <p>Redes Sociales</p>
           <p>
             <ul>
-              <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+              <li><a href="https://www.facebook.com/AnimeClub-101357742004950" target="_blank"><i class="fa fa-facebook-f"></i></a></li>
               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
               <li><a href="https://github.com/Moisz22"><i class="fa fa-github"></i></a></li>
               <li><a href="#"><i class="fa fa-instagram"></i></a></li>

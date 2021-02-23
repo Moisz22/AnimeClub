@@ -58,7 +58,7 @@
                               
                               <div class="input-group mb-3" id="select_estreno" style="display:none">
                                  <div class="input-group-prepend">
-                                    <label class="input-group-text" for="dia_estreno">Día proximos episodios</label>
+                                    <label class="input-group-text" for="dia_estreno">Siguiente episodio</label>
                                  </div>
                                  <select class="custom-select" id="dia_estreno" name="dia_estreno">
                                     <option value="">Elija opcion</option>

@@ -20,7 +20,7 @@
                         <form onsubmit="return validaregistro()" method="POST" class="contact_form_inner" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" enctype="multipart/form-data">
                            <fieldset>
                               <div class="field">
-                                 <input type="text" name="anime_nombre" id="anime_nombre" placeholder="Nombre del anime" value="<?php echo isset($_POST['anime_nombre']) ? $_POST['anime_nombre'] : '';?>"/>
+                                 <input type="text" class="comprobar_nombre" name="anime_nombre" id="anime_nombre" placeholder="Nombre del anime" value="<?php echo isset($_POST['anime_nombre']) ? $_POST['anime_nombre'] : '';?>"/>
                               </div>
                               <div class="field">
                                  <input type="number" name="anime_cantidad_capitulos" id="anime_cantidad_capitulos"  placeholder="Cantidad de capítulos" value="<?php echo isset($_POST['anime_cantidad_capitulos']) ? $_POST['anime_cantidad_capitulos'] : '';?>"/>

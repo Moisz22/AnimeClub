@@ -32,4 +32,3 @@ if($num_filas_afectadas > 0){
 	echo 1;
 }
 
-?>

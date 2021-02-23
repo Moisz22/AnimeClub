@@ -71,6 +71,28 @@ function confirmar_eliminacion_fisica_anime(anime_id){
 
 }
 
+$(document).on('change', '.comprobar_nombre', function(){
+
+  let nombre = $('#anime_nombre').val();
+
+  $.post({
+    url: 'back-end/comprobar_repeticion_nombre.php',
+    data: 'anime_nombre='+ nombre,
+    success: function(respuesta){
+
+      if(respuesta == 1){
+
+        $('#anime_nombre').before('<div class="alert alert-danger alert-dismissible fade show" role="alert"> Anime ya existe <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>')
+        $('#anime_nombre').val("")
+
+      }
+
+    }
+
+  })
+
+})
+
 
 
 
