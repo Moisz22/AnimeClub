@@ -146,5 +146,3 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
 }
 
 require 'views/registrar_anime.view.php';
-
-?>

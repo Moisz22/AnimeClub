@@ -11,7 +11,7 @@ if(!$conexion){
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-	$reseña_id = $_POST['reseña_id'];
+	$reseña_id = $_POST['resenia_id'];
 
 	$statement = $conexion->prepare("UPDATE resenia SET resenia_estado=0 WHERE resenia_id=:resenia_id");
 	$statement->execute(array(

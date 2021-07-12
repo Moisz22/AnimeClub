@@ -166,7 +166,7 @@
                     </div>
                     
                     <div class="full">
-                      <h4><?php echo $r['anime_nombre'];?></h4>
+                      <h4 class="text-capitalize text-truncate"><?php echo $r['anime_nombre'];?></h4>
                     </div>
                     <div class="full">
                       <p></p>
@@ -201,9 +201,10 @@
                 <div class="card centrar_imagen cards_anime" style="width: 18rem;">
                   <img class="card-img-top" src="images/animes/<?php echo $r2['anime_imagen'];?>" alt="Card image cap">
                   <div class="card-body cards_anime">
-                    <p class="card-text text_align_center text_card_anime"><b><?php echo $r2['anime_nombre'];?></b></p>
+                    <p class="card-text text_align_center text_card_anime text-capitalize text-truncate"><b><?php echo $r2['anime_nombre'];?></b></p>
                   </div>
                 </div>
+                <br />
               </a>
             </div>
             <?php endforeach; ?>

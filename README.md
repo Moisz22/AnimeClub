@@ -59,4 +59,4 @@ Este proyecto está bajo la Licencia (MIT) - mira el archivo ![LICENSE.MD](LICEN
 <img src="images/capturas/capturamovil1.jpg" />
 <img src="images/capturas/capturamovil2.jpg" />
 
-Descargo de responsabilidad: todos los recursos artísticos utilizados son para fines educativos y de demostración. Todos los derechos están reservados a sus propietarios originales. Si usted (como persona o empresa) posee el arte y no desea que esté asociado con este proyecto, pongase en conctacto al correo animeclub1@gmail.com y con gusto lo retiro.
+Descargo de responsabilidad: todos los recursos artísticos utilizados son para fines educativos y de demostración. Todos los derechos de las imagenes están reservados a sus propietarios originales. Si usted (como persona o empresa) posee el arte y no desea que esté asociado con este proyecto, pongase en conctacto con la página de facebook https://www.facebook.com/AnimeClub-101357742004950 y con gusto lo retiro.

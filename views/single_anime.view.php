@@ -67,7 +67,7 @@
 
 	<div class="row">
 		<div class="col-12">
-			<h1 class="text_align_center"><b><?php echo $anime['anime_nombre'];?></b></h1>
+			<h1 class="text_align_center text-capitalize"><b><?php echo $anime['anime_nombre'];?></b></h1>
 		</div>
 	</div>
 	<?php
@@ -164,61 +164,6 @@
 
 <script type="text/javascript">
 	
-	function añadir_reseña(){
-		Swal.mixin({
-			input: 'text',
-			confirmButtonText: 'Siguiente &rarr;',
-			showCancelButton: true,
-			progressSteps: ['1', '2', '3']
-		}).queue([
-  			{
-			    title: 'titulo',
-			    text: 'Agrega el titulo de tu reseña',
-			    input: 'text'
-  			},
-  			{
-			    title: 'Reseña',
-			    text: 'Comenta aquí tu reseña',
-			    input: 'textarea'
-  			},
-  			{
-			    title: 'Valoración',
-			    text: 'Agrega tu valoracion del 1 al 5',
-			    input: 'range',
-			    inputAttributes: {
-				    min: 1,
-				    max: 5,
-				    step: 1
-				}
-  			}
-		]).then((result) => {
-  			if (result.value) {
-			    const answers = JSON.stringify(result.value)
-			    $.post({
-					url:'back-end/agregar_reseña.php',
-					data: "titulo="+result.value[0]+
-					"&reseña="+result.value[1]+
-					"&valoracion="+result.value[2]+
-					"&anime_id="+$('#anime_id').val(),
-					success: function(r){
-						if(r==1){
-							location.href="single_anime?id="+$('#anime_id').val()
-						}else{
-							Swal.fire({
-								icon: 'error',
-								title: 'Oops...',
-								text: 'Hemos tenido un problema al agregar la reseña!'
-								//footer: '<a href>Why do I have this issue?</a>'
-							})
-						}
-					}    	
-			    });
-			    
-  			}
-		})
-	}
-
-
 	// devinimos los tres eventos del formulario
 	document.getElementById("borrar_anime").addEventListener("submit", submit);
 	document.getElementById("ok").addEventListener("click", enviar);
@@ -236,7 +181,7 @@
 		}
 </script>
 
-<?php require 'footer.php'; ?>
+<?php require 'footer.php';
 			
 
 

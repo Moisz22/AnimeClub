@@ -1,25 +1,9 @@
-<!--<div class="container">
-    <label class="switch">
-        <input type="checkbox" checked>
-        <span class="slider round"></span>
-    </label>
-</div>-->
-
 <div class="container">
     <div class="row">
-        <div class="col-6">
-            <div class="form-group">
-                <label for="nombre_usuario">Nombre de usuario</label>
-                <input type="text" class="form-control" id="nombre_usuario" placeholder="Nombre de usuario">
-                <small id="emailHelp" class="form-text text-muted">Nombre de usuario para iniciar sesion</small>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="form-group">
-                <label for="password">Contraseña</label>
-                <input type="text" class="form-control" id="password" placeholder="Contraseña">
-                <small id="emailHelp" class="form-text text-muted">Contraseña para iniciar sesion</small>
-            </div>
-        </div>
+        <div id="conf-usuario" class="col text-center btn btn-info m-2">Usuario</div>
+        <div id="conf-estadistica" class="col text-center btn btn-info m-2">Estadísticas</div>
+        <div id="conf-diseño" class="col text-center btn btn-info m-2">Diseño</div>
+        <div id="conf-eliminar" class="col text-center btn btn-info m-2">Eliminar</div>
     </div>
+    <div id="vista_configuracion"></div>
 </div>

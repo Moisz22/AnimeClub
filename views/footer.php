@@ -1,5 +1,5 @@
 <!-- Start Footer -->
-<footer class="footer-box">
+<!-- <footer class="footer-box">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -47,10 +47,10 @@
               
     </div>
   </div>
-</footer>
+</footer> -->
 <!-- End Footer -->
          
-<div class="footer_bottom">
+<!-- <div class="footer_bottom">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -59,7 +59,7 @@
     </div>
   </div>
 </div>
-</div>
+</div> -->
 <a href="#" id="scroll-to-top" class="hvr-radial-out"><i class="fa fa-angle-up"></i></a>
 <!-- ALL PLUGINS -->
 <script src="js/jquery.magnific-popup.min.js"></script>
@@ -129,5 +129,6 @@ $('.custom-file-input').change(function(){
   <script src="js/autocompletado.js"></script>
   <script src="js/validar_login.js"></script>
   <script src="js/validar_registro.js"></script>
+  <script src="js/funciones_configuracion.js"></script>
   </body>
 </html>

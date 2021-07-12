@@ -31,3 +31,4 @@ require 'views/index.view.php';
 require 'views/footer.php';
 
 $resultados = null;
+

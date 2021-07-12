@@ -132,7 +132,7 @@
 							<?php else: ?>
 								<img class="centrar_imagen animes_lista" src="<?php echo RUTA_IMAGEN_DE_ERROR; ?>">
 							<?php endif; ?>
-								<p class="text_align_center"><?php echo $anime['anime_nombre'];?></p>
+								<p class="text_align_center text-capitalize"><?php echo $anime['anime_nombre'];?></p>
 							</a>
 						</div>
 					</div>
@@ -147,17 +147,15 @@
 <?php endif; ?>
 </div>
 
-<script type="text/javascript">
-	const boton = document.querySelector("#enviar_config");
+<script>
+	const boton = document.getElementById("enviar_config");
 	boton.addEventListener("click", function(evento){
 	
-		animes_por_pagina = $('#animes_por_pagina').val();
-		animes_por_columna_movil = $('#animes_por_columna_movil').val();
-		animes_por_columna_pc = $('#animes_por_columna_pc').val();
+		let animes_por_pagina = document.getElementById('animes_por_pagina').value
+		let animes_por_columna_movil = document.getElementById('animes_por_columna_movil').value
+		let animes_por_columna_pc = document.getElementById('animes_por_columna_pc').value
 
-		cadena = "animes_por_pagina=" + animes_por_pagina +
-		"&animes_por_columna_movil=" + animes_por_columna_movil +
-		"&animes_por_columna_pc=" + animes_por_columna_pc;
+		cadena = `animes_por_pagina=${animes_por_pagina}&animes_por_columna_movil=${animes_por_columna_movil}&animes_por_columna_pc=${animes_por_columna_pc}`;
 
 	  	//validando que los campos no estén vacíos antes de agregar la configuracion
 	  	if(animes_por_pagina=="" || animes_por_pagina == null){
@@ -190,4 +188,4 @@
 });
 </script>
 
-<?php require 'footer.php'; ?>
+<?php require 'footer.php'; 

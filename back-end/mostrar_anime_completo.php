@@ -19,5 +19,3 @@ $resultado = $statement->fetch();
 echo $resultado;
 
 $resultado = null;
-
-?>

@@ -17,6 +17,4 @@ $bd_config = array(
 //define('RUTA', 'http://localhost/animeclub/');
 
 define('RUTA_IMAGEN_DE_ERROR', 'images/animes/imagen_no_existe.jpg');
-define('RUTA_BANNER_DE_ERROR', 'images/banner/banner_no_existe.jpg')
-
-?>
+define('RUTA_BANNER_DE_ERROR', 'images/banner/banner_no_existe.jpg');

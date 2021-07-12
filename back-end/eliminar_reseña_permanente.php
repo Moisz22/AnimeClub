@@ -2,6 +2,8 @@
 require '../config/config.php';
 require '../functions.php';
 
+session_start();
+
 $conexion = conexion($bd_config);
 if(!$conexion){
 	header('Location:error');
@@ -9,7 +11,7 @@ if(!$conexion){
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-	$reseña_id = $_POST['reseña_id'];
+	$reseña_id = $_POST['resenia_id'];
 
 	$statement = $conexion->prepare("DELETE FROM resenia WHERE resenia_estado=0 && resenia_id=:resenia_id");
 	$statement->execute(array(
@@ -25,5 +27,3 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	}
 
 }
-
-?>

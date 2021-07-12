@@ -27,8 +27,8 @@ if(file_exists('config/paginacion_config.txt')){
 	$archivo = fopen('config/paginacion_config.txt', 'w+b');
 	fputs($archivo, "animes por pagina=24\nanimes por columna en moviles=3\nanimes por columna en pc=6");
 	$linea1 = 24;
-	$linea1 = 3;
-	$linea1 = 6;
+	$linea2 = 3;
+	$linea3 = 6;
 }
 fclose($archivo);
 
@@ -54,5 +54,3 @@ if(!$animes && isset($_GET['b']) && !empty($_GET['b'])){
 $total_animes_activos = total_animes($conexion);
 
 require 'views/lista_animes.view.php';
-
-?>

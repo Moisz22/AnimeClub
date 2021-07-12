@@ -22,4 +22,3 @@ if ($results) {
     }
 }
 echo $html;
-?>

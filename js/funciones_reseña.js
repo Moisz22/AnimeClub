@@ -29,23 +29,23 @@ function añadir_reseña(){
     if (result.value) {
       const answers = JSON.stringify(result.value)
       $.post({
-      url:'back-end/agregar_reseña.php',
-      data: "titulo="+result.value[0]+
-      "&reseña="+result.value[1]+
-      "&valoracion="+result.value[2]+
-      "&anime_id="+$('#anime_id').val(),
-      success: function(r){
-      if(r==1){
-        location.href="single_anime?id="+$('#anime_id').val()
-      }else{
-        Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Hemos tenido un problema al agregar la reseña!'
-        //footer: '<a href>Why do I have this issue?</a>'
-        })
-      }
-      }    	
+        url:'back-end/agregar_reseña.php',
+        data: `titulo=${result.value[0]}
+        &reseña=${result.value[1]}
+        &valoracion=${result.value[2]}
+        &anime_id=${$('#anime_id').val()}`,
+        success: function(r){
+          if(r==1){
+            location.href=`single_anime?id=${$('#anime_id').val()}`
+          }else{
+            Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Hemos tenido un problema al agregar la reseña!'
+            //footer: '<a href>Why do I have this issue?</a>'
+          })
+         }
+        }    	
       });
       
     }
@@ -60,7 +60,7 @@ function confirmar_retorno_reseña(reseña_id){
         
         $.post({
           url: 'back-end/regresar_reseña.php',
-          data: "resenia_id=" + reseña_id,
+          data: `resenia_id=${reseña_id}`, 
           success: function(r){
             if(r==1){
               //si la respuesta recibida por el servidor es 1 se muestra este mensaje, caso contrario se muestra el mensaje de error
@@ -99,10 +99,10 @@ function confirmar_retorno_reseña(reseña_id){
     	
 	  		$.post({
 	  			url: 'back-end/eliminar_reseña.php',
-	  			data: "reseña_id=" + reseña_id,
+	  			data: `resenia_id=${reseña_id}`,
 	  			success: function(r){
 	          if(r==1){
-	            location.href="single_anime?id="+$('#anime_id').val()
+	            location.href=`single_anime?id=${$('#anime_id').val()}`
 	          }else{
 
 	            Swal.fire({
@@ -132,7 +132,7 @@ function confirmar_retorno_reseña(reseña_id){
         
         $.post({
           url: 'back-end/eliminar_reseña_permanente.php',
-          data: "reseña_id=" + reseña_id,
+          data: `resenia_id=${reseña_id}`,
           success: function(r){
             if(r==1){
               Swal.fire(

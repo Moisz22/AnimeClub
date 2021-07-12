@@ -68,7 +68,7 @@
                      <li><a href="lista_animes">Animes <i class="fa fa-hand-peace-o"></i></a></li>
                      <li><a href="tablas">Tablas <i class="fa fa-table"></i></a></li>
                      <li><a href="borrados">Borrados <i class="fa fa-trash"></i></a></li>
-                     <li><a href="configuraciones">Configuraciones <i class="fa fa-cog"></i></a></li>
+                     <li><a href="configuraciones">Mantenimiento <i class="fa fa-cog"></i></a></li>
                   <?php else: ?>
                      <li><a href="login">Login <i class="fa fa-sign-in"></i></a></li>
                      <li><a href="lista_animes">Animes <i class="fa fa-hand-peace-o"></i></a></li>

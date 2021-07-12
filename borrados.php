@@ -22,4 +22,4 @@ if(!isset($_SESSION['usuario'])){
 <div id="tabla_dibujar"></div>
 <br/>
 
-<?php require 'views/footer.php';?>
+<?php require 'views/footer.php';

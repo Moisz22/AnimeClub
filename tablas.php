@@ -23,4 +23,4 @@ if(!isset($_SESSION['usuario'])){
 <div id="tablas_traer_todas"></div>
 <br/>
 
-<?php require 'views/footer.php';?>
+<?php require 'views/footer.php';

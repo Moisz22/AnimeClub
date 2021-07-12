@@ -6,23 +6,38 @@ session_start();
 
 $conexion = conexion($bd_config);
 
-$titulo = $_POST['titulo'];
+if(!$conexion){
+	header('Location:error');
+	die();
+}
 
-$reseña = (isset($_POST['reseña'])) ? $_POST['reseña'] : '';
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-$valoracion = $_POST['valoracion'];
+	if(isset($_SESSION['usuario'])){
 
-$anime_id = $_POST['anime_id'];
+		$titulo = $_POST['titulo'];
 
-$statement = $conexion->prepare('INSERT INTO resenia(resenia_titulo, resenia_comentarios, resenia_valoracion, anime_id) VALUES(:resenia_titulo, :resenia_comentarios, :resenia_valoracion, :anime_id)');
+		$reseña = (isset($_POST['reseña'])) ? $_POST['reseña'] : '';
 
-$statement->execute(array(
+		$valoracion = $_POST['valoracion'];
 
-	'resenia_titulo' => $titulo,
-	':resenia_comentarios' => $reseña,
-	':resenia_valoracion' => $valoracion,
-	':anime_id' => $anime_id
-));
+		$anime_id = $_POST['anime_id'];
+
+
+
+		$statement = $conexion->prepare('INSERT INTO resenia(resenia_titulo, resenia_comentarios, resenia_valoracion, anime_id) VALUES(:resenia_titulo, :resenia_comentarios, :resenia_valoracion, :anime_id)');
+
+		$statement->execute(array(
+
+			'resenia_titulo' => $titulo,
+			':resenia_comentarios' => $reseña,
+			':resenia_valoracion' => $valoracion,
+			':anime_id' => $anime_id
+		));
+
+	}
+
+}
 
 //rowcount cuenta las filas que fueron afectadas por un insert, delete o update
 $num_filas_afectadas = $statement->rowCount();
@@ -31,4 +46,6 @@ if($num_filas_afectadas > 0){
 	$_SESSION['estado'] = 'reseña agregada';
 	echo 1;
 }
+
+$conexion = null;
 
